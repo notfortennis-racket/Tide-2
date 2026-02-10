@@ -30,6 +30,9 @@
     "rarity": "rare"
   },
   "selection_weight": 12.0,
+  "shiny_data": {
+    "sprite": "tide:item/gilded_minnow_shiny"
+  },
   "size": {
     "record_high_cm": 28.0,
     "typical_high_cm": 15.0,

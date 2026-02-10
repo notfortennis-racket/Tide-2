@@ -25,6 +25,9 @@
     "rarity": "rare"
   },
   "selection_weight": 22.0,
+  "shiny_data": {
+    "sprite": "tide:item/soulscale_shiny"
+  },
   "size": {
     "record_high_cm": 95.0,
     "typical_high_cm": 60.0,

@@ -30,6 +30,9 @@
     "rarity": "uncommon"
   },
   "selection_weight": 18.0,
+  "shiny_data": {
+    "sprite": "tide:item/lapis_lanternfish_shiny"
+  },
   "size": {
     "record_high_cm": 40.0,
     "typical_high_cm": 15.0,

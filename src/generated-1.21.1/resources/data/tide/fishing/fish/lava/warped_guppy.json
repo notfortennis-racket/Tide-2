@@ -26,6 +26,9 @@
     "rarity": "rare"
   },
   "selection_weight": 24.0,
+  "shiny_data": {
+    "sprite": "tide:item/warped_guppy_shiny"
+  },
   "size": {
     "record_high_cm": 9.0,
     "typical_high_cm": 7.0,

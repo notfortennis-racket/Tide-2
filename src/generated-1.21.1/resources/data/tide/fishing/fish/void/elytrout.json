@@ -23,6 +23,9 @@
     "rarity": "rare"
   },
   "selection_weight": 14.0,
+  "shiny_data": {
+    "sprite": "tide:item/elytrout_shiny"
+  },
   "size": {
     "record_high_cm": 100.0,
     "typical_high_cm": 60.0,

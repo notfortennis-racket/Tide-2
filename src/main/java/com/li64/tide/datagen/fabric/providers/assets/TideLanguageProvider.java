@@ -20,7 +20,7 @@ public class TideLanguageProvider extends FabricLanguageProvider {
     }
 
     @Override
-    public void generateTranslations(/*? if >=1.21 {*/HolderLookup.Provider provider, /*?}*/TranslationBuilder builder) {
+    public void generateTranslations(/*? if >=1.21 {*/HolderLookup.Provider tex, /*?}*/TranslationBuilder builder) {
         // Config
 
         builder.add("text.autoconfig.tide.title", "Tide Config");
@@ -337,6 +337,7 @@ public class TideLanguageProvider extends FabricLanguageProvider {
         builder.add("text.tide.accessory_tooltip.prefix", "When applied:");
 
         builder.add("text.tide.fish.alive", "Bucketable");
+        builder.add("text.tide.fish.shiny", "Shiny");
 
         builder.add("item.tide.fish_satchel.desc_0", "Right-click while held to open");
         builder.add("item.tide.fish_satchel.desc_1", "Collects fish automatically while open");

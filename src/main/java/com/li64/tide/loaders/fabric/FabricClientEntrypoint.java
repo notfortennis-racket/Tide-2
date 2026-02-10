@@ -46,6 +46,8 @@ public class FabricClientEntrypoint implements ClientModInitializer {
         CoreShaderRegistrationCallback.EVENT.register(ctx -> {
             ctx.register(Tide.resource("full_white"), DefaultVertexFormat.POSITION_TEX_COLOR, instance -> TideCoreShaders.FULL_WHITE = instance);
             ctx.register(Tide.resource("full_white_item"), DefaultVertexFormat.NEW_ENTITY, instance -> TideCoreShaders.FULL_WHITE_ITEM = instance);
+            ctx.register(Tide.resource("shiny_item"), DefaultVertexFormat.NEW_ENTITY, instance -> TideCoreShaders.SHINY_ITEM = instance);
+            ctx.register(Tide.resource("custom_shiny_item"), DefaultVertexFormat.NEW_ENTITY, instance -> TideCoreShaders.CUSTOM_SHINY_ITEM = instance);
         });
 
         ParticleFactoryRegistry.getInstance().register(TideParticleTypes.VOID_RIPPLE_LARGE, VoidRipple.LargeProvider::new);

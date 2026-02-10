@@ -25,6 +25,9 @@
     "rarity": "rare"
   },
   "selection_weight": 17.0,
+  "shiny_data": {
+    "sprite": "tide:item/witherfin_shiny"
+  },
   "size": {
     "record_high_cm": 90.0,
     "typical_high_cm": 40.0,

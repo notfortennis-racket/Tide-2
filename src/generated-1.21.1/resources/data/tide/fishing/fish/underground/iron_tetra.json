@@ -30,6 +30,9 @@
     "rarity": "uncommon"
   },
   "selection_weight": 20.0,
+  "shiny_data": {
+    "sprite": "tide:item/iron_tetra_shiny"
+  },
   "size": {
     "record_high_cm": 8.0,
     "typical_high_cm": 4.5,

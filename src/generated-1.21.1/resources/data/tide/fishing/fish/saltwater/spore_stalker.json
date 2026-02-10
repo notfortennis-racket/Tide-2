@@ -35,6 +35,9 @@
   },
   "selection_quality": 0.5,
   "selection_weight": 10.0,
+  "shiny_data": {
+    "sprite": "tide:item/spore_stalker_shiny"
+  },
   "size": {
     "record_high_cm": 90.0,
     "typical_high_cm": 55.0,

@@ -5,6 +5,7 @@ import com.li64.tide.data.TideLootTables;
 import com.li64.tide.data.TideTags;
 import com.li64.tide.data.fishing.FishData;
 import com.li64.tide.data.item.TideItemData;
+import com.li64.tide.data.journal.FishRarity;
 import com.li64.tide.data.player.TidePlayerData;
 import com.li64.tide.network.messages.ShowToastMsg;
 import net.minecraft.core.*;
@@ -181,6 +182,16 @@ public class TideUtils {
 
     public static long getTimeOfDay(ServerLevel level) {
         return level.getDayTime() % 24000;
+    }
+
+    public static double getBaseShinyChance(FishRarity rarity) {
+        return 1.0 / switch (rarity) {
+            case COMMON -> 600.0;
+            case UNCOMMON -> 550.0;
+            case RARE -> 500.0;
+            case VERY_RARE -> 450.0;
+            case LEGENDARY -> 400.0;
+        };
     }
 
     //? if >=1.21 {

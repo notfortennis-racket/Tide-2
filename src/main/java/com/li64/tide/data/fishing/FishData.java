@@ -50,15 +50,16 @@ import java.util.function.Consumer;
 
 public record FishData(/*? if >=1.21 {*/ Holder<Item> fish,
                        /*?} else*//*ResourceKey<Item> fishKey,*/
-                       List<String> associatedMods,
                        Optional<Holder<Item>> bucket,
+                       List<String> associatedMods,
+                       boolean showInJournal,
                        List<FishingCondition> conditions,
                        List<FishingModifier> modifiers,
                        double weight, double quality,
                        float strength, float speed,
-                       boolean showInJournal,
-                       ProfileData profile,
                        MinigameBehavior behavior,
+                       ProfileData profile,
+                       ShinyData shinyData,
                        Optional<SizeData> size,
                        Optional<DisplayData> display,
                        Optional<Holder<Item>> parent) implements FishingEntry, ModAssociatedEntry {
@@ -71,17 +72,18 @@ public record FishData(/*? if >=1.21 {*/ Holder<Item> fish,
     public static final Codec<FishData> CODEC = RecordCodecBuilder.create(instance -> instance.group(
             /*? if >=1.21 {*/BuiltInRegistries.ITEM.holderByNameCodec().fieldOf("fish").forGetter(FishData::fish),
             /*?} else*//*ResourceKey.codec(Registries.ITEM).fieldOf("fish").forGetter(FishData::fishKey),*/
-            Codec.STRING.listOf().optionalFieldOf("associated_mods", List.of()).forGetter(FishData::associatedMods),
             BuiltInRegistries.ITEM.holderByNameCodec().optionalFieldOf("bucket").forGetter(FishData::bucket),
+            Codec.STRING.listOf().optionalFieldOf("associated_mods", List.of()).forGetter(FishData::associatedMods),
+            Codec.BOOL.optionalFieldOf("show_in_journal", true).forGetter(FishData::showInJournal),
             FishingCondition.CODEC.listOf().optionalFieldOf("conditions", List.of()).forGetter(FishData::conditions),
             FishingModifier.CODEC.listOf().optionalFieldOf("modifiers", List.of()).forGetter(FishData::modifiers),
             Codec.DOUBLE.optionalFieldOf("selection_weight", 0.0).forGetter(FishData::weight),
             Codec.DOUBLE.optionalFieldOf("selection_quality", 0.0).forGetter(FishData::quality),
             Codec.FLOAT.optionalFieldOf("strength", 0.3f).forGetter(FishData::strength),
             Codec.FLOAT.optionalFieldOf("speed", 1.0f).forGetter(FishData::speed),
-            Codec.BOOL.optionalFieldOf("show_in_journal", true).forGetter(FishData::showInJournal),
-            ProfileData.CODEC.optionalFieldOf("journal_profile", new ProfileData()).forGetter(FishData::profile),
             MinigameBehavior.CODEC.optionalFieldOf("behavior", MinigameBehavior.SINE).forGetter(FishData::behavior),
+            ProfileData.CODEC.optionalFieldOf("journal_profile", new ProfileData()).forGetter(FishData::profile),
+            ShinyData.CODEC.optionalFieldOf("shiny_data", new ShinyData()).forGetter(FishData::shinyData),
             SizeData.CODEC.optionalFieldOf("size").forGetter(FishData::size),
             DisplayData.CODEC.optionalFieldOf("display_data").forGetter(FishData::display),
             BuiltInRegistries.ITEM.holderByNameCodec().optionalFieldOf("parent").forGetter(FishData::parent)
@@ -216,6 +218,7 @@ public record FishData(/*? if >=1.21 {*/ Holder<Item> fish,
             TideItemData.FISH_LENGTH.set(stack, this.getRandomLength(context.rng()));
         if (Tide.CONFIG.items.bucketableFishItems == TideConfig.Items.BucketableMode.WHEN_LIVING && bucket().isPresent())
             TideItemData.CATCH_TIMESTAMP.set(stack, context.level().getDayTime());
+        if (shinyData.sample(this)) TideItemData.IS_SHINY.set(stack, true);
         return createResult(stack);
     }
 
@@ -263,6 +266,8 @@ public record FishData(/*? if >=1.21 {*/ Holder<Item> fish,
         private float strength = 0.3f;
         private float speed = 1.0f;
         private MinigameBehavior behavior = MinigameBehavior.SINE;
+
+        private ResourceLocation shinySprite = null;
 
         private Builder() {}
 
@@ -451,6 +456,12 @@ public record FishData(/*? if >=1.21 {*/ Holder<Item> fish,
             return this;
         }
 
+        public Builder customShinySprite() {
+            ResourceLocation location = this.fish.unwrap().map(ResourceKey::location, BuiltInRegistries.ITEM::getKey);
+            this.shinySprite = location.withPath(name -> "item/" + name + "_shiny");
+            return this;
+        }
+
         public Builder parent(Item parent) {
             this.parent = BuiltInRegistries.ITEM.wrapAsHolder(parent);
             return this;
@@ -478,14 +489,14 @@ public record FishData(/*? if >=1.21 {*/ Holder<Item> fish,
                     /*fish.unwrap().map(Function.identity(), item ->
                             BuiltInRegistries.ITEM.getResourceKey(item).orElseThrow()),
                     *///?}
-                    List.of(),
                     Optional.ofNullable(bucket),
+                    List.of(), true,
                     ImmutableList.copyOf(conditions),
                     ImmutableList.copyOf(modifiers),
                     weight, quality,
-                    strength, speed,
-                    true,
-                    profile.build(), behavior,
+                    strength, speed, behavior,
+                    profile.build(),
+                    new ShinyData(shinySprite),
                     Optional.ofNullable(size),
                     Optional.ofNullable(display),
                     Optional.ofNullable(parent)
