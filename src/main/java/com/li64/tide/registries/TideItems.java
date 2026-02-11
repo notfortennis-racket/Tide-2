@@ -32,7 +32,7 @@ public class TideItems {
     public static final Item GOLDEN_FISHING_ROD = register("golden_fishing_rod", properties -> new TideFishingRodItem(2, 36, properties));
     public static final Item CRYSTAL_FISHING_ROD = register("crystal_fishing_rod", properties -> new TideFishingRodItem(2, 80, properties));
     public static final Item DIAMOND_FISHING_ROD = register("diamond_fishing_rod", properties -> new TideFishingRodItem(2, 128, properties));
-    public static final Item NETHERITE_FISHING_ROD = register("netherite_fishing_rod", properties -> new TideFishingRodItem(2, 512, properties));
+    public static final Item NETHERITE_FISHING_ROD = register("netherite_fishing_rod", properties -> new TideFishingRodItem(2, 512, properties), new Item.Properties().fireResistant());
 
     public static final Item BAIT = register("bait", Item::new);
     public static final Item LUCKY_BAIT = register("lucky_bait", Item::new);
@@ -65,7 +65,7 @@ public class TideItems {
     public static final Item IRON_BOBBER = register("iron_bobber", FishingBobberItem::new);
     public static final Item GOLDEN_BOBBER = register("golden_bobber", FishingBobberItem::new);
     public static final Item DIAMOND_BOBBER = register("diamond_bobber", FishingBobberItem::new);
-    public static final Item NETHERITE_BOBBER = register("netherite_bobber", FishingBobberItem::new);
+    public static final Item NETHERITE_BOBBER = register("netherite_bobber", FishingBobberItem::new, new Item.Properties().fireResistant());
     public static final Item AMETHYST_BOBBER = register("amethyst_bobber", FishingBobberItem::new);
     public static final Item ECHO_BOBBER = register("echo_bobber", FishingBobberItem::new);
     public static final Item CHORUS_BOBBER = register("chorus_bobber", FishingBobberItem::new);
@@ -110,7 +110,7 @@ public class TideItems {
     public static final Item MIDAS_FISHING_ROD = register("midas_fishing_rod", properties -> new TideFishingRodItem(2, 256, properties));
     public static final Item DRAGONFIN_BOOTS = register("dragonfin_boots", DragonfinBootsItem::new, new Item.Properties()
             /*? if >=1.21*/.durability(ArmorItem.Type.BOOTS.getDurability(37))
-            .rarity(Rarity.EPIC));
+            .rarity(Rarity.EPIC).fireResistant());
 
     public static final Item ANGLING_TABLE = register("angling_table", properties -> new BlockItem(TideBlocks.ANGLING_TABLE, properties));
     public static final Item FISH_DISPLAY = register("fish_display", properties -> new BlockItem(TideBlocks.FISH_DISPLAY, properties));
