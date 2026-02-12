@@ -5,6 +5,7 @@ import com.li64.tide.Tide;
 import com.li64.tide.client.gui.overlays.CastBarOverlay;
 import com.li64.tide.client.gui.overlays.CatchMinigameOverlay;
 import com.li64.tide.compat.CompatHelper;
+import com.li64.tide.data.TideTags;
 import com.li64.tide.data.item.TideItemData;
 import com.li64.tide.data.minigame.FishCatchMinigame;
 import com.li64.tide.data.rods.AccessoryData;
@@ -278,7 +279,7 @@ public class TideFishingRodItem extends FishingRodItem {
                     luck += BaitUtils.getCombinedLuck(rod);
                 }
 
-                if (rod.is(TideItems.GOLDEN_FISHING_ROD) || rod.is(TideItems.MIDAS_FISHING_ROD)) luck += 1;
+                if (rod.is(TideTags.Items.LUCK_BOOSTING_RODS)) luck += 1;
                 if (CompatHelper.isHybridAquaticLoaded()) {
                     if (CustomRodManager.getHook(rod).getItem().toString().matches("barbed_hook") && level.isDay()) speed += 1;
                     if (CustomRodManager.getHook(rod).getItem().toString().matches("glowing_hook") && level.isNight()) speed += 1;

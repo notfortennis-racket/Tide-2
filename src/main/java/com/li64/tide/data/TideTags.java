@@ -34,6 +34,9 @@ public class TideTags {
         public static final TagKey<Item> BOBBERS = TagKey.create(Registries.ITEM, Tide.resource("bobbers"));
         public static final TagKey<Item> HOOKS = TagKey.create(Registries.ITEM, Tide.resource("hooks"));
         public static final TagKey<Item> LINES = TagKey.create(Registries.ITEM, Tide.resource("lines"));
+
+        public static final TagKey<Item> LUCK_BOOSTING_RODS = TagKey.create(Registries.ITEM, Tide.resource("luck_boosting_rods"));
+
         public static final TagKey<Item> LAVA_BUCKETS = TagKey.create(Registries.ITEM, Tide.resource("lava_buckets"));
     }
 
