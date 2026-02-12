@@ -1,9 +1,64 @@
-# Tide v2.1 - idk/idk/26
+## Tide v2.1 - idk/idk/26
 
 ---
 ### Changes
-- Removed `accessory.item.tide` translations
+**Fish**
+- Added 8 new fish and their corresponding entities:
+  - Zombie Fish
+  - Stone Rockfish
+  - Rock Stonefish
+  - Jewelback
+  - Radiant Guppy
+  - Dog Fish
+  - Flopper
+  - Magic Carp
 
+**Accessories**
+- Accessories and other items that modify fishing have been reworked to fill designated categories. The general rule of thumb is that hooks modify fish availability, lines modify the minigame, bobbers are cosmetic, bait modifies fishing stats, and fishing rods apply miscellaneous bonuses.
+- Hooks, lines, and bobbers no longer have the text "Fishing" in their name. For example, the "Lavaproof Fishing Hook" is now called "Lavaproof Hook". This is also reflected in item IDs.
+  - This eliminates the need for `accessory.item.tide` translations, instead using the direct item name
+
+**Bait**
+- Each fishing rod now has a variable number of bait slots, loosely corresponding to the rod's rarity
+- Instead of applying the affects of only the bait item in the first slot, bait effects for all bait equipped in a fishing rod will be applied at once. This allows for bait "stacking", where you can combine the effects of multiple bait items.
+- Multiple stacks of the same bait type cannot be equipped in the same fishing rod
+- One bait item from each slot will be consumed upon catching a fish
+
+**Shinies**
+- Similar to the Pokémon games, each fish in the mod now has a "shiny" variant that can be caught very rarely
+- Each shiny fish has a unique color, with many having custom-made textures
+- The chance of catching a shiny varies depending on the fish's rarity, with rarer fish having higher shiny chances
+- These chances can be further modified by using a Shiny Fishing Rod, or by equipping Shiny Bait
+
+**Items**
+- Added 3 new fishing hooks:
+  - Fiery Hook
+  - Permafrost Hook
+  - Twilight Hook
+- Added 1 new fishing line:
+  - Diamond Line
+- Added 8 new themed fishing rods:
+  - Sculk Fishing Rod
+  - Sunflower Fishing Rod
+  - Honeycomb Fishing Rod
+  - Village Fishing Rod
+  - Breeze Fishing Rod
+  - Ammonite Fishing Rod
+  - Prismarine Fishing Rod
+  - Shiny Fishing Rod
+- Added 3 new bait items:
+  - Incandescent Bait
+  - Abyss Bait
+  - Shiny Bait
+
+**Informational Items**
+- Informational items such as the pocket watch and climate gauge now display their stats as a GUI overlay instead of requiring the player to right-click them
+- Their information will be displayed when held in the player's mainhand, offhand, or equipped in a Curios slot.
+- Informational items can be combined via crafting recipes, allowing multiple stats to be viewed at once
+
+---
+### Fixes
+- Items crafted from netherite will no longer be destroyed when dropped in fire or lava
 
 ## Tide v2.0.3 - 2/06/26
 

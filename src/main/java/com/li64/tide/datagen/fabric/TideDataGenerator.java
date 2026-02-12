@@ -9,7 +9,6 @@ import com.li64.tide.datagen.fabric.providers.tags.*;
 import com.li64.tide.datagen.fabric.providers.fishing.*;
 import com.li64.tide.datagen.fabric.providers.recipes.*;
 import com.li64.tide.datagen.fabric.providers.advancements.*;
-import com.li64.tide.registries.TideEntityTypes;
 import com.li64.tide.registries.TideFish;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -41,6 +40,7 @@ public class TideDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(TideFishDataProvider::new);
         pack.addProvider(TideCrateDataProvider::new);
         pack.addProvider(TideFishingLootDataProvider::new);
+        pack.addProvider(TideBaitDataProvider::new);
 
         pack.addProvider(StardewFishingBehaviors::new);
         pack.addProvider(FishingRealConversions::new);

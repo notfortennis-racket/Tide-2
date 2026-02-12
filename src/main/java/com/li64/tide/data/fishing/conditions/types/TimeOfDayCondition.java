@@ -3,6 +3,7 @@ package com.li64.tide.data.fishing.conditions.types;
 import com.li64.tide.data.fishing.FishingContext;
 import com.li64.tide.data.fishing.conditions.FishingCondition;
 import com.li64.tide.data.fishing.conditions.FishingConditionType;
+import com.li64.tide.registries.TideItems;
 import com.li64.tide.util.TideUtils;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -32,6 +33,9 @@ public class TimeOfDayCondition extends FishingCondition {
     @Override
     public boolean test(FishingContext context) {
         long time = TideUtils.getTimeOfDay(context.level());
+        if (context.hook() != null && context.hook().getHook().is(TideItems.TWILIGHT_HOOK)) {
+            return ranges.stream().anyMatch(tr -> tr.contains((time + 12000) % 24000));
+        }
         return ranges.stream().anyMatch(tr -> tr.contains(time));
     }
 }

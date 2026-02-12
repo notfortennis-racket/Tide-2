@@ -5,6 +5,7 @@ import com.li64.tide.data.TideData;
 import com.li64.tide.data.fishing.CatchResult;
 import com.li64.tide.data.fishing.FishingContext;
 import com.li64.tide.registries.TideItems;
+import com.li64.tide.util.BaitUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 
@@ -16,8 +17,8 @@ public class CrateSelector implements FishingEntry {
 
     @Override
     public double weight(FishingContext context) {
-        double weight = Tide.CONFIG.general.crateWeight
-                * (context.activeBait().is(TideItems.MAGNETIC_BAIT) ? MAGNETIC_BAIT_BONUS : 1.0);
+        boolean hasMagneticBait = context.rod() != null && BaitUtils.hasBait(TideItems.MAGNETIC_BAIT, context.rod());
+        double weight = Tide.CONFIG.general.crateWeight * (hasMagneticBait ? MAGNETIC_BAIT_BONUS : 1.0);
         return FishingEntry.modifyWeight(weight, Tide.CONFIG.general.crateQuality, context);
     }
 

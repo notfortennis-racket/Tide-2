@@ -168,6 +168,16 @@ public class TideRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy("has_sun_emblem", has(TideFish.SUN_EMBLEM))
                 .save(output, "tide:jelly_torch_from_sun_emblem");
 
+        shapeless(RecipeCategory.MISC, TideItems.INCANDESCENT_BAIT, 4)
+                .requires(TideFish.INCANDESCENT_LARVA)
+                .unlockedBy("has_incandescent_larva", has(TideFish.INCANDESCENT_LARVA))
+                .save(output, "tide:incandescent_bait_from_larva");
+
+        shapeless(RecipeCategory.MISC, TideItems.ABYSS_BAIT, 4)
+                .requires(TideFish.PALE_CLUBFISH)
+                .unlockedBy("has_pale_clubfish", has(TideFish.PALE_CLUBFISH))
+                .save(output, "tide:abyss_bait_from_clubfish");
+
         createColoredBobberRecipes(output);
         createSimpleBobberRecipe(output, TideItems.APPLE_BOBBER, Items.APPLE);
         createSimpleBobberRecipe(output, TideItems.GOLDEN_APPLE_BOBBER, Items.GOLDEN_APPLE);

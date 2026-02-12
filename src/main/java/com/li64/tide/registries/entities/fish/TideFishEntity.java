@@ -96,14 +96,16 @@ public class TideFishEntity extends AbstractSchoolingFish {
     public static <T extends Mob> boolean checkTideFishSpawnRules(EntityType<T> entityType, ServerLevelAccessor level,
                                                                   BlockPos pos, RandomSource random, FishingMedium medium) {
         FishData data = FishData.get(entityType).orElseThrow();
+
         Holder<Biome> biome = level.getBiome(pos);
         Holder<Biome> nearestBiome = data.conditions().stream().anyMatch(c ->
                 c.type() == FishingConditionType.BIOME_WHITELIST) // TODO: add c.containsType(t) to handle wrapper conditions
                 ? TideUtils.findClosestNonWaterBiome(level.getLevel(), pos, 12, 3).orElse(biome) : biome;
+
         FishingContext context = new FishingContext(
-                level.getLevel(), null, random, pos.getCenter(), pos, 0,
-                medium.id().getPath(), ItemStack.EMPTY, biome, nearestBiome,
-                level.getLevel().dimension(), TideUtils.getTemperatureAt(pos, level.getLevel()),
+                level.getLevel(), null, null, random, pos.getCenter(), pos, 0,
+                medium.id().getPath(), biome, nearestBiome, level.getLevel().dimension(),
+                TideUtils.getTemperatureAt(pos, level.getLevel()),
                 level.getMoonPhase(), SeasonsCompat.getSeason(level.getLevel())
         );
 

@@ -251,7 +251,7 @@ public class TideFishingHook extends Projectile {
         super.tick();
 
         // Particle effects
-        if (BaitUtils.getPrimaryBait(rod).is(TideItems.LUCKY_BAIT) && this.currentState == FishHookState.BOBBING) {
+        if (BaitUtils.hasBait(TideItems.LUCKY_BAIT, rod) && this.currentState == FishHookState.BOBBING) {
             particleTimer++;
             if (particleTimer >= 5) {
                 this.level().addParticle(ParticleTypes.WAX_ON,
@@ -264,7 +264,7 @@ public class TideFishingHook extends Projectile {
         }
 
         //? if >=1.21 {
-        if (BaitUtils.getPrimaryBait(rod).is(TideItems.MAGNETIC_BAIT) && this.currentState == FishHookState.BOBBING) {
+        if (BaitUtils.hasBait(TideItems.MAGNETIC_BAIT, rod) && this.currentState == FishHookState.BOBBING) {
             particleTimer++;
             if (particleTimer >= 3) {
                 Vec3 pos = this.position();
@@ -639,10 +639,10 @@ public class TideFishingHook extends Projectile {
                                 this.random.nextInt(4) + 1));
 
                         if (catchType == CatchType.FISH) {
-                            if (!player.isCreative() && BaitUtils.isHoldingBait(rod)) {
-                                // consume used bait if necessary
+                            if (!player.isCreative() && BaitUtils.hasBait(rod)) {
+                                // consume used bait
                                 BaitContents.Mutable contents = new BaitContents.Mutable(TideItemData.BAIT_CONTENTS.get(rod));
-                                contents.shrinkStack(BaitUtils.getPrimaryBait(rod));
+                                contents.shrinkAll();
                                 TideItemData.BAIT_CONTENTS.set(rod, contents.toImmutable());
                             }
 
@@ -758,13 +758,12 @@ public class TideFishingHook extends Projectile {
     public FishingContext getContext() {
         return new FishingContext(
                 (ServerLevel) level(),
-                this,
+                this, this.rod,
                 level().getRandom(),
                 position(),
                 blockPosition(),
                 Mth.floor(getLuck() + getPlayerOwner().getLuck()),
                 Optional.ofNullable(medium).orElse(FishingMedium.WATER).id().getPath(),
-                BaitUtils.getPrimaryBait(rod),
                 getBiome(),
                 TideUtils.findClosestNonWaterBiome(level(), blockPosition(), 12, 2).orElse(getBiome()),
                 level().dimension(),
@@ -779,7 +778,11 @@ public class TideFishingHook extends Projectile {
             Tide.LOG.error("Tried to sample temperature on the client");
             return 0f;
         }
-        return TideUtils.getTemperatureAt(blockPosition(), level);
+        float addition = 0f;
+        ItemStack hook = this.getHook();
+        if (hook.is(TideItems.FIERY_HOOK)) addition = 0.25f;
+        if (hook.is(TideItems.PERMAFROST_HOOK)) addition = -0.25f;
+        return Math.clamp(TideUtils.getTemperatureAt(blockPosition(), level) + addition, -1.0f, 1.0f);
     }
 
     protected @NotNull MovementEmission getMovementEmission() {

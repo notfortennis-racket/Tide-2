@@ -218,7 +218,7 @@ public record FishData(/*? if >=1.21 {*/ Holder<Item> fish,
             TideItemData.FISH_LENGTH.set(stack, this.getRandomLength(context.rng()));
         if (Tide.CONFIG.items.bucketableFishItems == TideConfig.Items.BucketableMode.WHEN_LIVING && bucket().isPresent())
             TideItemData.CATCH_TIMESTAMP.set(stack, context.level().getDayTime());
-        if (shinyData.sample(this)) TideItemData.IS_SHINY.set(stack, true);
+        if (shinyData.sample(this, context)) TideItemData.IS_SHINY.set(stack, true);
         return createResult(stack);
     }
 

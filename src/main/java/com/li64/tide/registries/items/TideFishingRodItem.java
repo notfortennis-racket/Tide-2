@@ -264,7 +264,7 @@ public class TideFishingRodItem extends FishingRodItem {
         if (activeHook == null) {
             level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.FISHING_BOBBER_THROW,
                     SoundSource.NEUTRAL, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
-            if (!level.isClientSide) {
+            if (!level.isClientSide()) {
                 //? if >=1.21 {
                 int speed = (int)(EnchantmentHelper.getFishingTimeReduction((ServerLevel) level, rod, player) / 5f);
                 int luck = EnchantmentHelper.getFishingLuckBonus((ServerLevel) level, rod, player);
@@ -273,9 +273,9 @@ public class TideFishingRodItem extends FishingRodItem {
                 int luck = EnchantmentHelper.getFishingLuckBonus(rod);
                 *///?}
 
-                if (BaitUtils.isHoldingBait(rod)) {
-                    speed += BaitUtils.getBaitSpeed(BaitUtils.getPrimaryBait(rod));
-                    luck += BaitUtils.getBaitLuck(BaitUtils.getPrimaryBait(rod));
+                if (BaitUtils.hasBait(rod)) {
+                    speed += BaitUtils.getCombinedSpeed(rod);
+                    luck += BaitUtils.getCombinedLuck(rod);
                 }
 
                 if (rod.is(TideItems.GOLDEN_FISHING_ROD) || rod.is(TideItems.MIDAS_FISHING_ROD)) luck += 1;

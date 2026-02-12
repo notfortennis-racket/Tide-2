@@ -21,12 +21,12 @@ import org.jetbrains.annotations.Nullable;
 public record FishingContext(
         ServerLevel level,
         @Nullable TideFishingHook hook,
+        @Nullable ItemStack rod,
         RandomSource rng,
         Vec3 pos,
         BlockPos blockPos,
         int luck,
         String medium,
-        ItemStack activeBait,
         Holder<Biome> exactBiome,
         Holder<Biome> nearestBiome,
         ResourceKey<Level> dimension,
@@ -39,12 +39,12 @@ public record FishingContext(
         return "FishingContext{" +
                 "level=" + level +
                 ", hook=" + hook +
+                ", rod=" + rod +
                 ", rng=" + rng +
                 ", pos=" + pos +
                 ", blockPos=" + blockPos +
                 ", luck=" + luck +
                 ", medium='" + medium + '\'' +
-                ", activeBait=" + activeBait +
                 ", exactBiome=" + exactBiome +
                 ", nearestBiome=" + nearestBiome +
                 ", dimension=" + dimension +
@@ -61,7 +61,7 @@ public record FishingContext(
         }
         return new LootParams.Builder(level)
                 .withParameter(LootContextParams.ORIGIN, hook.position())
-                .withParameter(LootContextParams.TOOL, hook.rod())
+                .withParameter(LootContextParams.TOOL, rod)
                 .withParameter(LootContextParams.THIS_ENTITY, hook)
                 .withLuck(luck)
                 .create(LootContextParamSets.FISHING);

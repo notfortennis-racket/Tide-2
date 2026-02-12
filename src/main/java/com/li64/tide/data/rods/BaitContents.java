@@ -126,6 +126,10 @@ public class BaitContents {
             return this.items.removeFirst().copy();
         }
 
+        public void shrinkAll() {
+            this.items.forEach(this::shrinkStack);
+        }
+
         public void shrinkStack(ItemStack stack) {
             int index = findStackIndex(stack);
             if (index == -1) return;

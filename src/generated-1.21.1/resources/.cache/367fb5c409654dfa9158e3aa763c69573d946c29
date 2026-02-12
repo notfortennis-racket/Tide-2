@@ -1,4 +1,4 @@
-// 1.21.1	2026-02-11T15:25:51.7894479	Tide/Recipes
+// 1.21.1	2026-02-11T19:53:07.2152086	Tide/Recipes
 15cb9cab91a3f89dc8ffc0c1aba9a24731e97dd0 data\tide\recipe\bobbers\enchanted_golden_apple_bobber.json
 bdb27aae3b862c4e58a3f15ac55557a931e56b28 data\tide\advancement\recipes\tools\reinforced_line.json
 ae988c13300ceb4a6ca079042a6e2496aed4d306 data\tide\advancement\recipes\tools\lavaproof_hook.json
@@ -28,6 +28,7 @@ f3b6c125edf921a98fb1b76b41adb6efeaeb264f data\tide\advancement\recipes\food\smal
 53fde72882c68a3e75625231e6a618dc71ebd34f data\tide\recipe\bobbers\lichen_bobber.json
 c765c90d778b277cb5f2461b4e943ef1ce77c912 data\tide\recipe\braided_line.json
 db30ef1155338911d5bc82b549ede13098d72cb3 data\tide\advancement\recipes\decorations\angling_table.json
+f6ffafe0995313b45e61fc2ba0b5b94ff8535f41 data\tide\recipe\incandescent_bait_from_larva.json
 402cda83da99ce364c0cbae8be0b28549d3b59ae data\tide\recipe\crystal_rod_smithing.json
 69b91e0a620cd6e32e9f337b24b3422a3c24d164 data\tide\recipe\iron_from_tetra.json
 c75ab657953289da91365c579696b8e296fdee3c data\tide\recipe\bait.json
@@ -52,6 +53,7 @@ fb092df0c88795a1d42b76d9656773f7a0b2880b data\tide\advancement\recipes\misc\bobb
 0e8f927f3b81e4a5c8421f1e56bd1faedcc4d2d8 data\tide\recipe\bobbers\pink.json
 87b12904cc6dcbac74ad68d00422ea2133803671 data\tide\recipe\bobbers\echo_bobber.json
 847cdde5f425b8bde6b6c8a54e6267d753ed0705 data\tide\advancement\recipes\food\cooked_fish_smelting.json
+6acb6f279f9088e61d7c4e3731047a170e2db33a data\tide\recipe\abyss_bait_from_clubfish.json
 5a0e40020034852990546e87a25670209799f067 data\tide\recipe\bobbers\brown.json
 156e040d1ca73a8c0c282973742b097dbfaf80b2 data\tide\advancement\recipes\tools\gold_rod_smithing.json
 7c990a85c07c21e461c598ea033693708540b194 data\tide\recipe\bobbers\gray.json
@@ -60,6 +62,7 @@ fb092df0c88795a1d42b76d9656773f7a0b2880b data\tide\advancement\recipes\misc\bobb
 08e4ff6b502a408204d530604359c13e40015475 data\tide\advancement\recipes\misc\bobbers\grassy_bobber.json
 40246da4e2fd2feb1bd0f539e50ca364b8d1884f data\tide\recipe\bobbers\iron_bobber.json
 f15630c71044216a16b21136ef25a51aa6868dea data\tide\recipe\stone_fishing_rod.json
+8b77b83442f44108d38fe2dca3861a660d807feb data\tide\advancement\recipes\misc\abyss_bait_from_clubfish.json
 bf980371ecc23d98c841986ba41b444335f8c469 data\tide\recipe\midas_rod_smithing.json
 86cb15433eab7fffb8297e90b0a9e23ec308b0e2 data\tide\recipe\bobbers\netherite_bobber.json
 ed0bdbfe3344ab0fcd6b2429129375ceb5da7215 data\tide\recipe\iron_rod_smithing.json
@@ -122,6 +125,7 @@ c4e4093e85762dfb1430bed8974ed461149c0ac7 data\tide\recipe\bobbers\golden_bobber.
 d3125f67bdce401e3fb5b8c94719cdd6a751851b data\tide\recipe\bobbers\heart_bobber.json
 354a62ea9f18a1d47f1963a13b2b7b00d4dfce06 data\tide\advancement\recipes\tools\midas_rod_smithing.json
 166d7a5d6a98d97f850bd6244eb289de5fc43d17 data\tide\advancement\recipes\misc\jelly_torch_from_sun_emblem.json
+de1e6f84838dd3222995cb8ea5270dd41f72744b data\tide\advancement\recipes\misc\incandescent_bait_from_larva.json
 57dfcba392388065fad4a3a96c484d209df68c5f data\tide\advancement\recipes\misc\bobbers\netherite_bobber.json
 a715f6201d90fa1dcbc9b75b562a276fa52ddd88 data\tide\advancement\recipes\tools\climate_gauge.json
 46b196bdb8c80081644ecbf20809632717c6068b data\tide\advancement\recipes\food\small_cooked_fish_campfire_cooking.json
