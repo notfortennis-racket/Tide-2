@@ -74,6 +74,10 @@ public class FishDisplayBlockEntity extends BlockEntity {
     @Override
     protected void loadAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
         if (tag.contains("fish")) ItemStack.parse(registries, tag.get("fish")).ifPresent(this::setDisplayStack);
+        else {
+            this.displayData = null;
+            this.renderedEntity = null;
+        }
     }
 
     @Override
