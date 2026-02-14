@@ -94,9 +94,9 @@ public class TideFishingRodItem extends FishingRodItem {
         }
 
         if (stack.is(TideTags.Items.LUCK_BOOSTING_RODS)) builder.add(Component.translatable("text.tide.rod_tooltip.gold_bonus").withStyle(ChatFormatting.GOLD));
+        if (stack.is(TideTags.Items.LAVA_FISHING_RODS)) builder.add(Component.translatable("text.tide.rod_tooltip.netherite_bonus").withStyle(ChatFormatting.GOLD));
         if (stack.is(TideItems.CRYSTAL_FISHING_ROD)) builder.add(Component.translatable("text.tide.rod_tooltip.crystal_bonus").withStyle(ChatFormatting.GOLD));
         if (stack.is(TideItems.DIAMOND_FISHING_ROD)) builder.add(Component.translatable("text.tide.rod_tooltip.diamond_bonus").withStyle(ChatFormatting.GOLD));
-        if (stack.is(TideItems.NETHERITE_FISHING_ROD) || stack.is(TideItems.BLAZING_FISHING_ROD)) builder.add(Component.translatable("text.tide.rod_tooltip.netherite_bonus").withStyle(ChatFormatting.GOLD));
         if (stack.is(TideItems.MIDAS_FISHING_ROD)) builder.add(Component.translatable("text.tide.rod_tooltip.midas_bonus").withStyle(ChatFormatting.GOLD));
         if (stack.is(TideItems.ECHO_FISHING_ROD)) builder.add(Component.translatable("text.tide.rod_tooltip.echo_bonus").withStyle(ChatFormatting.GOLD));
         if (stack.is(TideItems.PRISMARINE_FISHING_ROD)) builder.add(Component.translatable("text.tide.rod_tooltip.prismarine_bonus").withStyle(ChatFormatting.GOLD));
@@ -168,7 +168,7 @@ public class TideFishingRodItem extends FishingRodItem {
 
     public boolean isLavaproof(ItemStack stack) {
         return CustomRodManager.getHook(stack).is(TideItems.LAVAPROOF_HOOK)
-                || (this == TideItems.NETHERITE_FISHING_ROD);
+                || (stack.is(TideTags.Items.LAVA_FISHING_RODS));
     }
 
     public boolean isVoidproof(ItemStack stack) {

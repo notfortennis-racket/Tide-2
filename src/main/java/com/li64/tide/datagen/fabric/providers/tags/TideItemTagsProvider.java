@@ -115,6 +115,10 @@ public class TideItemTagsProvider extends FabricTagProvider<Item> {
                 .add(TideItems.GOLDEN_FISHING_ROD)
                 .add(TideItems.MIDAS_FISHING_ROD);
 
+        getOrCreateTagBuilder(TideTags.Items.LAVA_FISHING_RODS)
+                .add(TideItems.NETHERITE_FISHING_ROD)
+                .add(TideItems.BLAZING_FISHING_ROD);
+
         getOrCreateTagBuilder(TideTags.Items.LAVA_BUCKETS)
                 .forceAddTag(TideTags.Convention.LAVA_BUCKETS)
                 .add(Items.LAVA_BUCKET);
