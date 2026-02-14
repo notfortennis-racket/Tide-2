@@ -286,6 +286,14 @@ public class TideFishingRodItem extends FishingRodItem {
                 }
 
                 if (rod.is(TideTags.Items.LUCK_BOOSTING_RODS)) luck += 1;
+                if (rod.is(TideItems.SUNFLOWER_FISHING_ROD)) {
+                    boolean canSeeSky = level.canSeeSky(player.blockPosition());
+                    boolean isSunny = level.isDay() && level.dimensionType().hasSkyLight();
+                    if (canSeeSky && isSunny) {
+                        speed += 1;
+                        luck += 1;
+                    }
+                }
                 if (CompatHelper.isHybridAquaticLoaded()) {
                     if (CustomRodManager.getHook(rod).getItem().toString().matches("barbed_hook") && level.isDay()) speed += 1;
                     if (CustomRodManager.getHook(rod).getItem().toString().matches("glowing_hook") && level.isNight()) speed += 1;
