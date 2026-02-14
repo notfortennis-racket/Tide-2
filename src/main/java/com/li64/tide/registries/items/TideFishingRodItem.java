@@ -60,9 +60,20 @@ public class TideFishingRodItem extends FishingRodItem {
     public TideFishingRodItem(int baitSlots, double baseDurability, Properties properties) {
         super(properties
                 .durability((int) (baseDurability * (Tide.CONFIG == null ? 1.0 : Tide.CONFIG.general.rodDurabilityMultiplier)))
-                /*? if >=1.21*/.component(TideDataComponents.BAIT_CONTENTS, new BaitContents(baitSlots))
+                /*? if >=1.21*/.component(TideDataComponents.BAIT_CONTENTS, new BaitContents())
         );
         this.baitSlots = baitSlots;
+    }
+
+    @Override
+    public void verifyComponentsAfterLoad(ItemStack stack) {
+        super.verifyComponentsAfterLoad(stack);
+        BaitContents contents = TideItemData.BAIT_CONTENTS.get(stack);
+        if (contents != null && contents.size() > this.baitSlots) {
+            ArrayList<ItemStack> fitted = new ArrayList<>();
+            for (int i = 0; i < this.baitSlots; i++) fitted.add(contents.get(i));
+            TideItemData.BAIT_CONTENTS.set(stack, new BaitContents(List.copyOf(fitted)));
+        }
     }
 
     public static List<Component> getDescriptionLines(ItemStack stack) {
@@ -126,7 +137,7 @@ public class TideFishingRodItem extends FishingRodItem {
     @Override
     public boolean overrideStackedOnOther(@NotNull ItemStack stack, @NotNull Slot slot, @NotNull ClickAction action, @NotNull Player player) {
         if (action != ClickAction.SECONDARY) return false;
-        BaitContents contents = TideItemData.BAIT_CONTENTS.getOrDefault(stack, new BaitContents(this.baitSlots));
+        BaitContents contents = TideItemData.BAIT_CONTENTS.getOrDefault(stack, new BaitContents());
         BaitContents.Mutable mutable = new BaitContents.Mutable(contents);
         ItemStack slotStack = slot.getItem();
 
@@ -135,12 +146,14 @@ public class TideFishingRodItem extends FishingRodItem {
             ItemStack removedStack = mutable.removeStack();
             if (removedStack != null && !removedStack.isEmpty()) slot.safeInsert(removedStack);
             else return false;
-        } else if (!slotStack.isEmpty()
+        }
+        else if (!slotStack.isEmpty()
                 && slotStack.getItem().canFitInsideContainerItems()
                 && BaitUtils.isBait(slotStack)) {
             // insert stack
-            mutable.tryTransfer(slot, player);
-        } else return false;
+            mutable.tryTransfer(slot, player, this.baitSlots);
+        }
+        else return false;
 
         TideItemData.BAIT_CONTENTS.set(stack, mutable.toImmutable());
         return true;
@@ -149,7 +162,7 @@ public class TideFishingRodItem extends FishingRodItem {
     @Override
     public boolean overrideOtherStackedOnMe(@NotNull ItemStack stack, @NotNull ItemStack other, @NotNull Slot slot, @NotNull ClickAction action, @NotNull Player player, @NotNull SlotAccess access) {
         if (action != ClickAction.SECONDARY || !slot.allowModification(player)) return false;
-        BaitContents contents = TideItemData.BAIT_CONTENTS.getOrDefault(stack, new BaitContents(this.baitSlots));
+        BaitContents contents = TideItemData.BAIT_CONTENTS.getOrDefault(stack, new BaitContents());
         BaitContents.Mutable mutable = new BaitContents.Mutable(contents);
 
         if (other.isEmpty()) {
@@ -157,10 +170,12 @@ public class TideFishingRodItem extends FishingRodItem {
             ItemStack removedStack = mutable.removeStack();
             if (removedStack != null && !removedStack.isEmpty()) access.set(removedStack);
             else return false;
-        } else if (other.getItem().canFitInsideContainerItems() && BaitUtils.isBait(other)) {
+        }
+        else if (other.getItem().canFitInsideContainerItems() && BaitUtils.isBait(other)) {
             // insert stack
-            mutable.tryInsert(other);
-        } else return false;
+            mutable.tryInsert(other, this.baitSlots);
+        }
+        else return false;
 
         TideItemData.BAIT_CONTENTS.set(stack, mutable.toImmutable());
         return true;
@@ -214,7 +229,8 @@ public class TideFishingRodItem extends FishingRodItem {
                 // Minigame is either active or disabled
                 if (!Tide.CONFIG.minigame.doMinigame) {
                     if (!level.isClientSide()) hook.retrieve();
-                } else if (level.isClientSide()) {
+                }
+                else if (level.isClientSide()) {
                     // Interact with minigame (from the client)
                     CatchMinigameOverlay.interact();
                 }

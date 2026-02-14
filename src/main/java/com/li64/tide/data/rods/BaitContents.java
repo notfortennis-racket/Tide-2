@@ -2,7 +2,6 @@ package com.li64.tide.data.rods;
 
 //? if >=1.21 {
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
@@ -15,25 +14,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BaitContents {
-    public static final Codec<BaitContents> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            Codec.INT.fieldOf("max_stacks").forGetter(contents -> contents.maxStacks),
-            ItemStack.CODEC.listOf().fieldOf("items").forGetter(contents -> contents.items)
-    ).apply(instance, BaitContents::new));
-    public static final StreamCodec<RegistryFriendlyByteBuf, BaitContents> STREAM_CODEC = StreamCodec.composite(
-            ByteBufCodecs.INT, contents -> contents.maxStacks,
-            ItemStack.STREAM_CODEC.apply(ByteBufCodecs.list()), contents -> contents.items,
-            BaitContents::new
-    );
+    public static final Codec<BaitContents> CODEC = ItemStack.CODEC.listOf().xmap(BaitContents::new, contents -> contents.items);
+    public static final StreamCodec<RegistryFriendlyByteBuf, BaitContents> STREAM_CODEC = ItemStack.STREAM_CODEC.apply(ByteBufCodecs.list()).map(BaitContents::new, contents -> contents.items);
 
     private final List<ItemStack> items;
-    private final int maxStacks;
 
-    public BaitContents(int maxStacks) {
-        this(maxStacks, List.of());
+    public BaitContents() {
+        this(List.of());
     }
 
-    public BaitContents(int maxStacks, List<ItemStack> items) {
-        this.maxStacks = maxStacks;
+    public BaitContents(List<ItemStack> items) {
         this.items = items;
     }
 
@@ -72,29 +62,23 @@ public class BaitContents {
 
     public static class Mutable {
         private final List<ItemStack> items;
-        private final int maxStacks;
 
         public Mutable(BaitContents contents) {
-            if (contents == null) {
-                this.items = new ArrayList<>();
-                this.maxStacks = 0;
-            }
-            else {
-                this.items = new ArrayList<>(contents.items);
-                this.maxStacks = contents.maxStacks;
-            }
+            if (contents == null) this.items = new ArrayList<>();
+            else this.items = new ArrayList<>(contents.items);
         }
 
         private int findStackIndex(ItemStack stack) {
-            for (int i = 0; i < this.items.size(); ++i) {
+            for (int i = 0; i < this.items.size(); i++) {
                 if (ItemStack.isSameItemSameComponents(this.items.get(i), stack)) return i;
             }
             return -1;
         }
 
         // inserts stack to the contents
-        public void tryInsert(ItemStack stack) {
+        public void tryInsert(ItemStack stack, int maxStacks) {
             if (stack.isEmpty() || !stack.getItem().canFitInsideContainerItems()) return;
+
             int index = this.findStackIndex(stack);
             int count = stack.getCount();
 
@@ -109,13 +93,13 @@ public class BaitContents {
 
                 this.items.set(index, added);
             }
-            else if (items.size() < this.maxStacks) this.items.add(stack.split(count));
+            else if (items.size() < maxStacks) this.items.add(stack.split(count));
         }
 
         // transfer items from slot to contents
-        public void tryTransfer(Slot slot, Player pPlayer) {
-            ItemStack slotStack = slot.safeTake(slot.getItem().getCount(), slot.getMaxStackSize(), pPlayer);
-            this.tryInsert(slotStack);
+        public void tryTransfer(Slot slot, Player player, int maxStacks) {
+            ItemStack slotStack = slot.safeTake(slot.getItem().getCount(), slot.getMaxStackSize(), player);
+            this.tryInsert(slotStack, maxStacks);
             if (!slotStack.isEmpty()) slot.safeInsert(slotStack);
         }
 
@@ -137,7 +121,7 @@ public class BaitContents {
         }
 
         public BaitContents toImmutable() {
-            return new BaitContents(this.maxStacks, List.copyOf(this.items));
+            return new BaitContents(List.copyOf(this.items));
         }
 
         public boolean isEmpty() {
