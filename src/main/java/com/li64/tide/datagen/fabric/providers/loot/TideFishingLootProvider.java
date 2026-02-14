@@ -130,6 +130,21 @@ public class TideFishingLootProvider extends TideAbstractLootProvider {
                         .add(LootItem.lootTableItem(Items.TOTEM_OF_UNDYING).setWeight(1))
                 )
         );
+
+        output.accept(
+                TideLootTables.Fishing.BONUS_VILLAGE,
+                LootTable.lootTable().withPool(LootPool.lootPool()
+                        .add(LootItem.lootTableItem(Items.EMERALD).setWeight(80))
+                        .add(LootItem.lootTableItem(Items.STICK).setWeight(40))
+                        .add(LootItem.lootTableItem(Items.APPLE).setWeight(40))
+                        .add(LootItem.lootTableItem(Items.IRON_INGOT).setWeight(40))
+                        .add(LootItem.lootTableItem(Items.POPPY).setWeight(40))
+                        .add(LootItem.lootTableItem(Items.BOOK).setWeight(40))
+                        .add(LootItem.lootTableItem(Items.DEEPSLATE_EMERALD_ORE).setWeight(1))
+                        .add(LootItem.lootTableItem(Items.EMERALD_BLOCK).setWeight(1))
+                        .add(LootItem.lootTableItem(Items.TOTEM_OF_UNDYING).setWeight(1))
+                )
+        );
     }
 }
 //?}

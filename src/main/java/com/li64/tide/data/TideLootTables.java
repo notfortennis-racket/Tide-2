@@ -16,6 +16,7 @@ public class TideLootTables {
         public static final LootTableRef TREASURE_NETHER = create("gameplay/fishing/treasure_nether");
 
         public static final LootTableRef BONUS_GOLD = create("gameplay/fishing/bonus_gold");
+        public static final LootTableRef BONUS_VILLAGE = create("gameplay/fishing/bonus_village");
     }
 
     public static class Chests {

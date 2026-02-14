@@ -88,6 +88,12 @@ public class TideUtils {
         return table.getRandomItems(params).get(0);
     }
 
+    public static ItemStack getBonusVillageItem(MinecraftServer server, LootParams params) {
+        LootTable table = TideLootTables.Fishing.BONUS_VILLAGE.getTable(server);
+        if (table == LootTable.EMPTY) return null;
+        return table.getRandomItems(params).get(0);
+    }
+
     @SuppressWarnings("UnusedReturnValue")
     public static boolean tryLogCatch(ItemStack stack, ServerPlayer player) {
         if (!TideUtils.isJournalFish(stack)) return false;

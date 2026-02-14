@@ -37,7 +37,7 @@ public class TideItems {
     public static final Item PRISMARINE_FISHING_ROD = register("prismarine_fishing_rod", properties -> new TideFishingRodItem(3, 256, properties));
     public static final Item SUNFLOWER_FISHING_ROD = register("sunflower_fishing_rod", properties -> new TideFishingRodItem(6, 256, properties));
     public static final Item VILLAGE_FISHING_ROD = register("village_fishing_rod", properties -> new TideFishingRodItem(4, 256, properties));
-    public static final Item AMMONITE_FISHING_ROD = register("ammonite_fishing_rod", properties -> new TideFishingRodItem(3, 256, properties));
+    public static final Item AMMONITE_FISHING_ROD = register("ammonite_fishing_rod", properties -> new TideFishingRodItem(5, 256, properties));
     public static final Item BLAZING_FISHING_ROD = register("blazing_fishing_rod", properties -> new TideFishingRodItem(4, 256, properties));
 
     public static final Item BAIT = register("bait", Item::new);

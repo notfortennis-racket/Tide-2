@@ -718,9 +718,14 @@ public class TideFishingHook extends Projectile {
         else this.hookedItems = result.items();
 
         if (rod.is(TideItems.MIDAS_FISHING_ROD) && medium != FishingMedium.LAVA) {
-            ItemStack bonusGold = TideUtils.getBonusGoldItem(server, params);
-            if (bonusGold != null) hookedItems = ImmutableList.<ItemStack>builder()
-                    .addAll(hookedItems).add(bonusGold).build();
+            ItemStack bonus = TideUtils.getBonusGoldItem(server, params);
+            if (bonus != null) hookedItems = ImmutableList.<ItemStack>builder()
+                    .addAll(hookedItems).add(bonus).build();
+        }
+        if (rod.is(TideItems.VILLAGE_FISHING_ROD) && medium != FishingMedium.LAVA) {
+            ItemStack bonus = TideUtils.getBonusVillageItem(server, params);
+            if (bonus != null) hookedItems = ImmutableList.<ItemStack>builder()
+                    .addAll(hookedItems).add(bonus).build();
         }
 
         this.catchType = result.isFish() || hookedItems.stream().anyMatch(TideUtils::isJournalFish)
