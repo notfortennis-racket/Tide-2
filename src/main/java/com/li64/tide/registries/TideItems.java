@@ -41,6 +41,7 @@ public class TideItems {
     public static final Item BLAZING_FISHING_ROD = register("blazing_fishing_rod", properties -> new TideFishingRodItem(4, 256, properties));
     public static final Item HONEYCOMB_FISHING_ROD = register("honeycomb_fishing_rod", properties -> new TideFishingRodItem(5, 256, properties));
     public static final Item BREEZE_FISHING_ROD = register("breeze_fishing_rod", properties -> new TideFishingRodItem(3, 256, properties));
+    public static final Item MIDAS_FISHING_ROD = register("midas_fishing_rod", properties -> new TideFishingRodItem(3, 256, properties));
 
     public static final Item BAIT = register("bait", Item::new);
     public static final Item LUCKY_BAIT = register("lucky_bait", Item::new);
@@ -115,7 +116,6 @@ public class TideItems {
             .rarity(Rarity.EPIC));
     public static final Item STARLIGHT_BOW = register("starlight_bow", StarlightBowItem::new,
             new Item.Properties().rarity(Rarity.EPIC).durability(750));
-    public static final Item MIDAS_FISHING_ROD = register("midas_fishing_rod", properties -> new TideFishingRodItem(2, 256, properties));
     public static final Item DRAGONFIN_BOOTS = register("dragonfin_boots", DragonfinBootsItem::new, new Item.Properties()
             /*? if >=1.21*/.durability(ArmorItem.Type.BOOTS.getDurability(37))
             .rarity(Rarity.EPIC).fireResistant());
@@ -179,7 +179,36 @@ public class TideItems {
                     ENCHANTED_POCKET_WATCH, STARLIGHT_BOW, DRAGONFIN_BOOTS,
 
                     ANGLING_TABLE, FISH_DISPLAY,
-                    WOODEN_CRATE, OBSIDIAN_CRATE, PURPUR_CRATE
+                    WOODEN_CRATE, OBSIDIAN_CRATE, PURPUR_CRATE,
+
+                    COOKED_FISH, GRILLED_TUNA, FISH_SLICE, COOKED_FISH_SLICE,
+
+                    FISH_BONE, OBSIDIAN_FRAGMENT,
+
+                    JELLY_TORCH,
+
+                    FISHING_HOOK, IRON_HOOK, FIERY_HOOK, PERMAFROST_HOOK,
+                    TWILIGHT_HOOK, LAVAPROOF_HOOK, VOID_HOOK,
+
+                    FISHING_LINE, BRAIDED_LINE, REINFORCED_LINE, GOLDEN_LINE,
+
+                    RED_BOBBER, ORANGE_BOBBER,
+                    YELLOW_BOBBER, LIME_BOBBER,
+                    GREEN_BOBBER, CYAN_BOBBER,
+                    LIGHT_BLUE_BOBBER, BLUE_BOBBER,
+                    PURPLE_BOBBER, MAGENTA_BOBBER,
+                    PINK_BOBBER, WHITE_BOBBER,
+                    LIGHT_GRAY_BOBBER, GRAY_BOBBER,
+                    BLACK_BOBBER, BROWN_BOBBER,
+                    APPLE_BOBBER, GOLDEN_APPLE_BOBBER,
+                    ENCHANTED_GOLDEN_APPLE_BOBBER, IRON_BOBBER,
+                    GOLDEN_BOBBER, DIAMOND_BOBBER,
+                    NETHERITE_BOBBER, AMETHYST_BOBBER,
+                    ECHO_BOBBER, CHORUS_BOBBER,
+                    FEATHER_BOBBER, LICHEN_BOBBER,
+                    NAUTILUS_BOBBER, PEARL_BOBBER,
+                    HEART_BOBBER, GRASSY_BOBBER,
+                    DUCK_BOBBER
             );
 
             TideFish.ORDERED.forEach(item -> {
@@ -196,9 +225,6 @@ public class TideItems {
                 var spawnEggItem = BuiltInRegistries.ITEM.getOptional(itemKey.withSuffix("_spawn_egg"));
                 spawnEggItem.ifPresent(value -> DISPLAY_ITEMS.add(new ItemStack(value)));
             });
-
-            addDisplayItems(
-            );
         }
         return DISPLAY_ITEMS;
     }
