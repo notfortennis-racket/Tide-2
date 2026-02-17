@@ -27,10 +27,9 @@
     "location": "journal.info.location.underground",
     "rarity": "uncommon"
   },
-  "selection_weight": 170.0,
+  "selection_weight": 17.0,
   "shiny_data": {
-    "sprite": "tide:item/crystal_shrimp_shiny",
-    "chance": 0.5
+    "sprite": "tide:item/crystal_shrimp_shiny"
   },
   "size": {
     "record_high_cm": 15.0,
