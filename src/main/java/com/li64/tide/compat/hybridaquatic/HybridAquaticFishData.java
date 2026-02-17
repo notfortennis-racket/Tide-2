@@ -44,7 +44,7 @@ public class HybridAquaticFishData {
                 .speed(0.8f)
                 .selectionWeight(20)
                 .overworld().water().surface()
-                .foundIn(TideTags.Biomes.HAS_SWAMP_FISH)
+                .inBiome(TideTags.Biomes.HAS_SWAMP_FISH)
                 .journalLocation("journal.info.location.swamp")
                 .journalGroup(JournalGroup.FRESHWATER)
                 .journalRarity(FishRarity.UNCOMMON)
@@ -148,7 +148,7 @@ public class HybridAquaticFishData {
                 .speed(1.0f)
                 .selectionWeight(19)
                 .overworld().water().surface()
-                .foundIn(List.of(
+                .inBiomes(List.of(
                         TideTags.Biomes.HAS_JUNGLE_FISH,
                         TideTags.Biomes.HAS_SWAMP_FISH
                 ))
@@ -166,7 +166,7 @@ public class HybridAquaticFishData {
                 .speed(0.9f)
                 .selectionWeight(18)
                 .overworld().water().surface()
-                .foundIn(List.of(
+                .inBiomes(List.of(
                         TideTags.Biomes.HAS_JUNGLE_FISH,
                         TideTags.Biomes.HAS_SWAMP_FISH
                 ))
@@ -244,7 +244,7 @@ public class HybridAquaticFishData {
                 .speed(1.5f)
                 .selectionWeight(40)
                 .overworld().water().surface()
-                .foundIn(TideTags.Biomes.HAS_CHERRY_GROVE_FISH)
+                .inBiome(TideTags.Biomes.HAS_CHERRY_GROVE_FISH)
                 .journalLocation("journal.info.location.cherry_grove")
                 .journalGroup(JournalGroup.FRESHWATER)
                 .journalRarity(FishRarity.UNCOMMON)
@@ -259,7 +259,7 @@ public class HybridAquaticFishData {
                 .speed(0.9f)
                 .selectionWeight(18)
                 .overworld().water().surface()
-                .foundIn(List.of(
+                .inBiomes(List.of(
                         TideTags.Biomes.HAS_JUNGLE_FISH,
                         TideTags.Biomes.HAS_SWAMP_FISH
                 ))
@@ -366,7 +366,7 @@ public class HybridAquaticFishData {
                 .speed(1.0f)
                 .selectionWeight(19)
                 .overworld().water().surface()
-                .foundIn(List.of(
+                .inBiomes(List.of(
                         TideTags.Biomes.HAS_JUNGLE_FISH,
                         TideTags.Biomes.HAS_SWAMP_FISH
                 ))
@@ -415,7 +415,7 @@ public class HybridAquaticFishData {
                 .speed(0.9f)
                 .selectionWeight(18)
                 .overworld().water().surface()
-                .foundIn(List.of(
+                .inBiomes(List.of(
                         TideTags.Biomes.HAS_JUNGLE_FISH,
                         TideTags.Biomes.HAS_SWAMP_FISH
                 ))
@@ -640,7 +640,7 @@ public class HybridAquaticFishData {
                 .speed(0.9f)
                 .selectionWeight(18)
                 .overworld().water().surface()
-                .foundIn(List.of(
+                .inBiomes(List.of(
                         TideTags.Biomes.HAS_JUNGLE_FISH,
                         TideTags.Biomes.HAS_SWAMP_FISH
                 ))

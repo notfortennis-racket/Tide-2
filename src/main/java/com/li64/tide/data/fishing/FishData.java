@@ -300,11 +300,11 @@ public record FishData(/*? if >=1.21 {*/ Holder<Item> fish,
             return condition(StructuresCondition.only(structure));
         }
 
-        public Builder foundIn(List<TagKey<Biome>> foundIn) {
+        public Builder inBiomes(List<TagKey<Biome>> foundIn) {
             return condition(BiomeWhitelistCondition.fromTagList(foundIn));
         }
 
-        public Builder foundIn(TagKey<Biome> foundIn) {
+        public Builder inBiome(TagKey<Biome> foundIn) {
             return condition(BiomeWhitelistCondition.fromTagList(List.of(foundIn)));
         }
 

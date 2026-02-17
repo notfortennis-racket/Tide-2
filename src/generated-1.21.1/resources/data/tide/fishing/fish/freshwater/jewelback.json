@@ -28,7 +28,7 @@
   "journal_profile": {
     "description": "journal.description.tide.jewelback",
     "group": "freshwater",
-    "location": "journal.info.location.freshwater",
+    "location": "journal.info.location.desert_well",
     "rarity": "very_rare"
   },
   "selection_quality": 0.5,

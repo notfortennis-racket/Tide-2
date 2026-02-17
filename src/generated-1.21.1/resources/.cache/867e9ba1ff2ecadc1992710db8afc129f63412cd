@@ -1,8 +1,9 @@
-// 1.21.1	2026-02-15T17:52:20.005199	Tide/minecraft:entity Loot Table
+// 1.21.1	2026-02-16T19:27:08.4477737	Tide/minecraft:entity Loot Table
 6d7e3dfd447aafa8f317d23c5af3774b0b3fb595 data\tide\loot_table\entities\vengeance.json
 ea7a4d9157484ea0b44d7c5f407ac6733af118ac data\tide\loot_table\entities\volcano_tuna.json
 e653045e8f4813b8da0f7218098d05c8e47df981 data\tide\loot_table\entities\smallmouth_bass.json
 e68712d4dd396a18c541db35576458a9c37ca899 data\tide\loot_table\entities\snatcher_squid.json
+7b8b4c95f673d6b15dc6ac6955f6128281c01571 data\tide\loot_table\entities\flopper.json
 e599100bb46a0b1410034e631c13edc837cbcf72 data\tide\loot_table\entities\gilded_minnow.json
 449fed02a66d89ec48c7a2dfbec36240874114fb data\tide\loot_table\entities\mahi_mahi.json
 34560cc763a9909f14e2a397d94decab455ad9d0 data\tide\loot_table\entities\mirage_catfish.json
@@ -31,9 +32,11 @@ f165575a68abb687f8c35327cbbcf75cd1cfc96d data\tide\loot_table\entities\dragon_fi
 1a7b4cc23b8b51eff55221506a378158e21ea26e data\tide\loot_table\entities\frostbite_flounder.json
 890a57bbad32d8ca4a17bd56d5f56be1c52bb0dc data\tide\loot_table\entities\sun_emblem.json
 edb7d753bfc418fa02757d5119e4cff54b25f68e data\tide\loot_table\entities\abyss_angler.json
+c56d1ee8314e5446e6e3ac02ccc68654d0d12fd1 data\tide\loot_table\entities\magic_carp.json
 a9c86d8ac6723a4c091d0d0a743a219b30b24144 data\tide\loot_table\entities\violet_carp.json
 d5c5e2df0ec234247708bc75e053af0ac1e70f4c data\tide\loot_table\entities\judgment_fish.json
 8ce2003318e7f730179574ad8a6071f1558dfacc data\tide\loot_table\entities\manta_ray.json
+667abc502d41bc75a508aab5fce487012628561e data\tide\loot_table\entities\stone_rockfish.json
 6ece3a815ae5a5a88cc79472623ea79b1d508d5c data\tide\loot_table\entities\warped_guppy.json
 430b9375edcbe43a3d29769efb2dc10bffa85e4e data\tide\loot_table\entities\pentapus.json
 c870214f704116577ae0017e1a5c23506f708d1a data\tide\loot_table\entities\voidseeker.json
@@ -86,6 +89,7 @@ e552936414df74c68e063a636884bdb72f53f8c2 data\tide\loot_table\entities\deep_grou
 717f0d98fd3a71a1c22c93cf56513bd5c9594d86 data\tide\loot_table\entities\slimy_salmon.json
 c92cc72be084ee0569ef3fe19d936c4762241ef7 data\tide\loot_table\entities\bedrock_bug.json
 3105b50f29541332320fcc836a7b2cccc3ae81ee data\tide\loot_table\entities\yellow_perch.json
+21211b2ca3ef22a4cb20f40bc0eca6a5825cce1d data\tide\loot_table\entities\dog_fish.json
 17a503151d5c012badbcfe0eb5766d3ed3076851 data\tide\loot_table\entities\darkness_eater.json
 1d738d6ace6e5b79419ee2a08c7ca0fd4d7f52a9 data\tide\loot_table\entities\iron_tetra.json
 22982ca45cfbeab68f3a34e36e0ba4c095586cfa data\tide\loot_table\entities\catfish.json

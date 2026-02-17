@@ -304,8 +304,12 @@ public class TideLanguageProvider extends FabricLanguageProvider {
         fishTranslation(TideFish.COELACANTH, "Coelacanth", builder);
 
         fishTranslation(TideFish.ZOMBIE_FISH, "Zombie Fish", builder);
+        fishTranslation(TideFish.FLOPPER, "Flopper", builder);
         fishTranslation(TideFish.JEWELBACK, "Jewelback", builder);
         fishTranslation(TideFish.RADIANT_GUPPY, "Radiant Guppy", builder);
+        fishTranslation(TideFish.DOG_FISH, "Dog Fish", builder);
+        fishTranslation(TideFish.STONE_ROCKFISH, "Stone Rockfish", builder);
+        fishTranslation(TideFish.MAGIC_CARP, "Magic Carp", builder);
 
         builder.add(TideItems.COOKED_FISH, "Cooked Fish");
         builder.add(TideItems.SMALL_COOKED_FISH, "Small Cooked Fish");
@@ -359,9 +363,9 @@ public class TideLanguageProvider extends FabricLanguageProvider {
         builder.add("text.tide.fish.alive", "Bucketable");
         builder.add("text.tide.fish.shiny", "Shiny");
 
+        builder.add("item.tide.chasm_eel.desc", "Use on a bedrock block to eat it");
         builder.add("item.tide.fish_satchel.desc_0", "Right-click while held to open");
         builder.add("item.tide.fish_satchel.desc_1", "Collects fish automatically while open");
-        builder.add("item.tide.chasm_eel.desc", "Use on a bedrock block to eat it");
         builder.add("item.tide.jelly_torch.desc", "Can be placed underwater");
         builder.add("item.tide.voidseeker.desc", "Sends you to your respawn point when eaten");
         builder.add("item.tide.starlight_bow.desc_0", "Transforms arrows into shooting stars");
@@ -563,10 +567,13 @@ public class TideLanguageProvider extends FabricLanguageProvider {
         builder.add("journal.info.location.underground", "Underground");
         builder.add("journal.info.location.deep_ocean", "Deep Oceans");
         builder.add("journal.info.location.river", "Rivers");
+        builder.add("journal.info.location.big_lake", "Large Lakes");
+        builder.add("journal.info.location.plains", "Plains");
         builder.add("journal.info.location.jungle", "Jungle");
         builder.add("journal.info.location.swamp", "Swamp");
         builder.add("journal.info.location.desert", "Desert");
         builder.add("journal.info.location.frozen", "Frozen Biomes");
+        builder.add("journal.info.location.mountain", "Mountains");
         builder.add("journal.info.location.cherry_grove", "Cherry Grove");
         builder.add("journal.info.location.mushroom_island", "Mushroom Island");
         builder.add("journal.info.location.dripstone_caves", "Dripstone Caves");
@@ -574,6 +581,7 @@ public class TideLanguageProvider extends FabricLanguageProvider {
         builder.add("journal.info.location.trial_chambers", "Trial Chambers");
         builder.add("journal.info.location.ocean_monument", "Ocean Monument");
         builder.add("journal.info.location.monuments_and_outposts", "Monuments and Outposts");
+        builder.add("journal.info.location.desert_well", "Desert Wells");
         builder.add("journal.info.location.shipwrecks", "Shipwrecks");
         builder.add("journal.info.location.thunderstorms", "Thunderstorms");
         builder.add("journal.info.location.void", "The Void");

@@ -53,6 +53,11 @@ public class TideBiomeTagsProvider extends FabricTagProvider<Biome> {
         getOrCreateTagBuilder(TideTags.Biomes.HAS_DEEP_DARK_FISH)
                 .add(Biomes.DEEP_DARK);
 
+        getOrCreateTagBuilder(TideTags.Biomes.HAS_PLAINS_FISH)
+                .forceAddTag(TideTags.Convention.IS_PLAINS)
+                .add(Biomes.PLAINS)
+                .add(Biomes.SUNFLOWER_PLAINS);
+
         getOrCreateTagBuilder(TideTags.Biomes.HAS_DESERT_FISH)
                 .forceAddTag(TideTags.Convention.IS_DESERT)
                 .forceAddTag(TideTags.Convention.IS_BADLANDS)
@@ -88,6 +93,10 @@ public class TideBiomeTagsProvider extends FabricTagProvider<Biome> {
                 .addOptional(Tide.resource("biomesoplenty", "rainforest"))
                 .addOptional(Tide.resource("biomesoplenty", "rocky_rainforest"))
                 .addOptional(Tide.resource("biomesoplenty", "tropics"));
+
+        getOrCreateTagBuilder(TideTags.Biomes.HAS_MOUNTAIN_FISH)
+                .forceAddTag(TideTags.Convention.IS_MOUNTAIN)
+                .forceAddTag(BiomeTags.IS_MOUNTAIN);
 
         getOrCreateTagBuilder(TideTags.Biomes.HAS_MUSHROOM_FISH)
                 .forceAddTag(TideTags.Convention.IS_MUSHROOM)

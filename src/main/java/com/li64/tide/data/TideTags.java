@@ -75,11 +75,13 @@ public class TideTags {
                 TagKey.create(Registries.BIOME, Tide.resource("is_warm"));
 
         public static final TagKey<Biome> HAS_COASTAL_FISH = biomeFishTag("has_coastal_fish");
+        public static final TagKey<Biome> HAS_PLAINS_FISH = biomeFishTag("has_plains_fish");
         public static final TagKey<Biome> HAS_DESERT_FISH = biomeFishTag("has_desert_fish");
         public static final TagKey<Biome> HAS_CHERRY_GROVE_FISH = biomeFishTag("has_cherry_grove_fish");
         public static final TagKey<Biome> HAS_FROZEN_FISH = biomeFishTag("has_frozen_fish");
         public static final TagKey<Biome> HAS_SWAMP_FISH = biomeFishTag("has_swamp_fish");
         public static final TagKey<Biome> HAS_JUNGLE_FISH = biomeFishTag("has_jungle_fish");
+        public static final TagKey<Biome> HAS_MOUNTAIN_FISH = biomeFishTag("has_rocky_fish");
         public static final TagKey<Biome> HAS_MUSHROOM_FISH = biomeFishTag("has_mushroom_fish");
         public static final TagKey<Biome> HAS_DEEP_DARK_FISH = biomeFishTag("has_deep_dark_fish");
         public static final TagKey<Biome> HAS_DRIPSTONE_FISH = biomeFishTag("has_dripstone_fish");
@@ -140,10 +142,12 @@ public class TideTags {
 
         public static final TagKey<Biome> IS_OCEAN = create("is_ocean", Registries.BIOME);
         public static final TagKey<Biome> IS_BEACH = create("is_beach", Registries.BIOME);
+        public static final TagKey<Biome> IS_PLAINS = create("is_plains", Registries.BIOME);
         public static final TagKey<Biome> IS_DESERT = create("is_desert", Registries.BIOME);
         public static final TagKey<Biome> IS_BADLANDS = create("is_badlands", Registries.BIOME);
         public static final TagKey<Biome> IS_ICY = create("is_icy", Registries.BIOME);
         public static final TagKey<Biome> IS_SNOWY = create("is_snowy", Registries.BIOME);
+        public static final TagKey<Biome> IS_MOUNTAIN = create("is_mountain", Registries.BIOME);
         public static final TagKey<Biome> IS_JUNGLE = create("is_jungle", Registries.BIOME);
         public static final TagKey<Biome> IS_SWAMP = create("is_swamp", Registries.BIOME);
         public static final TagKey<Biome> IS_MUSHROOM = create("is_mushroom", Registries.BIOME);

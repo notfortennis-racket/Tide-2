@@ -256,6 +256,14 @@
       "top_speed": 6.72,
       "up_acceleration": 0.73
     },
+    "tide:dog_fish": {
+      "avg_distance": 55,
+      "down_acceleration": 0.6100001,
+      "idle_time": 8,
+      "move_variation": 6,
+      "top_speed": 5.44,
+      "up_acceleration": 0.6100001
+    },
     "tide:dragon_fish": {
       "avg_distance": 92,
       "down_acceleration": 0.67,
@@ -327,6 +335,14 @@
       "move_variation": 11,
       "top_speed": 3.5200002,
       "up_acceleration": 0.43
+    },
+    "tide:flopper": {
+      "avg_distance": 70,
+      "down_acceleration": 0.31,
+      "idle_time": 13,
+      "move_variation": 11,
+      "top_speed": 2.24,
+      "up_acceleration": 0.31
     },
     "tide:flounder": {
       "avg_distance": 45,
@@ -447,6 +463,14 @@
       "move_variation": 5,
       "top_speed": 3.2,
       "up_acceleration": 0.4
+    },
+    "tide:magic_carp": {
+      "avg_distance": 85,
+      "down_acceleration": 0.70000005,
+      "idle_time": 6,
+      "move_variation": 22,
+      "top_speed": 6.4,
+      "up_acceleration": 0.70000005
     },
     "tide:magma_mackerel": {
       "avg_distance": 65,
@@ -711,6 +735,14 @@
       "move_variation": 5,
       "top_speed": 4.16,
       "up_acceleration": 0.49
+    },
+    "tide:stone_rockfish": {
+      "avg_distance": 70,
+      "down_acceleration": 0.565,
+      "idle_time": 8,
+      "move_variation": 11,
+      "top_speed": 4.96,
+      "up_acceleration": 0.565
     },
     "tide:sturgeon": {
       "avg_distance": 60,

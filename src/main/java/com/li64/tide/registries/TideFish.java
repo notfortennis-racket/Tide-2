@@ -446,6 +446,30 @@ public class TideFish {
             ))
             .build();
 
+    public static final Item STONE_ROCKFISH = new Builder("stone_rockfish")
+            .food(TideFoods.BIG_RAW_FISH)
+            .cookedItem(TideItems.LARGE_COOKED_FISH)
+            .fishData(builder -> builder
+                    .size(150.0, 200.0, 300.0)
+                    .strength(0.7f)
+                    .speed(1.55f)
+                    .selectionWeight(20)
+                    .inBiomes(List.of(TideTags.Biomes.HAS_MOUNTAIN_FISH))
+                    .condition(MoonPhaseCondition.anyOf(
+                            MoonPhases.WAXING_CRESCENT, MoonPhases.FIRST_QUARTER,
+                            MoonPhases.WAXING_GIBBOUS, MoonPhases.FULL_MOON
+                    ))
+                    .freshwater()
+                    .overworld()
+                    .water()
+                    .surface()
+                    .journalLocation("journal.info.location.mountain")
+                    .journalAltSprite(32)
+                    .journalGroup(JournalGroup.FRESHWATER)
+                    .journalRarity(FishRarity.UNCOMMON)
+            )
+            .build();
+
     public static final Item ZOMBIE_FISH = new Builder("zombie_fish")
             .food(TideFoods.RAW_FISH)
             .cookedItem(TideItems.COOKED_FISH)
@@ -463,17 +487,7 @@ public class TideFish {
                     .journalGroup(JournalGroup.FRESHWATER)
                     .journalRarity(FishRarity.RARE)
                     .customShinySprite()
-//                    .displayData(display -> display.offsets(-0.05f, 0f, 0f))
             )
-//            .entityData(FishEntityData.of(
-//                    TideFishEntity::new,
-//                    builder -> builder
-//                            .sized(0.6f, 0.35f)
-//                            .clientTrackingRange(4),
-//                    Mob.createMobAttributes()
-//                            .add(Attributes.MAX_HEALTH, 6.0)
-//                            .add(Attributes.MOVEMENT_SPEED, 0.8f)
-//            ))
             .build();
     
     public static final Item ARAPAIMA = new Builder("arapaima")
@@ -484,7 +498,7 @@ public class TideFish {
                     .strength(0.6f)
                     .speed(1.7f)
                     .selectionWeight(9)
-                    .foundIn(List.of(TideTags.Biomes.HAS_JUNGLE_FISH, TideTags.Biomes.HAS_SWAMP_FISH))
+                    .inBiomes(List.of(TideTags.Biomes.HAS_JUNGLE_FISH, TideTags.Biomes.HAS_SWAMP_FISH))
                     .freshwater()
                     .overworld()
                     .water()
@@ -508,6 +522,47 @@ public class TideFish {
             ))
             .build();
 
+    public static final Item FLOPPER = new Builder("flopper")
+            .food(TideFoods.RAW_FISH)
+            .cookedItem(TideItems.COOKED_FISH)
+            .fishData(builder -> builder
+                    .size(40.0, 80.0, 140.0)
+                    .strength(0.7f)
+                    .speed(0.7f)
+                    .selectionWeight(8)
+                    .inBiomes(List.of(TideTags.Biomes.HAS_PLAINS_FISH))
+                    .freshwater()
+                    .overworld()
+                    .water()
+                    .surface()
+                    .journalLocation("journal.info.location.plains")
+                    .journalGroup(JournalGroup.FRESHWATER)
+                    .journalRarity(FishRarity.RARE)
+                    .customShinySprite()
+            )
+            .build();
+
+    public static final Item DOG_FISH = new Builder("dog_fish")
+            .food(TideFoods.BIG_RAW_FISH)
+            .cookedItem(TideItems.LARGE_COOKED_FISH)
+            .fishData(builder -> builder
+                    .size(140.0, 185.0, 280.0)
+                    .strength(0.55f)
+                    .speed(1.7f)
+                    .selectionWeight(8)
+                    .temperature(-0.25f, 0.3f)
+                    .timeOfDay(new TimeRange(TimeConstants.DAY, TimeConstants.NIGHT))
+                    .freshwater()
+                    .overworld()
+                    .water()
+                    .surface()
+                    .journalLocation("journal.info.location.freshwater")
+                    .journalAltSprite(32)
+                    .journalGroup(JournalGroup.FRESHWATER)
+                    .journalRarity(FishRarity.RARE)
+            )
+            .build();
+
     public static final Item MIRAGE_CATFISH = new Builder("mirage_catfish")
             .food(TideFoods.RAW_FISH)
             .cookedItem(TideItems.COOKED_FISH)
@@ -518,7 +573,7 @@ public class TideFish {
                     .selectionWeight(8)
                     .selectionQuality(0.5)
                     .timeOfDay(new TimeRange(TimeConstants.SUNSET, TimeConstants.DAY_ALT))
-                    .foundIn(TideTags.Biomes.HAS_DESERT_FISH)
+                    .inBiome(TideTags.Biomes.HAS_DESERT_FISH)
                     .freshwater()
                     .overworld()
                     .water()
@@ -553,7 +608,7 @@ public class TideFish {
                             new TimeRange(TimeConstants.DAY, 3000),
                             new TimeRange(9000, TimeConstants.DAY_ALT)
                     )
-                    .foundIn(TideTags.Biomes.HAS_DESERT_FISH)
+                    .inBiome(TideTags.Biomes.HAS_DESERT_FISH)
                     .freshwater()
                     .overworld()
                     .water()
@@ -586,7 +641,7 @@ public class TideFish {
                     .speed(1.4f)
                     .selectionWeight(7)
                     .selectionQuality(0.5)
-                    .foundIn(TideTags.Biomes.HAS_SWAMP_FISH)
+                    .inBiome(TideTags.Biomes.HAS_SWAMP_FISH)
                     .freshwater()
                     .overworld()
                     .water()
@@ -616,7 +671,7 @@ public class TideFish {
                     .speed(0.9f)
                     .selectionWeight(8)
                     .selectionQuality(0.5)
-                    .foundIn(TideTags.Biomes.HAS_FROZEN_FISH)
+                    .inBiome(TideTags.Biomes.HAS_FROZEN_FISH)
                     .overworld()
                     .water()
                     .surface()
@@ -678,7 +733,7 @@ public class TideFish {
                     .speed(1.3f)
                     .selectionWeight(10)
                     .selectionQuality(0.5)
-                    .foundIn(TideTags.Biomes.HAS_CHERRY_GROVE_FISH)
+                    .inBiome(TideTags.Biomes.HAS_CHERRY_GROVE_FISH)
                     .seasons(Season.SPRING, Season.SUMMER)
                     .freshwater()
                     .overworld()
@@ -709,7 +764,7 @@ public class TideFish {
                     .speed(1.3f)
                     .selectionWeight(10)
                     .selectionQuality(0.5)
-                    .foundIn(TideTags.Biomes.HAS_MUSHROOM_FISH)
+                    .inBiome(TideTags.Biomes.HAS_MUSHROOM_FISH)
                     .overworld()
                     .water()
                     .surface()
@@ -780,7 +835,7 @@ public class TideFish {
                     .overworld()
                     .water()
                     .surface()
-                    .journalLocation("journal.info.location.freshwater") // TODO: add desert well location
+                    .journalLocation("journal.info.location.desert_well")
                     .journalGroup(JournalGroup.FRESHWATER)
                     .journalRarity(FishRarity.VERY_RARE)
 //                    .displayData(display -> display.offsets(-0.07f, 0f, 0f))
@@ -811,7 +866,7 @@ public class TideFish {
                             new TimeRange(TimeConstants.DAY, 2000),
                             new TimeRange(11000, TimeConstants.DAY_ALT)
                     )
-                    .foundIn(BiomeTags.IS_RIVER)
+                    .inBiome(BiomeTags.IS_RIVER)
                     .freshwater()
                     .overworld()
                     .water()
@@ -833,6 +888,29 @@ public class TideFish {
                             .add(Attributes.MAX_HEALTH, 25.0f)
                             .add(Attributes.MOVEMENT_SPEED, 1.0f)
             ))
+            .build();
+
+    public static final Item MAGIC_CARP = new Builder("magic_carp")
+            .food(TideFoods.RAW_FISH)
+            .cookedItem(TideItems.COOKED_FISH)
+            .properties(p -> p.rarity(Rarity.RARE))
+            .fishData(builder -> builder
+                    .size(60.0, 85.0, 125.0)
+                    .strength(0.85f)
+                    .speed(2.0f)
+                    .selectionWeight(2)
+                    .selectionQuality(0.5)
+                    .freshwater()
+                    .overworld()
+                    .water()
+                    .surface()
+                    .condition(new OpenWaterCondition(true))
+                    .weather(WeatherType.RAIN, WeatherType.STORM)
+                    .journalLocation("journal.info.location.big_lake")
+                    .journalGroup(JournalGroup.FRESHWATER)
+                    .journalRarity(FishRarity.LEGENDARY)
+                    .customShinySprite()
+            )
             .build();
 
     // Saltwater fish
@@ -1018,7 +1096,7 @@ public class TideFish {
                     .speed(1.1f)
                     .selectionWeight(42)
                     .temperature(0.12f, 0.45f)
-                    .foundIn(TideTags.Biomes.HAS_COASTAL_FISH)
+                    .inBiome(TideTags.Biomes.HAS_COASTAL_FISH)
                     .saltwater()
                     .overworld()
                     .water()
@@ -1479,7 +1557,7 @@ public class TideFish {
                     .selectionQuality(0.5)
                     .condition(MoonPhaseCondition.anyOf(MoonPhases.FULL_MOON))
                     .timeOfDay(new TimeRange(TimeConstants.NIGHT, TimeConstants.SUNRISE))
-                    .foundIn(BiomeTags.IS_DEEP_OCEAN)
+                    .inBiome(BiomeTags.IS_DEEP_OCEAN)
                     .saltwater()
                     .overworld()
                     .water()
@@ -1516,7 +1594,7 @@ public class TideFish {
                     .temperature(0.3f, 0.2f)
                     .timeOfDay(new TimeRange(TimeConstants.NIGHT, TimeConstants.SUNRISE))
                     .weather(WeatherType.RAIN, WeatherType.STORM)
-                    .foundIn(BiomeTags.IS_DEEP_OCEAN)
+                    .inBiome(BiomeTags.IS_DEEP_OCEAN)
                     .saltwater()
                     .overworld()
                     .water()
@@ -1827,7 +1905,7 @@ public class TideFish {
                     .speed(1.3f)
                     .behavior(MinigameBehavior.DARTS)
                     .selectionWeight(18)
-                    .foundIn(TideTags.Biomes.HAS_DRIPSTONE_FISH)
+                    .inBiome(TideTags.Biomes.HAS_DRIPSTONE_FISH)
                     .below(40)
                     .overworld()
                     .water()
@@ -2444,8 +2522,8 @@ public class TideFish {
             .build();
 
     public static final Item ALPHA_FISH = new Builder("alpha_fish")
-            .food(TideFoods.BIG_RAW_FISH)
-            .cookedItem(TideItems.LARGE_COOKED_FISH)
+            .food(TideFoods.RAW_FISH)
+            .cookedItem(TideItems.COOKED_FISH)
             .properties(p -> p.rarity(Rarity.RARE))
             .fishData(builder -> builder
                     .size(40.0, 60.0, 100.0)

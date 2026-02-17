@@ -47,6 +47,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -479,8 +480,17 @@ public class TideFishingHook extends Projectile {
                 this.getEntityData().set(DATA_BITING, true);
                 if (getPlayerOwner() != null) {
                     selectCatch(rod);
-                    if (rod.is(TideItems.ECHO_FISHING_ROD) && !hookedItems.isEmpty() && !hookedItems.get(0).isEmpty())
-                        Tide.NETWORK.sendToPlayer(new EchoRodHookedMsg(hookedItems.get(0)), (ServerPlayer) getPlayerOwner());
+                    if (rod.is(TideItems.ECHO_FISHING_ROD)) {
+                        ServerPlayer serverPlayer = (ServerPlayer) getPlayerOwner();
+                        if (catchType == CatchType.ITEM || catchType == CatchType.FISH) {
+                            if (!hookedItems.isEmpty() && !hookedItems.get(0).isEmpty())
+                                Tide.NETWORK.sendToPlayer(new EchoRodHookedMsg(hookedItems.get(0)), serverPlayer);
+                        }
+                        else if (catchType == CatchType.CRATE && crateData != null) {
+                            Item crate = crateData.blockProvider().getState(random, pos).getBlock().asItem();
+                            Tide.NETWORK.sendToPlayer(new EchoRodHookedMsg(new ItemStack(crate)), serverPlayer);
+                        }
+                    }
                 }
                 else {
                     catchType = CatchType.NOTHING;
