@@ -2,11 +2,14 @@ package com.li64.tide.client;
 
 import com.li64.tide.Tide;
 import com.li64.tide.data.item.TideItemData;
+import com.li64.tide.registries.TideItems;
 import com.li64.tide.registries.items.FishSatchelItem;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.FishingRodItem;
+import net.minecraft.world.item.Items;
 
 public class TideItemModelProperties {
     public static final ResourceLocation CAST_PROPERTY = Tide.resource("cast");
@@ -37,4 +40,27 @@ public class TideItemModelProperties {
         }
         return 0f;
     };
+    
+    public static void registerAll() {
+        ItemProperties.register(Items.FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
+        ItemProperties.register(TideItems.STONE_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
+        ItemProperties.register(TideItems.IRON_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
+        ItemProperties.register(TideItems.GOLDEN_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
+        ItemProperties.register(TideItems.CRYSTAL_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
+        ItemProperties.register(TideItems.DIAMOND_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
+        ItemProperties.register(TideItems.NETHERITE_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
+        ItemProperties.register(TideItems.ECHO_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
+        ItemProperties.register(TideItems.PRISMARINE_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
+        ItemProperties.register(TideItems.SUNFLOWER_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
+        ItemProperties.register(TideItems.VILLAGE_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
+        ItemProperties.register(TideItems.AMMONITE_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
+        ItemProperties.register(TideItems.BLAZING_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
+        ItemProperties.register(TideItems.HONEYCOMB_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
+        ItemProperties.register(TideItems.BREEZE_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
+
+        ItemProperties.register(TideItems.STARLIGHT_BOW, PULLING_PROPERTY, PULLING_FUNCTION);
+        ItemProperties.register(TideItems.STARLIGHT_BOW, PULL_PROPERTY, PULL_FUNCTION);
+
+        ItemProperties.register(TideItems.FISH_SATCHEL, SATCHEL_STATE_PROPERTY, SATCHEL_STATE_FUNCTION);
+    }
 }

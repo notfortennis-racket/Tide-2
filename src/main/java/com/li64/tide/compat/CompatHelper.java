@@ -3,6 +3,7 @@ package com.li64.tide.compat;
 import com.li64.tide.Tide;
 import com.li64.tide.compat.fishingreal.FishingRealCompat;
 import com.li64.tide.compat.hybridaquatic.HybridAquaticCompat;
+import com.li64.tide.compat.starcatcher.StarcatcherCompat;
 import com.li64.tide.registries.entities.misc.fishing.HookAccessor;
 import com.li64.tide.registries.entities.misc.fishing.TideFishingHook;
 import net.minecraft.server.level.ServerPlayer;
@@ -30,6 +31,11 @@ public class CompatHelper {
 
     public static void hybridAquaticApplyVariant(Entity entity, ItemStack stack) {
         HybridAquaticCompat.applyVariant(entity, stack);
+    }
+
+    public static boolean starcatcherStartMinigame(ServerPlayer player, HookAccessor hook, ItemStack rod, List<ItemStack> hookedItems) {
+        /*? if neoforge || forge {*/ /*return StarcatcherCompat.start(player, hook, rod, hookedItems);
+        *//*?} else*/ return false;
     }
 
     public static boolean stardewFishingStartMinigame(ServerPlayer player, HookAccessor hook, ItemStack rod, List<ItemStack> hookedItems) {
