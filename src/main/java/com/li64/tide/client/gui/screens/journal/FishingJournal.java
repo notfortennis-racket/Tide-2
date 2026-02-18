@@ -282,6 +282,8 @@ public class FishingJournal extends Screen {
                     boolean hasNote = TidePlayerData.CLIENT_DATA.hasNote(stack);
                     boolean isHovering = false;
 
+                    if (isUnread) Tide.LOG.info("Fish {} is unread", stack);
+
                     if (mouseX > x - hoverTolerance && mouseY > y - hoverTolerance
                             && mouseX < x + 16 + hoverTolerance && mouseY < y + 16 + hoverTolerance) {
                         isHovering = true;
@@ -322,7 +324,7 @@ public class FishingJournal extends Screen {
                         RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
                         drawOutline(graphics, stack, x, y);
                     }
-                    else if (Tide.CONFIG.journal.showUnread && isUnlocked && isUnread) {
+                    else if (Tide.CONFIG.journal.showUnread && (isUnlocked || hasNote) && isUnread) {
                         graphics.flush();
                         RenderSystem.enableBlend();
                         RenderSystem.setShaderColor(1f, 0.88f, 0f, 1f);

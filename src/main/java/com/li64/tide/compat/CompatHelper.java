@@ -14,7 +14,10 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 
-/*? if neoforge || forge*/ /*import com.li64.tide.compat.stardewfishing.StardewFishingCompat;*/
+//? if neoforge || forge {
+/*import com.li64.tide.compat.stardewfishing.StardewFishingCompat;
+import com.li64.tide.compat.starcatcher.StarcatcherCompat;
+*///?}
 
 public class CompatHelper {
     public static boolean isHybridAquaticLoaded() {
