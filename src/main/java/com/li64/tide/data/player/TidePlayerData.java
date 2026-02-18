@@ -16,7 +16,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.NbtOps;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.Item;
@@ -128,7 +127,7 @@ public class TidePlayerData {
     public boolean isUnread(ItemStack stack) {
         Holder<Item> fish = stack.getItemHolder();
         if (!fishPlayerData.containsKey(fish)) return false;
-        return fishPlayerData.get(fish).isUnlocked && fishPlayerData.get(fish).isUnread;
+        return fishPlayerData.get(fish).isUnread;
     }
 
     public boolean hasNote(ItemStack stack) {
@@ -165,12 +164,15 @@ public class TidePlayerData {
         FishPlayerData playerData = fishPlayerData.get(holder);
 
         if (playerData == null) {
-            Tide.LOG.info("Creating new player data entry for {}", item);
             playerData = new FishPlayerData();
             playerData.hasNote = true;
+            playerData.isUnread = true;
             fishPlayerData.put(holder, playerData);
         }
-        else playerData.hasNote = true;
+        else {
+            playerData.hasNote = true;
+            playerData.isUnread = true;
+        }
     }
 
     private void checkJournalCompletion(ServerPlayer player) {

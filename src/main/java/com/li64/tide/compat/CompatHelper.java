@@ -3,7 +3,6 @@ package com.li64.tide.compat;
 import com.li64.tide.Tide;
 import com.li64.tide.compat.fishingreal.FishingRealCompat;
 import com.li64.tide.compat.hybridaquatic.HybridAquaticCompat;
-import com.li64.tide.compat.starcatcher.StarcatcherCompat;
 import com.li64.tide.registries.entities.misc.fishing.HookAccessor;
 import com.li64.tide.registries.entities.misc.fishing.TideFishingHook;
 import net.minecraft.server.level.ServerPlayer;
@@ -15,7 +14,10 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 
-/*? if neoforge || forge*/ /*import com.li64.tide.compat.stardewfishing.StardewFishingCompat;*/
+//? if neoforge || forge {
+/*import com.li64.tide.compat.stardewfishing.StardewFishingCompat;
+import com.li64.tide.compat.starcatcher.StarcatcherCompat;
+*///?}
 
 public class CompatHelper {
     public static boolean isHybridAquaticLoaded() {
