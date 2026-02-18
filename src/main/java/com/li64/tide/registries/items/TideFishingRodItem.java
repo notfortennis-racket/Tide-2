@@ -18,6 +18,7 @@ import com.li64.tide.registries.TideSoundEvents;
 import com.li64.tide.registries.entities.misc.fishing.HookAccessor;
 import com.li64.tide.registries.entities.misc.fishing.TideFishingHook;
 import com.li64.tide.util.BaitUtils;
+import com.wdiscute.starcatcher.minigame.FishingMinigameScreen;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
@@ -43,6 +44,7 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -196,9 +198,24 @@ public class TideFishingRodItem extends FishingRodItem {
 
             if (isMinigameStopped(player, level.isClientSide()) && Tide.CONFIG.minigame.doMinigame) {
                 // No minigame active, create a new one if necessary
-                if (Tide.PLATFORM.isModLoaded("stardew_fishing")) {
+                if (Tide.PLATFORM.isModLoaded("starcatcher")) {
                     if (hook.getCatchType() == TideFishingHook.CatchType.FISH
-                        || hook.getCatchType() == TideFishingHook.CatchType.ITEM) {
+                            || hook.getCatchType() == TideFishingHook.CatchType.ITEM) {
+
+                        if (!level.isClientSide()) {
+                            level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.FISHING_BOBBER_RETRIEVE,
+                                    SoundSource.NEUTRAL, 1.2F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
+                            if (!CompatHelper.starcatcherStartMinigame((ServerPlayer) player, (HookAccessor) player.fishing,
+                                    player.getItemInHand(hand), hook.getHookedItems())) {
+                                retrieveHook(player.getItemInHand(hand), player, level);
+                            }
+                        }
+                    }
+                    else retrieveHook(player.getItemInHand(hand), player, level);
+                }
+                else if (Tide.PLATFORM.isModLoaded("stardew_fishing")) {
+                    if (hook.getCatchType() == TideFishingHook.CatchType.FISH
+                            || hook.getCatchType() == TideFishingHook.CatchType.ITEM) {
 
                         if (!level.isClientSide()) {
                             level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.FISHING_BOBBER_RETRIEVE,
@@ -209,7 +226,8 @@ public class TideFishingRodItem extends FishingRodItem {
                                 retrieveHook(player.getItemInHand(hand), player, level);
                             }
                         }
-                    } else retrieveHook(player.getItemInHand(hand), player, level);
+                    }
+                    else retrieveHook(player.getItemInHand(hand), player, level);
                 }
                 else if (hook.getCatchType() == TideFishingHook.CatchType.FISH) {
                     if (!level.isClientSide() && isMinigameStopped(player, level.isClientSide())) {

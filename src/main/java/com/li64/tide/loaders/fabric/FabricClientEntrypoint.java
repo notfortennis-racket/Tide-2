@@ -77,25 +77,7 @@ public class FabricClientEntrypoint implements ClientModInitializer {
         /*? if >=1.21 {*/ItemTooltipCallback.EVENT.register((stack, ctx, flag, lines) -> TideClientEventHandler.onTooltipRender(stack, lines));
         /*?} else*//*ItemTooltipCallback.EVENT.register((stack, flag, lines) -> TideClientEventHandler.onTooltipRender(stack, lines));*/
 
-        ItemProperties.register(Items.FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.STONE_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.IRON_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.GOLDEN_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.CRYSTAL_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.DIAMOND_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.NETHERITE_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.ECHO_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.PRISMARINE_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.SUNFLOWER_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.VILLAGE_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.AMMONITE_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.BLAZING_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.HONEYCOMB_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.BREEZE_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-
-        ItemProperties.register(TideItems.STARLIGHT_BOW, TideItemModelProperties.PULLING_PROPERTY, TideItemModelProperties.PULLING_FUNCTION);
-        ItemProperties.register(TideItems.STARLIGHT_BOW, TideItemModelProperties.PULL_PROPERTY, TideItemModelProperties.PULL_FUNCTION);
-        ItemProperties.register(TideItems.FISH_SATCHEL, TideItemModelProperties.SATCHEL_STATE_PROPERTY, TideItemModelProperties.SATCHEL_STATE_FUNCTION);
+        TideItemModelProperties.registerAll();
 
         BlockRenderLayerMap.INSTANCE.putBlock(TideBlocks.JELLY_TORCH, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(TideBlocks.JELLY_WALL_TORCH, RenderType.cutout());

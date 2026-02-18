@@ -24,7 +24,6 @@ import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.ShaderInstance;
-import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.neoforged.api.distmarker.Dist;
@@ -44,18 +43,7 @@ public class NeoforgeClientEntrypoint {
                 (mc, screen) -> AutoConfig.getConfigScreen(TideConfig.class, screen).get()
         );
 
-        event.enqueueWork(() -> {
-            ItemProperties.register(TideItems.STONE_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-            ItemProperties.register(TideItems.IRON_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-            ItemProperties.register(TideItems.GOLDEN_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-            ItemProperties.register(TideItems.CRYSTAL_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-            ItemProperties.register(TideItems.DIAMOND_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-            ItemProperties.register(TideItems.MIDAS_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-            ItemProperties.register(TideItems.NETHERITE_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-            ItemProperties.register(TideItems.STARLIGHT_BOW, TideItemModelProperties.PULLING_PROPERTY, TideItemModelProperties.PULLING_FUNCTION);
-            ItemProperties.register(TideItems.STARLIGHT_BOW, TideItemModelProperties.PULL_PROPERTY, TideItemModelProperties.PULL_FUNCTION);
-            ItemProperties.register(TideItems.FISH_SATCHEL, TideItemModelProperties.SATCHEL_STATE_PROPERTY, TideItemModelProperties.SATCHEL_STATE_FUNCTION);
-        });
+        event.enqueueWork(TideItemModelProperties::registerAll);
     }
 
     @SubscribeEvent
@@ -65,6 +53,10 @@ public class NeoforgeClientEntrypoint {
                     DefaultVertexFormat.POSITION_TEX_COLOR), instance -> TideCoreShaders.FULL_WHITE = instance);
             event.registerShader(new ShaderInstance(event.getResourceProvider(), Tide.resource("full_white_item"),
                     DefaultVertexFormat.NEW_ENTITY), instance -> TideCoreShaders.FULL_WHITE_ITEM = instance);
+            event.registerShader(new ShaderInstance(event.getResourceProvider(), Tide.resource("shiny_item"),
+                    DefaultVertexFormat.NEW_ENTITY), instance -> TideCoreShaders.SHINY_ITEM = instance);
+            event.registerShader(new ShaderInstance(event.getResourceProvider(), Tide.resource("custom_shiny_item"),
+                    DefaultVertexFormat.NEW_ENTITY), instance -> TideCoreShaders.CUSTOM_SHINY_ITEM = instance);
         } catch (Exception e) {
             Tide.LOG.error("Failed to load Tide shaders! {}", e.toString());
         }
@@ -101,7 +93,8 @@ public class NeoforgeClientEntrypoint {
 
     @SubscribeEvent
     public static void registerClientTooltipComponents(final RegisterClientTooltipComponentFactoriesEvent event) {
-        event.register(FishingRodTooltip.class, tooltip -> new ClientFishingRodTooltip(tooltip.contents()));
+        // TODO: fix number of slots
+        event.register(FishingRodTooltip.class, tooltip -> new ClientFishingRodTooltip(6, tooltip.contents()));
     }
 
     @SubscribeEvent
