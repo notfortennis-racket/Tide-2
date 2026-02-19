@@ -1,4 +1,4 @@
-// 1.21.1	2026-02-16T20:12:57.8173098	Tide/Model Definitions
+// 1.21.1	2026-02-19T15:47:02.5035568	Tide/Model Definitions
 3e1fc5e2215dff716b5346adb98d73aee7e86088 assets\tide\models\item\bedrock_bug_spawn_egg.json
 285ed6a1f6f29877b8d38bc86b960d7be019b75a assets\tide\models\item\pluto_snail_spawn_egg.json
 900e1fd72fb20ca9292ac2516dcec90f7bc08c6c assets\tide\models\item\slimy_salmon_bucket.json
@@ -61,9 +61,9 @@ c5861fefd8194f6b0fb725560c342c4da467bae6 assets\tide\models\item\judgment_fish_b
 3d27d8085ebaafe50853ccb60c2c961d2835cdce assets\tide\models\item\sun_emblem.json
 6e24cfd4153429431fb94337f0f5b9a075e40f93 assets\tide\models\item\sleepy_carp_spawn_egg.json
 c9acc3a0532af66095c5a14fa8a116ec37fcd537 assets\tide\models\item\echo_snapper_spawn_egg.json
-a6e511c742a89566531fe43ef206742584aca3cc assets\tide\models\item\tuna_spawn_egg.json
 b6bdfb11a5091b803df2cf0bc1eb0912d17b7b1c assets\tide\models\item\dragonfin_boots.json
 d9ceb81a1eaf2124f43fbebef0728de99a672b69 assets\tide\models\item\pluto_snail_bucket.json
+a6e511c742a89566531fe43ef206742584aca3cc assets\tide\models\item\tuna_spawn_egg.json
 b86d4d259b4710fc734ffac1ada6e6a0bb72e106 assets\tide\models\item\prismarine_fishing_rod.json
 b5875a28a2c777f309216c99a018abbd09975b7b assets\tide\models\item\neptune_koi.json
 b288d3fa05686cc368d24e3561d4b0e0661a1522 assets\tide\models\item\voidseeker_bucket.json
@@ -197,8 +197,8 @@ d60011d2a43414543f09e83c883f6a5c8b8c6b0c assets\tide\models\item\cooked_fish.jso
 bf5fbf2318e9d39fcc88331ae008801102390fc2 assets\tide\models\item\golden_fishing_rod.json
 329194ab8b40685a98e7eb0c2a467a420322de20 assets\tide\models\item\blazing_swordfish_spawn_egg.json
 7cf6ffd620a181b99cf7da05cbe5349802249fc2 assets\tide\models\item\sailfish_bucket.json
-9cbc900718d994887bc9af91d77f4fbadec293e1 assets\tide\models\item\sleepy_carp_bucket.json
 38056e0b08fa8f8e34e6266f62e9598d39ba2397 assets\tide\models\item\flounder_bucket.json
+9cbc900718d994887bc9af91d77f4fbadec293e1 assets\tide\models\item\sleepy_carp_bucket.json
 8add3b937ce709f5b34f8a3f15eb51bafba7c2eb assets\tide\models\item\warped_guppy_bucket.json
 bb38eecc6c789410b01ff9d8c330c95c463acbc2 assets\tide\models\item\arapaima_spawn_egg.json
 c84d4f3e88ccb7b80ba89c999b37795f3f8e854c assets\tide\models\item\sun_emblem_spawn_egg.json
@@ -283,8 +283,8 @@ a0f55420a07e7beb0d82f931e51db6349489b5f2 assets\tide\models\item\uranias_pisces_
 3f745be87b404bcb7ce735ee8189651e078be720 assets\tide\models\item\snatcher_squid.json
 af5ed380cd53c966450bca4a079ab5ba5c07fb5e assets\tide\models\item\cave_eel.json
 d20ff011b0c3480615b7e3e4466d6102cf725bf1 assets\tide\models\item\lunar_calendar.json
-d28066fe1e93e924da4a199a1a3220372c87d8cd assets\tide\models\item\deep_grouper.json
 1d627c758fd956d2d816f3b2c12edf21a1092a1b assets\tide\models\item\aquathorn_bucket.json
+d28066fe1e93e924da4a199a1a3220372c87d8cd assets\tide\models\item\deep_grouper.json
 aabee93b3deeab310164b48a19d39923a076be2e assets\tide\models\item\flopper.json
 7fe174852c32bada11f764c7cc91160fbf865b7b assets\tide\models\item\yellow_perch.json
 833e80d3f89d225b0cb58772a887c9e2f2b3d138 assets\tide\models\item\ender_glider_bucket.json
@@ -306,8 +306,8 @@ c6ee8204a690ffb0a5ee7f4eeb32f3f62167bda3 assets\tide\models\item\crystal_shrimp_
 0ce80dc4ac25343ac73c484407902af6ed20cf1c assets\tide\models\item\carp_bucket.json
 60fee133068ecc0a465c46ba6f84a88889604d98 assets\tide\models\item\judgment_fish.json
 d54d60c72a8e62869b96490e13c6ea85929c5ec7 assets\tide\models\item\darkness_eater_bucket.json
-f13e3948b0600c824df35f0070aaefb772d0c6cb assets\tide\models\item\bedrock_tetra_spawn_egg.json
 6cc4240a223251ca7cfa564cac3a580418529c5f assets\tide\models\item\pale_clubfish.json
+f13e3948b0600c824df35f0070aaefb772d0c6cb assets\tide\models\item\bedrock_tetra_spawn_egg.json
 def9abcc7cf4b5eaa57b301522a6fcdd685599d1 assets\tide\models\item\mooneye_bucket.json
 7f629c80c207970b2a343343c6d1447ea97123fe assets\tide\models\item\devils_hole_pupfish_spawn_egg.json
 ed8f13742bbd7be2e04e1857445f5b49e8562abd assets\tide\models\item\inferno_guppy.json
@@ -366,8 +366,8 @@ b0d395b66311e0caab78161d13030296543be77a assets\tide\models\item\braided_line.js
 1f33ab5eb8f2492cfc7ecae70f5b7e705e992d3b assets\tide\models\item\largemouth_bass.json
 18502aa7b9e0c08812b5c3e5555f499fadcb8e2f assets\tide\models\item\cooked_fish_slice.json
 c700b06efd2661c9148b74fd256d012f031e08d5 assets\tide\models\item\crystalline_carp_spawn_egg.json
-79ddfaaa070f52a3fcf7f4ce45c1c78c0066dc7c assets\tide\models\item\mirage_catfish_bucket.json
 ae113f4b4ba0bb3dddebc8d5f6675141e3dfb9fe assets\tide\models\item\red_snapper_bucket.json
+79ddfaaa070f52a3fcf7f4ce45c1c78c0066dc7c assets\tide\models\item\mirage_catfish_bucket.json
 32444a2cece6477b4a70c36923dde050c5c6c0a9 assets\tide\models\item\flounder.json
 133b769bbddda0ef485a5abc1159e652d2c620c6 assets\tide\models\item\amber_rockfish_spawn_egg.json
 f0134bbcdb5811f899dfa4cea935591bc13dcf5d assets\tide\models\item\walleye.json

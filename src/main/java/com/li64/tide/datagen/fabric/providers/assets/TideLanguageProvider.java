@@ -549,6 +549,15 @@ public class TideLanguageProvider extends FabricLanguageProvider {
         builder.add("journal.description.tide.voidseeker", "Not much is known about the voidseeker, except that they hop between dimensions to avoid getting caught.");
         builder.add("journal.description.tide.dragon_fish", "Legend speaks of a player who submerged a dragon egg in water for several years, eventually creating this.");
 
+        builder.add("journal.description.tide.stone_rockfish", "This fish is as durable as stone! It may even be more durable than rock...");
+        builder.add("journal.description.tide.rock_stonefish", "This fish is as durable as rock! It may even be more durable than stone...");
+        builder.add("journal.description.tide.dog_fish", "Even though it is said to be quite intelligent, it is easily distracted with food.");
+        builder.add("journal.description.tide.zombie_fish", "Gggg Ooooo ara MrRRRrrrr Raaa sRRr ara mmRrRrRRr raaAAA? UuRRrrr gRr orRRR mrRrRR GRRRr araaaa!!");
+        builder.add("journal.description.tide.flopper", "Possesses strange regenerative powers. Its genetic makeup is unlike any other fish documented thus far.");
+        builder.add("journal.description.tide.jewelback", "This peculiar fish loves gems and secretes a sticky substance to adorn its scales with shiny valuables.");
+        builder.add("journal.description.tide.radiant_guppy", "Highly irradiated fish. Strangely enough, it seems to thrive in usually uninhabitable environments.");
+        builder.add("journal.description.tide.magic_carp", "Has a reputation for being useless and weak but its potential seems immeasurable.");
+
         // Profile info
 
         builder.add("journal.rarity.title", "Rarity");
