@@ -8,6 +8,7 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,10 +40,10 @@ public record SurveyDataMsg(Map<ResourceLocation, String> data) implements TideP
     }
 
     public static void handle(SurveyDataMsg message, Player player) {
-        ArrayList<Component> results = new ArrayList<>();
-        message.data().forEach((item, data) -> {
-            SurveyingItem surveyItem = (SurveyingItem) BuiltInRegistries.ITEM.get(item);
-            results.add(surveyItem.parseSurveyResult(data));
+        Map<ResourceLocation, Component> results = new HashMap<>();
+        message.data().forEach((key, data) -> {
+            Item item = BuiltInRegistries.ITEM.get(key);
+            results.put(key, ((SurveyingItem)item).parseSurveyResult(data));
         });
         SurveyResultsOverlay.CLIENT_SURVEY_DATA = results;
     }

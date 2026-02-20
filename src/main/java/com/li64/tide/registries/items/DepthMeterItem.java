@@ -16,7 +16,9 @@ public class DepthMeterItem extends AbstractSurveyingItem {
 
     @Override
     public Component parseSurveyResult(String result) {
-        return Component.literal((Integer.parseInt(result) + " m").replace("-", "+"));
+        int depth = Integer.parseInt(result);
+        char addition = depth > 0 ? '-' : '+';
+        return Component.literal(addition + result.replace("-", "") + " m");
     }
 
     @Override
