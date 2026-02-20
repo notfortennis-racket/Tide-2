@@ -53,6 +53,9 @@ public class TideModelProvider extends FabricModelProvider {
         generateBlockItem(generator, TideItems.OBSIDIAN_CRATE);
         generateBlockItem(generator, TideItems.PURPUR_CRATE);
 
+        generateBlockItem(generator, TideItems.WEATHER_RADIO);
+        generateBlockItem(generator, TideItems.LUNAR_CALENDAR);
+
         generateFishingRod(generator, TideItems.STONE_FISHING_ROD);
         generateFishingRod(generator, TideItems.IRON_FISHING_ROD);
         generateFishingRod(generator, TideItems.GOLDEN_FISHING_ROD);
@@ -92,10 +95,8 @@ public class TideModelProvider extends FabricModelProvider {
         generator.generateFlatItem(TideItems.FISHY_NOTE, ModelTemplates.FLAT_ITEM);
 
         generator.generateFlatItem(TideItems.POCKET_WATCH, ModelTemplates.FLAT_ITEM);
-        generator.generateFlatItem(TideItems.LUNAR_CALENDAR, ModelTemplates.FLAT_ITEM);
         generator.generateFlatItem(TideItems.CLIMATE_GAUGE, ModelTemplates.FLAT_ITEM);
         generator.generateFlatItem(TideItems.DEPTH_METER, ModelTemplates.FLAT_ITEM);
-        generator.generateFlatItem(TideItems.WEATHER_RADIO, ModelTemplates.FLAT_ITEM);
 
         generator.generateFlatItem(TideItems.ENCHANTED_POCKET_WATCH, ModelTemplates.FLAT_ITEM);
         generator.generateFlatItem(TideItems.DRAGONFIN_BOOTS, ModelTemplates.FLAT_ITEM);

@@ -9,6 +9,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 
 import java.util.HashMap;
 import java.util.function.Function;
@@ -27,7 +29,6 @@ public class TideBlocks {
 
     public static Block ANGLING_TABLE = register("angling_table",
             AnglingTableBlock::new, copyProperties(Blocks.CRAFTING_TABLE));
-
     public static Block FISH_DISPLAY = register("fish_display",
             FishDisplayBlock::new, copyProperties(Blocks.OAK_SIGN));
 
@@ -35,6 +36,29 @@ public class TideBlocks {
             JellyTorchBlock::new, copyProperties(Blocks.TORCH).sound(SoundType.SLIME_BLOCK));
     public static Block JELLY_WALL_TORCH = register("jelly_wall_torch",
             JellyWallTorchBlock::new, copyProperties(JELLY_TORCH));
+
+    public static Block WEATHER_RADIO = register("weather_radio",
+            WeatherRadioBlock::new,
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.METAL)
+                    .forceSolidOn()
+                    .requiresCorrectToolForDrops()
+                    .strength(3.5f)
+                    .sound(SoundType.LANTERN)
+                    .noOcclusion()
+                    .pushReaction(PushReaction.DESTROY)
+    );
+    public static Block LUNAR_CALENDAR = register("lunar_calendar",
+            LunarCalendarBlock::new,
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_BLUE)
+                    .forceSolidOn()
+                    .noCollission()
+                    .strength(1.0f)
+                    .sound(SoundType.AZALEA_LEAVES)
+                    .ignitedByLava()
+                    .pushReaction(PushReaction.DESTROY)
+    );
 
     public static Block register(String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties) {
         ResourceKey<Block> key = ResourceKey.create(Registries.BLOCK, Tide.resource(name));
