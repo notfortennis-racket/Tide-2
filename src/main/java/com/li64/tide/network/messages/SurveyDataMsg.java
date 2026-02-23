@@ -2,7 +2,7 @@ package com.li64.tide.network.messages;
 
 import com.li64.tide.Tide;
 import com.li64.tide.client.gui.overlays.SurveyResultsOverlay;
-import com.li64.tide.registries.items.SurveyingItem;
+import com.li64.tide.registries.items.InformationalItem;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
@@ -10,7 +10,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,7 +42,7 @@ public record SurveyDataMsg(Map<ResourceLocation, String> data) implements TideP
         Map<ResourceLocation, Component> results = new HashMap<>();
         message.data().forEach((key, data) -> {
             Item item = BuiltInRegistries.ITEM.get(key);
-            results.put(key, ((SurveyingItem)item).parseSurveyResult(data));
+            results.put(key, ((InformationalItem)item).parseResult(data));
         });
         SurveyResultsOverlay.CLIENT_SURVEY_DATA = results;
     }

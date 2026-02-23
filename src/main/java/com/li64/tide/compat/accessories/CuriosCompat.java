@@ -9,7 +9,7 @@ import top.theillusivec4.curios.api.CuriosApi;
 import java.util.ArrayList;
 
 public class CuriosCompat {
-    public static void addSurveyItems(Player player, ArrayList<Item> items) {
+    public static void addInformationalItems(Player player, ArrayList<Item> items) {
         var itemHandler = CuriosApi.getCuriosInventory(player);
         if (itemHandler.isEmpty()) return;
         itemHandler.get().findCurios(stack -> stack.is(TideTags.Items.INFORMATIONAL))

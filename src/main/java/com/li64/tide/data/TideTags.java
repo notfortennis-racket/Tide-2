@@ -46,6 +46,7 @@ public class TideTags {
     }
 
     public static class Blocks {
+        public static final TagKey<Block> INFORMATIONAL = TagKey.create(Registries.BLOCK, Tide.resource("informational"));
         public static final TagKey<Block> DESERT_WELL_LOOT = TagKey.create(Registries.BLOCK, Tide.resource("desert_well_loot"));
         public static final TagKey<Block> CHASM_EEL_CAN_EAT = TagKey.create(Registries.BLOCK, Tide.resource("chasm_eel_can_eat"));
     }

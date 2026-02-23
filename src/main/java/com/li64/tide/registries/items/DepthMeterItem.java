@@ -4,18 +4,18 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 
-public class DepthMeterItem extends AbstractSurveyingItem {
+public class DepthMeterItem extends AbstractInformationalItem {
     public DepthMeterItem(Properties properties) {
         super(properties, Component.translatable("item.tide.depth_meter.desc"));
     }
 
     @Override
-    public String getSurveyResult(ServerLevel level, ServerPlayer player) {
+    public String getResult(ServerLevel level, ServerPlayer player) {
         return Integer.toString(level.getSeaLevel() - player.blockPosition().getY());
     }
 
     @Override
-    public Component parseSurveyResult(String result) {
+    public Component parseResult(String result) {
         int depth = Integer.parseInt(result);
         char addition = depth > 0 ? '-' : '+';
         return Component.literal(addition + result.replace("-", "") + " m");

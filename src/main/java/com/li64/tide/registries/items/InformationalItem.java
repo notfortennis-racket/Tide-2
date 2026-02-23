@@ -4,12 +4,12 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 
-public interface SurveyingItem {
+public interface InformationalItem {
     /** run on the server, gets the raw data from the server */
-    String getSurveyResult(ServerLevel level, ServerPlayer player);
+    String getResult(ServerLevel level, ServerPlayer player);
 
     /** run on the client, interprets and translates the data from the server */
-    Component parseSurveyResult(String result);
+    Component parseResult(String result);
 
     int updatePeriod();
 }

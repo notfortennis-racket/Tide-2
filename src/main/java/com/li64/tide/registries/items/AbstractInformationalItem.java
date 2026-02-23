@@ -21,10 +21,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
-public abstract class AbstractSurveyingItem extends AbstractTooltipItem implements SurveyingItem {
+public abstract class AbstractInformationalItem extends AbstractTooltipItem implements InformationalItem {
     private final List<MutableComponent> description;
 
-    public AbstractSurveyingItem(Properties properties, MutableComponent... description) {
+    public AbstractInformationalItem(Properties properties, MutableComponent... description) {
         super(properties);
         this.description = Arrays.asList(description);
     }
@@ -37,7 +37,7 @@ public abstract class AbstractSurveyingItem extends AbstractTooltipItem implemen
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
         if (level instanceof ServerLevel serverLevel && player instanceof ServerPlayer serverPlayer) {
             serverPlayer.connection.send(new ClientboundSetActionBarTextPacket(
-                    this.parseSurveyResult(this.getSurveyResult(serverLevel, serverPlayer))));
+                    this.parseResult(this.getResult(serverLevel, serverPlayer))));
             serverPlayer.level().playSound(null, serverPlayer.blockPosition(),
                     useItemSound(), SoundSource.PLAYERS, 1.0f, 2.0f);
         }

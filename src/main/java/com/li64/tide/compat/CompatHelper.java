@@ -61,8 +61,8 @@ public class CompatHelper {
         return FishingRealCompat.convertItemStack(stack, player, pos);
     }
 
-    public static void addSurveyItemsFromAccessories(Player player, ArrayList<Item> items) {
-        /*? if fabric {*/if (Tide.PLATFORM.isModLoaded("trinkets")) TrinketsCompat.addSurveyItems(player, items);
-        /*?} else*//*if (Tide.PLATFORM.isModLoaded("curios")) CuriosCompat.addSurveyItems(player, items);*/
+    public static void addInformationItemsFromAccessories(Player player, ArrayList<Item> items) {
+        /*? if fabric {*/if (Tide.PLATFORM.isModLoaded("trinkets")) TrinketsCompat.addInformationalItems(player, items);
+        /*?} else*//*if (Tide.PLATFORM.isModLoaded("curios")) CuriosCompat.addInformationalItems(player, items);*/
     }
 }

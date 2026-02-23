@@ -28,6 +28,10 @@ public class TideBlockTagsProvider extends FabricTagProvider<Block> {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+        getOrCreateTagBuilder(TideTags.Blocks.INFORMATIONAL)
+                .add(TideBlocks.LUNAR_CALENDAR)
+                .add(TideBlocks.WEATHER_RADIO);
+
         getOrCreateTagBuilder(TideTags.Blocks.DESERT_WELL_LOOT)
                 .add(Blocks.SUSPICIOUS_SAND);
 

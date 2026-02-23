@@ -9,7 +9,7 @@ import net.minecraft.world.item.Item;
 import java.util.ArrayList;
 
 public class TrinketsCompat {
-    public static void addSurveyItems(Player player, ArrayList<Item> items) {
+    public static void addInformationalItems(Player player, ArrayList<Item> items) {
         var component = TrinketsApi.getTrinketComponent(player);
         if (component.isEmpty()) return;
         component.get().getEquipped(stack -> stack.is(TideTags.Items.INFORMATIONAL))

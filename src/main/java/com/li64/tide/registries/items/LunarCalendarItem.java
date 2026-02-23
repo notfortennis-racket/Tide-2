@@ -13,7 +13,7 @@ import net.minecraft.world.item.TooltipFlag;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class LunarCalendarItem extends BlockItem implements SurveyingItem, TooltipItem {
+public class LunarCalendarItem extends BlockItem implements InformationalItem, TooltipItem {
     public LunarCalendarItem(Properties properties) {
         super(TideBlocks.LUNAR_CALENDAR, properties);
     }
@@ -25,12 +25,12 @@ public class LunarCalendarItem extends BlockItem implements SurveyingItem, Toolt
     }
 
     @Override
-    public String getSurveyResult(ServerLevel level, ServerPlayer player) {
+    public String getResult(ServerLevel level, ServerPlayer player) {
         return Integer.toString(level.getMoonPhase());
     }
 
     @Override
-    public Component parseSurveyResult(String result) {
+    public Component parseResult(String result) {
         return Component.translatable("journal.info.moon_phase." + Integer.parseInt(result));
     }
 

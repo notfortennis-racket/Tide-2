@@ -53,7 +53,7 @@ public class TideBlocks {
                     .mapColor(MapColor.COLOR_BLUE)
                     .forceSolidOn()
                     .noCollission()
-                    .strength(0.3f)
+                    .strength(0.2f)
                     .sound(SoundType.WOOD)
                     .ignitedByLava()
                     .pushReaction(PushReaction.DESTROY)

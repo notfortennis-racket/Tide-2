@@ -16,7 +16,7 @@ import net.minecraft.world.level.storage.ServerLevelData;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class WeatherRadioItem extends BlockItem implements SurveyingItem, TooltipItem {
+public class WeatherRadioItem extends BlockItem implements InformationalItem, TooltipItem {
     public WeatherRadioItem(Properties properties) {
         super(TideBlocks.WEATHER_RADIO, properties);
     }
@@ -28,7 +28,7 @@ public class WeatherRadioItem extends BlockItem implements SurveyingItem, Toolti
     }
 
     @Override
-    public String getSurveyResult(ServerLevel level, ServerPlayer player) {
+    public String getResult(ServerLevel level, ServerPlayer player) {
         ServerLevelData data = level.serverLevelData;
 
         int clearTime = data.getClearWeatherTime();
@@ -59,7 +59,7 @@ public class WeatherRadioItem extends BlockItem implements SurveyingItem, Toolti
     }
 
     @Override
-    public Component parseSurveyResult(String result) {
+    public Component parseResult(String result) {
         String[] splits = result.split("-");
         if (splits.length != 2) return Component.literal("Couldn't get weather info...");
 

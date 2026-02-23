@@ -6,7 +6,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 
-public class ClimateGaugeItem extends AbstractSurveyingItem {
+public class ClimateGaugeItem extends AbstractInformationalItem {
     public ClimateGaugeItem(Properties properties) {
         super(properties,
                 Component.translatable("item.tide.climate_gauge.desc_0"),
@@ -15,14 +15,14 @@ public class ClimateGaugeItem extends AbstractSurveyingItem {
     }
 
     @Override
-    public String getSurveyResult(ServerLevel level, ServerPlayer player) {
+    public String getResult(ServerLevel level, ServerPlayer player) {
         float temp = TideUtils.getTemperatureAt(player.blockPosition(), level);
         float degrees = Math.round(TideUtils.mcTempToRealTemp(temp) * 10) / 10.0f;
         return Float.toString(degrees);
     }
 
     @Override
-    public Component parseSurveyResult(String result) {
+    public Component parseResult(String result) {
         return Component.literal(Float.parseFloat(result) + (Tide.CONFIG.journal.useFahrenheit ? "°F" : "°C"));
     }
 
