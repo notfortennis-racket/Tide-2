@@ -1,5 +1,6 @@
 {
   "values": [
+    "tide:tuna",
     "tide:stone_rockfish",
     "tide:arapaima",
     "tide:dog_fish",
@@ -83,7 +84,6 @@
     "tide:endergazer",
     "tide:violet_carp",
     "tide:elytrout",
-    "tide:tuna",
     "tide:guppy",
     "tide:anchovy",
     "tide:iron_tetra",

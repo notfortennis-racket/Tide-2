@@ -54,7 +54,7 @@ public class TideBlocks {
                     .mapColor(MapColor.COLOR_BLUE)
                     .forceSolidOn()
                     .noCollission()
-                    .strength(1.0f)
+                    .strength(0.5f)
                     .sound(SoundType.AZALEA_LEAVES)
                     .ignitedByLava()
                     .pushReaction(PushReaction.DESTROY)

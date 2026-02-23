@@ -30,6 +30,9 @@ public class TideTags {
         public static final TagKey<Item> BAIT_PLANTS = TagKey.create(Registries.ITEM, Tide.resource("bait_plants"));
         public static final TagKey<Item> CRATES = TagKey.create(Registries.ITEM, Tide.resource("crates"));
 
+        public static final TagKey<Item> INFORMATIONAL = TagKey.create(Registries.ITEM, Tide.resource("informational"));
+        public static final TagKey<Item> TRINKETS_INFORMATIONAL = TagKey.create(Registries.ITEM, Tide.resource("trinkets", "hand/informational"));
+
         public static final TagKey<Item> FISHING_RODS = TagKey.create(Registries.ITEM, Tide.resource("fishing_rods"));
         public static final TagKey<Item> BOBBERS = TagKey.create(Registries.ITEM, Tide.resource("bobbers"));
         public static final TagKey<Item> HOOKS = TagKey.create(Registries.ITEM, Tide.resource("hooks"));

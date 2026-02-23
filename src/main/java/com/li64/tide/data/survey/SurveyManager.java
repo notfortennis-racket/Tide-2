@@ -1,6 +1,7 @@
 package com.li64.tide.data.survey;
 
 import com.li64.tide.Tide;
+import com.li64.tide.compat.CompatHelper;
 import com.li64.tide.network.messages.SurveyDataMsg;
 import com.li64.tide.registries.items.SurveyingItem;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -69,7 +70,9 @@ public class SurveyManager {
         Item offhand = player.getOffhandItem().getItem();
 
         if (mainhand instanceof SurveyingItem) items.add(mainhand);
-        if (offhand instanceof SurveyingItem) items.add(offhand);
+        if (offhand instanceof SurveyingItem && !items.contains(offhand)) items.add(offhand);
+
+        CompatHelper.addSurveyItemsFromAccessories(player, items);
 
         return items;
 //        return List.of(

@@ -3,15 +3,18 @@ package com.li64.tide.compat;
 import com.li64.tide.Tide;
 import com.li64.tide.compat.fishingreal.FishingRealCompat;
 import com.li64.tide.compat.hybridaquatic.HybridAquaticCompat;
+import com.li64.tide.compat.trinkets.TrinketsCompat;
 import com.li64.tide.registries.entities.misc.fishing.HookAccessor;
 import com.li64.tide.registries.entities.misc.fishing.TideFishingHook;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 
+import java.util.ArrayList;
 import java.util.List;
 
 //? if neoforge || forge {
@@ -54,5 +57,9 @@ public class CompatHelper {
 
     public static Entity fishingRealConvertItemStack(ItemStack stack, Player player, Vec3 pos) {
         return FishingRealCompat.convertItemStack(stack, player, pos);
+    }
+
+    public static void addSurveyItemsFromAccessories(Player player, ArrayList<Item> items) {
+        if (Tide.PLATFORM.isModLoaded("trinkets")) TrinketsCompat.addSurveyItems(player, items);
     }
 }

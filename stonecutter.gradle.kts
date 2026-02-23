@@ -20,6 +20,7 @@ allprojects {
         maven("https://maven.fabricmc.net/")
         maven("https://maven.shedaniel.me/")
         maven("https://maven.terraformersmc.com/")
+        maven("https://maven.ladysnake.org/releases")
         maven("https://cursemaven.com")
         exclusiveContent {
             forRepository {

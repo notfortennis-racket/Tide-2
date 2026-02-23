@@ -167,6 +167,16 @@ public class TideItemTagsProvider extends FabricTagProvider<Item> {
                 .add(TideItems.OBSIDIAN_CRATE)
                 .add(TideItems.PURPUR_CRATE);
 
+        getOrCreateTagBuilder(TideTags.Items.INFORMATIONAL)
+                .add(TideItems.POCKET_WATCH)
+                .add(TideItems.LUNAR_CALENDAR)
+                .add(TideItems.DEPTH_METER)
+                .add(TideItems.CLIMATE_GAUGE)
+                .add(TideItems.WEATHER_RADIO);
+
+        getOrCreateTagBuilder(TideTags.Items.TRINKETS_INFORMATIONAL)
+                .forceAddTag(TideTags.Items.INFORMATIONAL);
+
         /* Common tags */
 
         getOrCreateTagBuilder(TagKey.create(Registries.ITEM, Tide.resource("forge", "tools/fishing_rods")))
