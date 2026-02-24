@@ -1,6 +1,7 @@
 package com.li64.tide.client.gui.overlays;
 
 import com.li64.tide.Tide;
+import com.li64.tide.compat.CompatHelper;
 import com.li64.tide.data.fishing.MinigameBehavior;
 import com.li64.tide.network.messages.MinigameServerMsg;
 import com.li64.tide.registries.entities.misc.fishing.HookAccessor;
@@ -92,6 +93,7 @@ public class CatchMinigameOverlay {
     }
 
     public static void render(GuiGraphics graphics, float dt) {
+        if (CompatHelper.useStarcatcherMinigame()) return;
         if (timer >= 20f) return;
         if (!isActive) timer += dt;
         else {

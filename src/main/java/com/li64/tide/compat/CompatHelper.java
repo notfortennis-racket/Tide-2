@@ -25,6 +25,8 @@ import com.li64.tide.compat.accessories.CuriosCompat;
 *///?}
 
 public class CompatHelper {
+    // -- hybrid aquatic --
+
     public static boolean isHybridAquaticLoaded() {
         return Tide.PLATFORM.isModLoaded("hybrid-aquatic") || Tide.PLATFORM.isModLoaded("hybrid_aquatic");
     }
@@ -37,10 +39,18 @@ public class CompatHelper {
         HybridAquaticCompat.applyVariant(entity, stack);
     }
 
+    // -- starcatcher --
+
+    public static boolean useStarcatcherMinigame() {
+        return Tide.PLATFORM.isModLoaded("starcatcher");
+    }
+
     public static boolean starcatcherStartMinigame(ServerPlayer player, HookAccessor hook, ItemStack rod, List<ItemStack> hookedItems) {
         /*? if neoforge || forge {*/ /*return StarcatcherCompat.start(player, hook, rod, hookedItems);
         *//*?} else*/ return false;
     }
+
+    // -- stardew fishing --
 
     public static boolean stardewFishingStartMinigame(ServerPlayer player, HookAccessor hook, ItemStack rod, List<ItemStack> hookedItems) {
         /*? if neoforge || forge {*/ /*return StardewFishingCompat.start(player, hook, rod, hookedItems);
@@ -57,9 +67,13 @@ public class CompatHelper {
         *//*?} else*/ return 1.0;
     }
 
+    // -- fishing real --
+
     public static Entity fishingRealConvertItemStack(ItemStack stack, Player player, Vec3 pos) {
         return FishingRealCompat.convertItemStack(stack, player, pos);
     }
+
+    // -- curios/trinkets --
 
     public static void addInformationItemsFromAccessories(Player player, ArrayList<Item> items) {
         /*? if fabric {*/if (Tide.PLATFORM.isModLoaded("trinkets")) TrinketsCompat.addInformationalItems(player, items);
