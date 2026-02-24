@@ -184,6 +184,7 @@ public class TideFishingRodItem extends FishingRodItem {
                                     player.getItemInHand(hand), hook.getHookedItems())) {
                                 retrieveHook(player.getItemInHand(hand), player, level);
                             }
+                            else hook.setMinigameActive(true);
                         }
                     }
                     else retrieveHook(player.getItemInHand(hand), player, level);
