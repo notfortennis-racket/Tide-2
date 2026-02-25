@@ -21,6 +21,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.FishingRodItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.phys.Vec2;
@@ -29,11 +30,21 @@ import com.li64.tide.Tide;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
+import java.util.Map;
 
 public class TideFishingHookRenderer extends EntityRenderer<TideFishingHook> implements RenderLayerParent<TideFishingHook, TideFishingHookModel<TideFishingHook>> {
     private final TideFishingHookModel<TideFishingHook> model;
     private final TideFishingBobberLayer bobberLayer;
     private static final ResourceLocation HOOK_TEX_LOCATION = Tide.resource("textures/entity/fishing_hook/fishing_hook.png");
+
+    public static final Map<Item, Vec2> OFFSETS = Map.of(
+            TideItems.STONE_FISHING_ROD, new Vec2(0.05f, -0.1f),
+            TideItems.HONEYCOMB_FISHING_ROD, new Vec2(0.05f, -0.1f),
+            TideItems.IRON_FISHING_ROD, new Vec2(0.05f, -0.02f),
+            TideItems.PRISMARINE_FISHING_ROD, new Vec2(0f, -0.05f),
+            TideItems.BLAZING_FISHING_ROD, new Vec2(0f, -0.1f),
+            TideItems.SUNFLOWER_FISHING_ROD, new Vec2(0.05f, -0.1f)
+    );
 
     public TideFishingHookRenderer(EntityRendererProvider.Context context) {
         super(context);
@@ -106,11 +117,11 @@ public class TideFishingHookRenderer extends EntityRenderer<TideFishingHook> imp
         int i = player.getMainArm() == HumanoidArm.RIGHT ? 1 : -1;
         ItemStack stack = player.getMainHandItem();
         if (!(stack.getItem() instanceof FishingRodItem)) i = -i;
-        Vec2 stringOffset = (stack.getItem() == TideItems.STONE_FISHING_ROD || stack.getItem() == TideItems.HONEYCOMB_FISHING_ROD)
-                ? new Vec2(0.05f, -0.1f)
-                : (stack.getItem() == TideItems.IRON_FISHING_ROD ? new Vec2(0.05f, -0.02f) : new Vec2(0.0f, 0.0f));
+        Vec2 stringOffset = OFFSETS.getOrDefault(stack.getItem(), new Vec2(0f, 0f));
 
-        if (!Tide.PLATFORM.isModLoaded("firstperson") && this.entityRenderDispatcher.options.getCameraType().isFirstPerson() && player == Minecraft.getInstance().player) {
+        if (!Tide.PLATFORM.isModLoaded("firstperson")
+                && this.entityRenderDispatcher.options.getCameraType().isFirstPerson()
+                && player == Minecraft.getInstance().player) {
             double fovOption = this.entityRenderDispatcher.options.fov().get().doubleValue();
             double d4 = 960.0 / (fovOption);
             double fovScalar = (Minecraft.getInstance().gameRenderer.getFov(this.entityRenderDispatcher.camera, partialTick, true) / fovOption - 1.0) * 2.5 + 1.0;
@@ -123,7 +134,8 @@ public class TideFishingHookRenderer extends EntityRenderer<TideFishingHook> imp
                     .yRot(anim * 0.5F)
                     .xRot(-anim * 0.7F);
             return player.getEyePosition(partialTick).add(vec3);
-        } else {
+        }
+        else {
             float f = Mth.lerp(partialTick, player.yBodyRotO, player.yBodyRot) * (float) (Math.PI / 180.0);
             double d0 = Mth.sin(f);
             double d1 = Mth.cos(f);
