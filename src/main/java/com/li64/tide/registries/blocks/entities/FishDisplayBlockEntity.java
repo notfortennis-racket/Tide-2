@@ -2,6 +2,7 @@ package com.li64.tide.registries.blocks.entities;
 
 import com.li64.tide.data.fishing.DisplayData;
 import com.li64.tide.data.fishing.FishData;
+import com.li64.tide.data.item.TideItemData;
 import com.li64.tide.registries.TideBlockEntities;
 import com.li64.tide.registries.blocks.FishDisplayBlock;
 import com.li64.tide.registries.blocks.FishDisplayShape;
@@ -22,6 +23,8 @@ public class FishDisplayBlockEntity extends BlockEntity {
     private ItemStack fish;
     private DisplayData displayData;
     private Entity renderedEntity;
+    private double lengthCm;
+    private double baseLengthCm;
 
     public FishDisplayBlockEntity(BlockPos pos, BlockState state) {
         super(TideBlockEntities.FISH_DISPLAY, pos, state);
@@ -39,12 +42,25 @@ public class FishDisplayBlockEntity extends BlockEntity {
         return this.fish;
     }
 
+    public double getFishLength() {
+        return this.lengthCm;
+    }
+
+    public double getBaseLength() {
+        return this.baseLengthCm;
+    }
+
     public boolean setDisplayStack(ItemStack stack) {
         if (!isEmpty()) return false;
-        var dataOp = FishData.getExact(stack).flatMap(FishData::display);
-        if (dataOp.isEmpty()) return false;
+        var dataOp = FishData.getExact(stack);
+        var displayOp = dataOp.flatMap(FishData::display);
+        if (dataOp.isEmpty() || displayOp.isEmpty()) return false;
+
         this.fish = stack;
-        this.displayData = dataOp.get();
+        this.displayData = displayOp.get();
+        this.baseLengthCm = dataOp.get().getAverageLength();
+        this.lengthCm = TideItemData.FISH_LENGTH.getOrDefault(stack, baseLengthCm);
+
         this.updateShape(displayData.shape());
         this.markUpdated();
         return true;
@@ -52,9 +68,13 @@ public class FishDisplayBlockEntity extends BlockEntity {
 
     public ItemStack takeDisplayStack() {
         ItemStack stack = this.fish;
+
         this.fish = null;
         this.displayData = null;
         this.renderedEntity = null;
+        this.lengthCm = 0;
+        this.baseLengthCm = 0;
+
         this.updateShape(FishDisplayShape.SHAPE_1x1);
         this.markUpdated();
         return stack;
@@ -75,6 +95,7 @@ public class FishDisplayBlockEntity extends BlockEntity {
     protected void loadAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
         if (tag.contains("fish")) ItemStack.parse(registries, tag.get("fish")).ifPresent(this::setDisplayStack);
         else {
+            this.fish = null;
             this.displayData = null;
             this.renderedEntity = null;
         }
