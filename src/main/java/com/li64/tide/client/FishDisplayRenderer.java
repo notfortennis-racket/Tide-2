@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.core.Direction;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import org.jetbrains.annotations.NotNull;
@@ -66,7 +67,7 @@ public record FishDisplayRenderer(EntityRenderDispatcher entityRenderer) impleme
             double lengthCm = display.getFishLength();
             double baseLengthCm = display.getBaseLength();
 
-            float scale = (float)(lengthCm / baseLengthCm);
+            float scale = Mth.sqrt((float)(lengthCm / baseLengthCm));
             poseStack.scale(scale, scale, scale);
 
             this.entityRenderer.render(entity,
