@@ -490,7 +490,17 @@ public class TideFish {
                     .journalLocation("journal.info.location.mountain")
                     .journalGroup(JournalGroup.FRESHWATER)
                     .journalRarity(FishRarity.UNCOMMON)
+                    .displayData(display -> display.offsets(-0.05f, -0.1f, 0f))
             )
+            .entityData(FishEntityData.of(
+                    TideFishEntity::new,
+                    builder -> builder
+                            .sized(0.65f, 0.4f)
+                            .clientTrackingRange(4),
+                    Mob.createMobAttributes()
+                            .add(Attributes.MAX_HEALTH, 6.0)
+                            .add(Attributes.MOVEMENT_SPEED, 1.1f)
+            ))
             .build();
 
     public static final Item ZOMBIE_FISH = new Builder("zombie_fish")

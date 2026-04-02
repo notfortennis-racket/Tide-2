@@ -1,4 +1,5 @@
 {
+  "bucket": "tide:rock_stonefish_bucket",
   "conditions": [
     {
       "type": "tide:found_in",
@@ -33,6 +34,11 @@
       "y": 40
     }
   ],
+  "display_data": {
+    "entity": "tide:rock_stonefish",
+    "x": -0.05,
+    "y": -0.1
+  },
   "fish": "tide:rock_stonefish",
   "journal_profile": {
     "description": "journal.description.tide.rock_stonefish",
