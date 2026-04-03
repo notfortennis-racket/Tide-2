@@ -2091,8 +2091,9 @@ public class TideFish {
             .build();
 
     public static final Item RADIANT_GUPPY = new Builder("radiant_guppy")
-            .food(TideFoods.RAW_FISH)
-            .cookedItem(TideItems.COOKED_FISH)
+            .food(TideFoods.TINY_RAW_FISH.withEffects(List.of(new TideFoods.FoodEffect(
+                    new MobEffectInstance(MobEffects.POISON, 100), 1f))))
+            .cookedItem(TideItems.SMALL_COOKED_FISH)
             .fishData(builder -> builder
                     .size(5.0, 8.0, 10.0)
                     .strength(0.8f)
@@ -2104,17 +2105,17 @@ public class TideFish {
                     .journalLocation("journal.info.location.underground")
                     .journalGroup(JournalGroup.UNDERGROUND)
                     .journalRarity(FishRarity.VERY_RARE)
-//                    .displayData(display -> display.offsets(-0.05f, 0f, 0f))
+                    .displayData(display -> display.offsets(-0.15f, -0.1f, 0f))
             )
-//            .entityData(FishEntityData.of(
-//                    TideFishEntity::new,
-//                    builder -> builder
-//                            .sized(0.9f, 0.25f)
-//                            .clientTrackingRange(4),
-//                    Mob.createMobAttributes()
-//                            .add(Attributes.MAX_HEALTH, 3.0)
-//                            .add(Attributes.MOVEMENT_SPEED, 1.0f)
-//            ))
+            .entityData(FishEntityData.of(
+                    TideFishEntity::new,
+                    builder -> builder
+                            .sized(0.45f, 0.375f)
+                            .clientTrackingRange(4),
+                    Mob.createMobAttributes()
+                            .add(Attributes.MAX_HEALTH, 3.0)
+                            .add(Attributes.MOVEMENT_SPEED, 1.0f)
+            ))
             .build();
 
     public static final Item CHASM_EEL = new Builder("chasm_eel")
