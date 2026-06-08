@@ -88,11 +88,11 @@ public class TideItemTagsProvider extends FabricTagProvider<Item> {
                 .add(TideItems.IRON_FISHING_HOOK)
                 .add(TideItems.LAVAPROOF_FISHING_HOOK)
                 .add(TideItems.VOID_FISHING_HOOK)
-                .addOptional(Tide.resource("hybrid-aquatic", "barbed_hook"))
-                .addOptional(Tide.resource("hybrid-aquatic", "glowing_hook"))
-                .addOptional(Tide.resource("hybrid-aquatic", "magnetic_hook"))
-                .addOptional(Tide.resource("hybrid-aquatic", "creepermagnet_hook"))
-                .addOptional(Tide.resource("hybrid-aquatic", "ominous_hook"));
+                .addOptional(Tide.resource("hybrid_aquatic", "barbed_hook"))
+                .addOptional(Tide.resource("hybrid_aquatic", "glowing_hook"))
+                .addOptional(Tide.resource("hybrid_aquatic", "magnetic_hook"))
+                .addOptional(Tide.resource("hybrid_aquatic", "creepermagnet_hook"))
+                .addOptional(Tide.resource("hybrid_aquatic", "ominous_hook"));
 
         getOrCreateTagBuilder(TideTags.Items.LAVA_BUCKETS)
                 .forceAddTag(TideTags.Convention.LAVA_BUCKETS)

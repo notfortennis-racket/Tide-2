@@ -849,6 +849,8 @@
   "text.autoconfig.tide.option.minigame.doSuccessSound.@Tooltip": "Enables the sound played when you win the minigame",
   "text.autoconfig.tide.option.minigame.minigameDifficulty": "Minigame Difficulty",
   "text.autoconfig.tide.option.minigame.minigameDifficulty.@Tooltip": "A multiplier that increases or decreases the speed of the minigame",
+  "text.autoconfig.tide.option.minigame.useThirdPartyMinigames": "Use Third-Party Minigames",
+  "text.autoconfig.tide.option.minigame.useThirdPartyMinigames.@Tooltip": "If enabled, minigames from other mods like starcatcher or stardew fishing will be used",
   "text.autoconfig.tide.title": "Tide Config",
   "text.tide.accessory_tooltip.prefix": "When applied:",
   "text.tide.bait_tooltip.crate": "%s crate chance",
