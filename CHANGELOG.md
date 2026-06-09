@@ -2,6 +2,7 @@
 
 ---
 ### Changes
+- Updated Hybrid Aquatic compatibility to 1.6
 - The Starcatcher minigame will be used instead of the Tide minigame if it's installed
 - Removed the temperature condition from the Sand Tiger Shark, now only requiring a desert biome
 - Fish Displays now scale the fish up or down depending on its length
