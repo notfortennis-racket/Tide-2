@@ -53,10 +53,6 @@ public class NeoforgeClientEntrypoint {
                     DefaultVertexFormat.POSITION_TEX_COLOR), instance -> TideCoreShaders.FULL_WHITE = instance);
             event.registerShader(new ShaderInstance(event.getResourceProvider(), Tide.resource("full_white_item"),
                     DefaultVertexFormat.NEW_ENTITY), instance -> TideCoreShaders.FULL_WHITE_ITEM = instance);
-            event.registerShader(new ShaderInstance(event.getResourceProvider(), Tide.resource("shiny_item"),
-                    DefaultVertexFormat.NEW_ENTITY), instance -> TideCoreShaders.SHINY_ITEM = instance);
-            event.registerShader(new ShaderInstance(event.getResourceProvider(), Tide.resource("custom_shiny_item"),
-                    DefaultVertexFormat.NEW_ENTITY), instance -> TideCoreShaders.CUSTOM_SHINY_ITEM = instance);
         } catch (Exception e) {
             Tide.LOG.error("Failed to load Tide shaders! {}", e.toString());
         }
@@ -94,7 +90,7 @@ public class NeoforgeClientEntrypoint {
     @SubscribeEvent
     public static void registerClientTooltipComponents(final RegisterClientTooltipComponentFactoriesEvent event) {
         // TODO: fix number of slots
-        event.register(FishingRodTooltip.class, tooltip -> new ClientFishingRodTooltip(6, tooltip.contents()));
+        event.register(FishingRodTooltip.class, tooltip -> new ClientFishingRodTooltip(tooltip.contents()));
     }
 
     @SubscribeEvent
