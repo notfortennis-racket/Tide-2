@@ -30,10 +30,8 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
-import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.Items;
 
 import java.util.function.Supplier;
 
@@ -74,17 +72,7 @@ public class FabricClientEntrypoint implements ClientModInitializer {
         /*? if >=1.21 {*/ItemTooltipCallback.EVENT.register((stack, ctx, flag, lines) -> TideClientEventHandler.onTooltipRender(stack, lines));
         /*?} else*//*ItemTooltipCallback.EVENT.register((stack, flag, lines) -> TideClientEventHandler.onTooltipRender(stack, lines));*/
 
-        ItemProperties.register(Items.FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.STONE_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.IRON_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.GOLDEN_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.CRYSTAL_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.DIAMOND_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.MIDAS_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.NETHERITE_FISHING_ROD, TideItemModelProperties.CAST_PROPERTY, TideItemModelProperties.CAST_FUNCTION);
-        ItemProperties.register(TideItems.STARLIGHT_BOW, TideItemModelProperties.PULLING_PROPERTY, TideItemModelProperties.PULLING_FUNCTION);
-        ItemProperties.register(TideItems.STARLIGHT_BOW, TideItemModelProperties.PULL_PROPERTY, TideItemModelProperties.PULL_FUNCTION);
-        ItemProperties.register(TideItems.FISH_SATCHEL, TideItemModelProperties.SATCHEL_STATE_PROPERTY, TideItemModelProperties.SATCHEL_STATE_FUNCTION);
+        TideItemModelProperties.registerAll();
 
         BlockRenderLayerMap.INSTANCE.putBlock(TideBlocks.JELLY_TORCH, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(TideBlocks.JELLY_WALL_TORCH, RenderType.cutout());

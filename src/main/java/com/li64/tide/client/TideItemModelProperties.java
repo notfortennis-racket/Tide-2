@@ -49,14 +49,6 @@ public class TideItemModelProperties {
         ItemProperties.register(TideItems.CRYSTAL_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
         ItemProperties.register(TideItems.DIAMOND_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
         ItemProperties.register(TideItems.NETHERITE_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
-        ItemProperties.register(TideItems.ECHO_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
-        ItemProperties.register(TideItems.PRISMARINE_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
-        ItemProperties.register(TideItems.SUNFLOWER_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
-        ItemProperties.register(TideItems.VILLAGE_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
-        ItemProperties.register(TideItems.AMMONITE_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
-        ItemProperties.register(TideItems.BLAZING_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
-        ItemProperties.register(TideItems.HONEYCOMB_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
-        ItemProperties.register(TideItems.BREEZE_FISHING_ROD, CAST_PROPERTY, CAST_FUNCTION);
 
         ItemProperties.register(TideItems.STARLIGHT_BOW, PULLING_PROPERTY, PULLING_FUNCTION);
         ItemProperties.register(TideItems.STARLIGHT_BOW, PULL_PROPERTY, PULL_FUNCTION);
