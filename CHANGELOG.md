@@ -2,11 +2,15 @@
 
 ---
 ### Changes
-- todo
+- The Starcatcher minigame will be used instead of the Tide minigame if it's installed
+- Removed the temperature condition from the Sand Tiger Shark, now only requiring a desert biome
+- Fish Displays now scale the fish up or down depending on its length
 
 ---
 ### Fixes
-- todo
+- Fixed a bug where removing a fish from a fish display wouldn't update for other players in the world [(#25)](https://github.com/Lightning-64/Tide-2/issues/25)
+- Fixed a bug where fish items with durability could be repaired using iron ingots (lol)
+- Fixed many bugs related to the Fish Satchel
 
 ---
 
