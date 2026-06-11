@@ -37,7 +37,7 @@ modstitch {
     metadata {
         modId = "tide"
         modName = "Tide"
-        modVersion = "2.0.3"
+        modVersion = "2.0.4-preview"
         modGroup = "com.li64.tide"
         modAuthor = "Lightning64"
         modDescription = "Expands the fishing system and adds 100+ new fish."
@@ -199,6 +199,7 @@ dependencies {
             modstitchModCompileOnly("curse.maven:serene-seasons-291874:6398227")
             modstitchModCompileOnly("curse.maven:ecliptic-seasons-1118306:7304569")
             modstitchModCompileOnly("curse.maven:stardew-fishing-1066037:7266346")
+            modstitchModImplementation("curse.maven:starcatcher-1357603:8215953")
             modstitchModCompileOnly("curse.maven:fishing-real-348834:6475355")
             modstitchModCompileOnly("curse.maven:hybrid-aquatic-834427:7204568")
             modstitchModCompileOnly("software.bernie.geckolib:geckolib-forge-1.20.1:4.8.2")
