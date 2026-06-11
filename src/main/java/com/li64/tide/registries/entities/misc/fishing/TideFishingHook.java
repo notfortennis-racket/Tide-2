@@ -483,15 +483,12 @@ public class TideFishingHook extends Projectile {
                     if (rod.is(TideItems.ECHO_FISHING_ROD)) {
                         ServerPlayer serverPlayer = (ServerPlayer) getPlayerOwner();
                         if (catchType == CatchType.ITEM || catchType == CatchType.FISH) {
-                            if (!hookedItems.isEmpty() && !hookedItems.get(0).isEmpty()) {
-                                ItemStack stack = hookedItems.get(0);
-                                boolean shiny = TideItemData.IS_SHINY.getOrDefault(stack, false);
-                                Tide.NETWORK.sendToPlayer(new EchoRodHookedMsg(stack, shiny), serverPlayer);
-                            }
+                            if (!hookedItems.isEmpty() && !hookedItems.get(0).isEmpty())
+                                Tide.NETWORK.sendToPlayer(new EchoRodHookedMsg(hookedItems.get(0)), serverPlayer);
                         }
                         else if (catchType == CatchType.CRATE && crateData != null) {
                             Item crate = crateData.blockProvider().getState(random, pos).getBlock().asItem();
-                            Tide.NETWORK.sendToPlayer(new EchoRodHookedMsg(new ItemStack(crate), false), serverPlayer);
+                            Tide.NETWORK.sendToPlayer(new EchoRodHookedMsg(new ItemStack(crate)), serverPlayer);
                         }
                     }
                 }

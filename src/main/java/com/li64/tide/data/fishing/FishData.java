@@ -59,7 +59,6 @@ public record FishData(/*? if >=1.21 {*/ Holder<Item> fish,
                        float strength, float speed,
                        MinigameBehavior behavior,
                        ProfileData profile,
-                       ShinyData shinyData,
                        Optional<SizeData> size,
                        Optional<DisplayData> display,
                        Optional<Holder<Item>> parent) implements FishingEntry, ModAssociatedEntry {
@@ -83,7 +82,6 @@ public record FishData(/*? if >=1.21 {*/ Holder<Item> fish,
             Codec.FLOAT.optionalFieldOf("speed", 1.0f).forGetter(FishData::speed),
             MinigameBehavior.CODEC.optionalFieldOf("behavior", MinigameBehavior.SINE).forGetter(FishData::behavior),
             ProfileData.CODEC.optionalFieldOf("journal_profile", new ProfileData()).forGetter(FishData::profile),
-            ShinyData.CODEC.optionalFieldOf("shiny_data", new ShinyData()).forGetter(FishData::shinyData),
             SizeData.CODEC.optionalFieldOf("size").forGetter(FishData::size),
             DisplayData.CODEC.optionalFieldOf("display_data").forGetter(FishData::display),
             BuiltInRegistries.ITEM.holderByNameCodec().optionalFieldOf("parent").forGetter(FishData::parent)
@@ -218,7 +216,6 @@ public record FishData(/*? if >=1.21 {*/ Holder<Item> fish,
             TideItemData.FISH_LENGTH.set(stack, this.getRandomLength(context.rng()));
         if (Tide.CONFIG.items.bucketableFishItems == TideConfig.Items.BucketableMode.WHEN_LIVING && bucket().isPresent())
             TideItemData.CATCH_TIMESTAMP.set(stack, context.level().getDayTime());
-        if (shinyData.sample(this, context)) TideItemData.IS_SHINY.set(stack, true);
         return createResult(stack);
     }
 
@@ -266,8 +263,6 @@ public record FishData(/*? if >=1.21 {*/ Holder<Item> fish,
         private float strength = 0.3f;
         private float speed = 1.0f;
         private MinigameBehavior behavior = MinigameBehavior.SINE;
-
-        private ResourceLocation shinySprite = null;
 
         private Builder() {}
 
@@ -456,12 +451,6 @@ public record FishData(/*? if >=1.21 {*/ Holder<Item> fish,
             return this;
         }
 
-        public Builder customShinySprite() {
-            ResourceLocation location = this.fish.unwrap().map(ResourceKey::location, BuiltInRegistries.ITEM::getKey);
-            this.shinySprite = location.withPath(name -> "item/" + name + "_shiny");
-            return this;
-        }
-
         public Builder parent(Item parent) {
             this.parent = BuiltInRegistries.ITEM.wrapAsHolder(parent);
             return this;
@@ -496,7 +485,6 @@ public record FishData(/*? if >=1.21 {*/ Holder<Item> fish,
                     weight, quality,
                     strength, speed, behavior,
                     profile.build(),
-                    new ShinyData(shinySprite),
                     Optional.ofNullable(size),
                     Optional.ofNullable(display),
                     Optional.ofNullable(parent)

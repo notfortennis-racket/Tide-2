@@ -7,7 +7,6 @@ import com.li64.tide.registries.blocks.entities.FishDisplayBlockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
@@ -75,7 +74,7 @@ public record FishDisplayRenderer(EntityRenderDispatcher entityRenderer) impleme
                     0, 0, 0,
                     0, 0,
                     poseStack, buffer,
-                    display.isShiny() ? LightTexture.FULL_BRIGHT : packedLight
+                    packedLight
             );
             poseStack.popPose();
         }

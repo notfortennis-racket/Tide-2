@@ -38,9 +38,6 @@
     "rarity": "rare"
   },
   "selection_weight": 8.0,
-  "shiny_data": {
-    "sprite": "tide:item/flopper_shiny"
-  },
   "size": {
     "record_high_cm": 140.0,
     "typical_high_cm": 80.0,

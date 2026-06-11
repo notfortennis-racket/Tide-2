@@ -73,7 +73,7 @@ ItemMixin {
         *///?}
 
         ItemStack newStack = new ItemStack(data.bucket().get());
-        if (TideItemData.FISH_LENGTH.isPresent(fish) || TideItemData.IS_SHINY.isPresent(fish)) {
+        if (TideItemData.FISH_LENGTH.isPresent(fish)) {
             double length = TideItemData.FISH_LENGTH.getOrDefault(fish, 0.0);
             /*? if >=1.21 {*/CustomData.update(DataComponents.BUCKET_ENTITY_DATA, newStack, tag -> {
                 if (TideItemData.FISH_LENGTH.isPresent(fish)) tag.putDouble(FishLengthHolder.tide$LENGTH_KEY, length);

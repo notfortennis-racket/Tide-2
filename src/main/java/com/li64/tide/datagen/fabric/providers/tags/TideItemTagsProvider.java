@@ -111,8 +111,7 @@ public class TideItemTagsProvider extends FabricTagProvider<Item> {
                 .add(TideItems.LUCKY_BAIT)
                 .add(TideItems.MAGNETIC_BAIT)
                 .add(TideItems.INCANDESCENT_BAIT)
-                .add(TideItems.ABYSS_BAIT)
-                .add(TideItems.SHINY_BAIT);
+                .add(TideItems.ABYSS_BAIT);
 
         getOrCreateTagBuilder(TideTags.Items.LUCK_BOOSTING_RODS)
                 .add(TideItems.GOLDEN_FISHING_ROD)

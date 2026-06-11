@@ -47,7 +47,6 @@ public class TideItems {
     public static final Item MAGNETIC_BAIT = register("magnetic_bait", Item::new);
     public static final Item INCANDESCENT_BAIT = register("incandescent_bait", Item::new);
     public static final Item ABYSS_BAIT = register("abyss_bait", Item::new);
-    public static final Item SHINY_BAIT = register("shiny_bait", Item::new);
 
     public static final Item RED_BOBBER = register("red_bobber", FishingBobberItem::new);
     public static final Item ORANGE_BOBBER = register("orange_bobber", FishingBobberItem::new);
@@ -172,7 +171,7 @@ public class TideItems {
                     VILLAGE_FISHING_ROD, BLAZING_FISHING_ROD, HONEYCOMB_FISHING_ROD,
                     BREEZE_FISHING_ROD, MIDAS_FISHING_ROD,
 
-                    BAIT, LUCKY_BAIT, MAGNETIC_BAIT, INCANDESCENT_BAIT, ABYSS_BAIT, SHINY_BAIT,
+                    BAIT, LUCKY_BAIT, MAGNETIC_BAIT, INCANDESCENT_BAIT, ABYSS_BAIT,
 
                     POCKET_WATCH, LUNAR_CALENDAR, CLIMATE_GAUGE,
                     DEPTH_METER, WEATHER_RADIO, FISH_FINDER,

@@ -41,9 +41,6 @@
     "rarity": "rare"
   },
   "selection_weight": 9.0,
-  "shiny_data": {
-    "sprite": "tide:item/zombie_fish_shiny"
-  },
   "size": {
     "record_high_cm": 140.0,
     "typical_high_cm": 80.0,

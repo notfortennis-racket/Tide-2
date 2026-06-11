@@ -29,7 +29,6 @@ public class TideBaitDataProvider extends SimpleDataProvider<BaitData> {
         output.accept("magnetic_bait", new BaitData(TideItems.MAGNETIC_BAIT, 0, 0));
         output.accept("incandescent_bait", new BaitData(TideItems.INCANDESCENT_BAIT, 1, 0));
         output.accept("abyss_bait", new BaitData(TideItems.ABYSS_BAIT, 2, 0));
-        output.accept("shiny_bait", new BaitData(TideItems.SHINY_BAIT, 0, 0));
 
         output.accept("fishofthieves/earthworms", new BaitData("fishofthieves:earthworms", 1, 0));
         output.accept("fishofthieves/grubs", new BaitData("fishofthieves:grubs", 1, 0));

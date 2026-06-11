@@ -47,7 +47,6 @@ import java.util.Optional;
 
 public class TideLavaFish extends LavaAnimal implements Bucketable, FishLengthHolder {
     private static final EntityDataAccessor<Boolean> FROM_BUCKET = SynchedEntityData.defineId(TideLavaFish.class, EntityDataSerializers.BOOLEAN);
-    private static final EntityDataAccessor<Boolean> IS_SHINY = SynchedEntityData.defineId(TideLavaFish.class, EntityDataSerializers.BOOLEAN);
 
     private final Item bucketItem;
     private double length;
@@ -142,14 +141,12 @@ public class TideLavaFish extends LavaAnimal implements Bucketable, FishLengthHo
     protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
         super.defineSynchedData(builder);
         builder.define(FROM_BUCKET, false);
-        builder.define(IS_SHINY, false);
     }
     //?} else {
     /*@Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(FROM_BUCKET, false);
-        this.entityData.define(IS_SHINY, false);
     }
     *///?}
 

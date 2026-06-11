@@ -19,12 +19,16 @@
     }
   ],
   "display_data": {
-    "entity": "hybrid_aquatic:stingray",
-    "yaw": 90.0
+    "entity": "hybrid_aquatic:ocean_sunfish",
+    "roll": -90.0,
+    "shape": "3x1",
+    "x": 0.35,
+    "y": -1.0,
+    "z": 0.08
   },
-  "fish": "hybrid_aquatic:blue_spotted_stingray",
+  "fish": "hybrid_aquatic:ocean_sunfish",
   "journal_profile": {
-    "description": "journal.description.hybrid_aquatic.blue_spotted_stingray",
+    "description": "journal.description.hybrid_aquatic.ocean_sunfish",
     "group": "saltwater",
     "location": "journal.info.location.saltwater",
     "rarity": "rare"
@@ -32,16 +36,16 @@
   "modifiers": [
     {
       "type": "tide:temperature",
-      "preferred_temperature": 0.55,
-      "temperature_tolerance": 0.4
+      "preferred_temperature": 0.35,
+      "temperature_tolerance": 0.5
     }
   ],
-  "selection_weight": 12.0,
+  "selection_weight": 10.0,
   "size": {
-    "record_high_cm": 130.0,
-    "typical_high_cm": 75.0,
-    "typical_low_cm": 55.0
+    "record_high_cm": 135.0,
+    "typical_high_cm": 90.0,
+    "typical_low_cm": 75.0
   },
-  "speed": 1.1,
-  "strength": 0.65
+  "speed": 0.65,
+  "strength": 0.85
 }

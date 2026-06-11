@@ -33,9 +33,6 @@
     "rarity": "legendary"
   },
   "selection_weight": 7.0,
-  "shiny_data": {
-    "sprite": "tide:item/midas_fish_shiny"
-  },
   "size": {
     "record_high_cm": 130.0,
     "typical_high_cm": 80.0,

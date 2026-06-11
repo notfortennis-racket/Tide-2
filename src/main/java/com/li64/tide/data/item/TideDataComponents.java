@@ -22,11 +22,6 @@ public class TideDataComponents {
                     .persistent(Codec.DOUBLE)
                     .networkSynchronized(ByteBufCodecs.DOUBLE).build());
 
-    public static final DataComponentType<Boolean> IS_SHINY = register(
-            "is_shiny", DataComponentType.<Boolean>builder()
-                    .persistent(Codec.BOOL)
-                    .networkSynchronized(ByteBufCodecs.BOOL).build());
-
     public static final DataComponentType<Long> CATCH_TIMESTAMP = register(
             "catch_timestamp", DataComponentType.<Long>builder()
                     .persistent(Codec.LONG)

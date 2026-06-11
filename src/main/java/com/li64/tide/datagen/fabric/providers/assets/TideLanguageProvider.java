@@ -194,7 +194,6 @@ public class TideLanguageProvider extends FabricLanguageProvider {
         builder.add(TideItems.MAGNETIC_BAIT, "Magnetic Bait");
         builder.add(TideItems.INCANDESCENT_BAIT, "Incandescent Bait");
         builder.add(TideItems.ABYSS_BAIT, "Abyss Bait");
-        builder.add(TideItems.SHINY_BAIT, "Shiny Bait");
 
         fishTranslation(TideFish.CARP, "Carp", builder);
         fishTranslation(TideFish.RAINBOW_TROUT, "Rainbow Trout", builder);
@@ -363,7 +362,6 @@ public class TideLanguageProvider extends FabricLanguageProvider {
         builder.add("text.tide.accessory_tooltip.prefix", "When applied:");
 
         builder.add("text.tide.fish.alive", "Bucketable");
-        builder.add("text.tide.fish.shiny", "Shiny");
 
         builder.add("item.tide.chasm_eel.desc", "Use on a bedrock block to eat it");
         builder.add("item.tide.fish_satchel.desc_0", "Right-click while held to open");

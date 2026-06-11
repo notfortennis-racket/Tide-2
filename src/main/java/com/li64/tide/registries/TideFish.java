@@ -519,7 +519,6 @@ public class TideFish {
                     .journalLocation("journal.info.location.freshwater")
                     .journalGroup(JournalGroup.FRESHWATER)
                     .journalRarity(FishRarity.RARE)
-                    .customShinySprite()
                     .displayData(display -> display.offsets(-0.05f, -0.1f, 0f))
             )
             .entityData(FishEntityData.of(
@@ -581,7 +580,6 @@ public class TideFish {
                     .journalLocation("journal.info.location.plains")
                     .journalGroup(JournalGroup.FRESHWATER)
                     .journalRarity(FishRarity.RARE)
-                    .customShinySprite()
                     .displayData(display -> display.offsets(-0.05f, -0.05f, 0f))
             )
             .entityData(FishEntityData.of(
@@ -823,7 +821,6 @@ public class TideFish {
                     .journalLocation("journal.info.location.mushroom_island")
                     .journalRarity(FishRarity.RARE)
                     .journalGroup(JournalGroup.SALTWATER)
-                    .customShinySprite()
                     .displayData(display -> display.offsets(-0.05f, 0f, 0f))
             )
             .entityData(FishEntityData.of(
@@ -961,7 +958,6 @@ public class TideFish {
                     .journalLocation("journal.info.location.big_lake")
                     .journalGroup(JournalGroup.FRESHWATER)
                     .journalRarity(FishRarity.LEGENDARY)
-                    .customShinySprite()
             )
             .build();
 
@@ -1877,7 +1873,6 @@ public class TideFish {
                     .journalLocation("journal.info.location.underground")
                     .journalGroup(JournalGroup.UNDERGROUND)
                     .journalRarity(FishRarity.UNCOMMON)
-                    .customShinySprite()
                     .displayData(display -> display.offsets(-0.05f, 0.03f, 0f))
             )
             .entityData(FishEntityData.of(
@@ -1906,7 +1901,6 @@ public class TideFish {
                     .journalLocation("journal.info.location.underground")
                     .journalGroup(JournalGroup.UNDERGROUND)
                     .journalRarity(FishRarity.UNCOMMON)
-                    .customShinySprite()
                     .displayData(display -> display.offsets(-0.05f, 0.02f, 0f))
             )
             .entityData(FishEntityData.of(
@@ -1934,7 +1928,6 @@ public class TideFish {
                     .journalLocation("journal.info.location.underground")
                     .journalGroup(JournalGroup.UNDERGROUND)
                     .journalRarity(FishRarity.UNCOMMON)
-                    .customShinySprite()
                     .displayData(display -> display.offsets(-0.05f, 0f, 0f))
             )
             .entityData(FishEntityData.of(
@@ -2048,7 +2041,6 @@ public class TideFish {
                     .journalLocation("journal.info.location.underground")
                     .journalGroup(JournalGroup.UNDERGROUND)
                     .journalRarity(FishRarity.RARE)
-                    .customShinySprite()
                     .displayData(display -> display.offsets(-0.1f, 0.06f, 0f))
             )
             .entityData(FishEntityData.of(
@@ -2259,7 +2251,6 @@ public class TideFish {
                     .journalLocation("journal.info.location.underground")
                     .journalGroup(JournalGroup.UNDERGROUND)
                     .journalRarity(FishRarity.LEGENDARY)
-                    .customShinySprite()
                     .displayData(display -> display.offsets(-0.05f, -0.07f, 0f))
             )
             .entityData(FishEntityData.of(
@@ -2783,7 +2774,6 @@ public class TideFish {
                     .journalLocation("journal.info.location.lava")
                     .journalGroup(JournalGroup.LAVA)
                     .journalRarity(FishRarity.RARE)
-                    .customShinySprite()
                     .displayData(display -> display.offsets(-0.1f, 0.06f, 0f))
             )
             .entityData(FishEntityData.of(
@@ -2812,7 +2802,6 @@ public class TideFish {
                     .journalLocation("journal.info.location.lava")
                     .journalGroup(JournalGroup.LAVA)
                     .journalRarity(FishRarity.RARE)
-                    .customShinySprite()
                     .displayData(display -> display.offsets(-0.05f, -0.05f, 0f))
             )
             .entityData(FishEntityData.of(
@@ -2841,7 +2830,6 @@ public class TideFish {
                     .journalLocation("journal.info.location.lava")
                     .journalGroup(JournalGroup.LAVA)
                     .journalRarity(FishRarity.RARE)
-                    .customShinySprite()
                     .displayData(display -> display.offsets(-0.05f, -0.1f, 0f))
             )
             .entityData(FishEntityData.of(
@@ -2872,7 +2860,6 @@ public class TideFish {
                     .journalLocation("journal.info.location.lava")
                     .journalGroup(JournalGroup.LAVA)
                     .journalRarity(FishRarity.RARE)
-                    .customShinySprite()
                     .displayData(display -> display.offsets(0f, -0.05f, 0f))
             )
             .entityData(FishEntityData.of(
@@ -3176,7 +3163,6 @@ public class TideFish {
                     .journalLocation("journal.info.location.void")
                     .journalGroup(JournalGroup.VOID)
                     .journalRarity(FishRarity.RARE)
-                    .customShinySprite()
                     .displayData(display -> display.offsets(0f, 0f, 0f))
             )
             .entityData(FishEntityData.of(

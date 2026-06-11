@@ -10,7 +10,6 @@
    "client": [
       "EntityRenderDispatcherMixin",
       "GuiRenderMixin",
-      "ItemRendererMixin",
       "LocalPlayerMixin"
    ],
    "mixins": [

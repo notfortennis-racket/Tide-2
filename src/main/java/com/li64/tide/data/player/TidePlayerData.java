@@ -102,8 +102,7 @@ public class TidePlayerData {
     public boolean unlockFish(Holder<Item> fish, ServerPlayer player) {
         if (!fishPlayerData.containsKey(fish)) {
             fishPlayerData.put(fish, new FishPlayerData(
-                    true, true,
-                    false, false,
+                    true, true, false,
                     Optional.empty()
             ));
             this.checkJournalCompletion(player);
@@ -188,29 +187,26 @@ public class TidePlayerData {
                 Codec.BOOL.fieldOf("is_unlocked").forGetter(data -> data.isUnlocked),
                 Codec.BOOL.fieldOf("is_unread").forGetter(data -> data.isUnread),
                 Codec.BOOL.optionalFieldOf("has_note", false).forGetter(data -> data.hasNote),
-                Codec.BOOL.optionalFieldOf("has_shiny", false).forGetter(data -> data.hasShiny),
                 FishStats.CODEC.optionalFieldOf("stats").forGetter(data -> data.stats)
         ).apply(instance, FishPlayerData::new));
 
         public boolean isUnlocked;
         public boolean isUnread;
         public boolean hasNote;
-        public boolean hasShiny;
         public Optional<FishStats> stats;
 
         public FishPlayerData() {
-            this(false, false, false, false, Optional.empty());
+            this(false, false, false, Optional.empty());
         }
 
         public FishPlayerData(FishStats stats) {
-            this(false, false, false, false, Optional.of(stats));
+            this(false, false, false, Optional.of(stats));
         }
 
-        public FishPlayerData(boolean isUnlocked, boolean isUnread, boolean hasNote, boolean hasShiny, Optional<FishStats> stats) {
+        public FishPlayerData(boolean isUnlocked, boolean isUnread, boolean hasNote, Optional<FishStats> stats) {
             this.isUnlocked = isUnlocked;
             this.isUnread = isUnread;
             this.hasNote = hasNote;
-            this.hasShiny = hasShiny;
             this.stats = stats;
         }
 
@@ -233,7 +229,6 @@ public class TidePlayerData {
                     "isUnlocked=" + isUnlocked +
                     ", isUnread=" + isUnread +
                     ", hasNote=" + hasNote +
-                    ", hasShiny=" + hasShiny +
                     ", stats=" + stats +
                     '}';
         }

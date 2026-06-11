@@ -21,11 +21,6 @@ import java.util.List;
 
 public class TideClientEventHandler {
     public static void onTooltipRender(ItemStack stack, List<Component> lines) {
-        if (TideItemData.IS_SHINY.getOrDefault(stack, false)) {
-            lines.add(Component.translatable("text.tide.fish.shiny")
-                    .withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD));
-        }
-
         if (BaitUtils.isBait(stack)) lines.addAll(BaitUtils.getDescriptionLines(stack));
 
         if (stack.is(TideTags.Items.FISHING_RODS)) lines.addAll(TideFishingRodItem.getDescriptionLines(stack));

@@ -190,16 +190,6 @@ public class TideUtils {
         return level.getDayTime() % 24000;
     }
 
-    public static double getBaseShinyChance(FishRarity rarity) {
-        return 1.0 / switch (rarity) {
-            case COMMON -> 600.0;
-            case UNCOMMON -> 550.0;
-            case RARE -> 500.0;
-            case VERY_RARE -> 450.0;
-            case LEGENDARY -> 400.0;
-        };
-    }
-
     //? if >=1.21 {
     public static LootTable getLootTable(ResourceKey<LootTable> key, MinecraftServer server) {
         return server.reloadableRegistries().getLootTable(key);

@@ -23,25 +23,23 @@
     }
   ],
   "display_data": {
-    "entity": "hybrid_aquatic:oscar",
+    "entity": "hybrid_aquatic:tetra",
     "roll": -90.0,
-    "x": 0.04,
-    "y": -0.18,
+    "y": -0.1,
     "z": 0.08
   },
-  "fish": "hybrid_aquatic:oscar",
+  "fish": "hybrid_aquatic:tetra",
   "journal_profile": {
-    "description": "journal.description.hybrid_aquatic.oscar",
+    "description": "journal.description.hybrid_aquatic.tetra",
     "group": "freshwater",
     "location": "journal.info.location.jungle",
     "rarity": "uncommon"
   },
-  "selection_weight": 18.0,
+  "selection_weight": 19.0,
   "size": {
-    "record_high_cm": 70.0,
-    "typical_high_cm": 35.0,
-    "typical_low_cm": 25.0
+    "record_high_cm": 15.0,
+    "typical_high_cm": 7.0,
+    "typical_low_cm": 4.0
   },
-  "speed": 0.9,
   "strength": 0.4
 }

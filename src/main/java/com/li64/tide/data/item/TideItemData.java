@@ -9,7 +9,6 @@ import net.minecraft.world.item.Item;
 public final class TideItemData {
     //? if >=1.21 {
     public static final ItemDataKey<Double> FISH_LENGTH = new ComponentItemDataKey<>(TideDataComponents.FISH_LENGTH);
-    public static final ItemDataKey<Boolean> IS_SHINY = new ComponentItemDataKey<>(TideDataComponents.IS_SHINY);
     public static final ItemDataKey<Long> CATCH_TIMESTAMP = new ComponentItemDataKey<>(TideDataComponents.CATCH_TIMESTAMP);
     public static final ItemDataKey<CompoundTag> FISHING_LINE = new ComponentItemDataKey<>(TideDataComponents.FISHING_LINE);
     public static final ItemDataKey<CompoundTag> FISHING_BOBBER = new ComponentItemDataKey<>(TideDataComponents.FISHING_BOBBER);

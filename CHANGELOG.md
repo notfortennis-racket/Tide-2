@@ -25,13 +25,6 @@
 - One bait item from each slot will be consumed upon catching a fish
 - The effectiveness of higher levels of fishing speed has been slightly increased to counteract the `biteTimeMultiplier` of different fishing mediums
 
-**Shinies**
-- Similar to the Pokémon games, each fish in the mod now has a "shiny" variant that can be caught very rarely
-- Each shiny fish has a unique color, with many having custom-made textures
-- The chance of catching a shiny varies depending on the fish's rarity, with rarer fish having higher shiny chances
-- These chances can be further modified by using a Shiny Fishing Rod, or by equipping Shiny Bait
-- Catching a shiny will allow you to view it in the fishing journal (TODO)
-
 **Fishy Notes**
 - Fish silhouettes are now shown in the fishy note GUI, helping you to identify which fish it might be
 - Reading a Fishy Note will now unlock it in the fishing journal under its corresponding fish
@@ -52,11 +45,9 @@
   - Rod of the Hero
   - Beeline
   - Gale Fishing Rod (TODO)
-  - Shiny Fishing Rod
 - Added 3 new bait items:
   - Incandescent Bait
   - Abyss Bait
-  - Shiny Bait
 - Added Fish Finder
 
 **Informational Items**

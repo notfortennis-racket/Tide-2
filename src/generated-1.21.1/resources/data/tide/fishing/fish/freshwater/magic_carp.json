@@ -38,9 +38,6 @@
   },
   "selection_quality": 0.5,
   "selection_weight": 1.2,
-  "shiny_data": {
-    "sprite": "tide:item/magic_carp_shiny"
-  },
   "size": {
     "record_high_cm": 125.0,
     "typical_high_cm": 85.0,
