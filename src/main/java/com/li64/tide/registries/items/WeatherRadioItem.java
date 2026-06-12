@@ -11,6 +11,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ServerLevelData;
 
 import java.util.List;
@@ -92,7 +93,7 @@ public class WeatherRadioItem extends BlockItem implements InformationalItem, To
     }
     //?} else {
     /*@Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> lines, TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Level level, List<Component> lines, TooltipFlag flag) {
         super.appendHoverText(stack, level, lines, flag);
         this.addTooltip(stack, lines::add);
     }

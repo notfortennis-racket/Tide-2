@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "tide:item/weather_radio"
-  }
+  "parent": "tide:block/weather_radio"
 }

@@ -161,7 +161,7 @@ dependencies {
             modstitchModApi("me.shedaniel.cloth:cloth-config-fabric:15.0.140") { exclude("net.fabricmc.fabric-api") }
             modstitchModImplementation("net.fabricmc.fabric-api:fabric-api:0.116.0+1.21.1")
             modstitchModImplementation("com.terraformersmc:modmenu:11.0.3")
-            modstitchModImplementation("dev.emi:trinkets:3.10.0")
+            modstitchModCompileOnly("dev.emi:trinkets:3.10.0")
             modstitchModCompileOnly("curse.maven:fabric-seasons-413523:5789846")
             modstitchModCompileOnly("curse.maven:serene-seasons-291874:6182595")
             modstitchModCompileOnly("curse.maven:fishing-real-348834:6465669")
@@ -173,6 +173,7 @@ dependencies {
             modstitchModApi("me.shedaniel.cloth:cloth-config-fabric:11.1.136") { exclude("net.fabricmc.fabric-api") }
             modstitchModImplementation("net.fabricmc.fabric-api:fabric-api:0.92.6+1.20.1")
             modstitchModImplementation("com.terraformersmc:modmenu:7.2.2")
+            modstitchModCompileOnly("dev.emi:trinkets:3.7.2")
             modstitchModCompileOnly("curse.maven:fabric-seasons-413523:5788996")
             modstitchModCompileOnly("curse.maven:serene-seasons-291874:6398228")
             modstitchModCompileOnly("curse.maven:fishing-real-348834:6475356")

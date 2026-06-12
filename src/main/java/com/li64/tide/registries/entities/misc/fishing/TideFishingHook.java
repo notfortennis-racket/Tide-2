@@ -669,7 +669,7 @@ public class TideFishingHook extends Projectile {
                         if (catchType == CatchType.FISH) {
                             if (!player.isCreative() && BaitUtils.hasBait(rod)) {
                                 // consume used bait
-                                BaitContents.Mutable contents = new BaitContents.Mutable(TideItemData.BAIT_CONTENTS.get(rod));
+                                BaitContents.Mutable contents = new BaitContents.Mutable(TideItemData.BAIT_CONTENTS.getOrDefault(rod, new BaitContents()));
                                 contents.shrinkAll();
                                 TideItemData.BAIT_CONTENTS.set(rod, contents.toImmutable());
                             }
@@ -802,7 +802,7 @@ public class TideFishingHook extends Projectile {
                 getBiome(),
                 TideUtils.findClosestNonWaterBiome(level(), blockPosition(), 12, 2).orElse(getBiome()),
                 netherOverride ? Level.NETHER : level().dimension(),
-                Math.clamp(sampleTemperature() + temperatureAddition, -1.0f, 1.0f),
+                Mth.clamp(sampleTemperature() + temperatureAddition, -1.0f, 1.0f),
                 level().getMoonPhase(),
                 SeasonsCompat.getSeason(level())
         );

@@ -18,7 +18,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -28,7 +27,9 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCon
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
-/*? if >=1.21 {*/import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
+/*? if >=1.21 {*/
+import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
+import net.minecraft.world.item.trading.ItemCost;
 /*?} else*//*import net.fabricmc.fabric.api.loot.v2.LootTableEvents;*/
 
 public class FabricEventHandler {
@@ -112,7 +113,8 @@ public class FabricEventHandler {
 
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.FISHERMAN, 4, (factories) -> {
             factories.add((entity, random) -> new MerchantOffer(
-                    new ItemCost(Items.EMERALD, 15),
+                    /*? if >=1.21 {*/new ItemCost(Items.EMERALD, 15),
+                    /*?} else*//*new ItemStack(Items.EMERALD, 15),*/
                     new ItemStack(TideItems.VILLAGE_FISHING_ROD, 1),
                     1, 15, 0.05f
             ));

@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "tide:lunar_calendar",
+    "tide:weather_radio"
+  ]
+}

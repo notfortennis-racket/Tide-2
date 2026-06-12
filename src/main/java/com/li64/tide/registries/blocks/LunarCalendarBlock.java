@@ -17,7 +17,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.Map;
 
 public class LunarCalendarBlock extends HorizontalDirectionalBlock {
-    public static final MapCodec<LunarCalendarBlock> CODEC = simpleCodec(LunarCalendarBlock::new);
     public static final VoxelShape SHAPE_NORTH = Shapes.box(0.125, 0.125, 0.9375, 0.875, 0.875, 1);
     public static final VoxelShape SHAPE_SOUTH = Shapes.box(0.125, 0.125, 0, 0.875, 0.875, 0.0625);
     public static final VoxelShape SHAPE_EAST = Shapes.box(0, 0.125, 0.125, 0.0625, 0.875, 0.875);
@@ -32,10 +31,12 @@ public class LunarCalendarBlock extends HorizontalDirectionalBlock {
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
-    @Override
-    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
+    //? if >=1.21 {
+    public static final MapCodec<LunarCalendarBlock> CODEC = simpleCodec(LunarCalendarBlock::new);
+    @Override protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
         return CODEC;
     }
+    //?}
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
@@ -43,7 +44,7 @@ public class LunarCalendarBlock extends HorizontalDirectionalBlock {
     }
 
     @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return SHAPES.get(state.getValue(FACING));
     }
 

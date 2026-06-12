@@ -14,7 +14,6 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class WeatherRadioBlock extends HorizontalDirectionalBlock {
-    public static final MapCodec<WeatherRadioBlock> CODEC = simpleCodec(WeatherRadioBlock::new);
     public static final VoxelShape SHAPE_NS = Shapes.box(0.1875, 0, 0.375, 0.8125, 0.4375, 0.625);
     public static final VoxelShape SHAPE_EW = Shapes.box(0.375, 0, 0.1875, 0.625, 0.4375, 0.8125);
 
@@ -23,10 +22,12 @@ public class WeatherRadioBlock extends HorizontalDirectionalBlock {
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
-    @Override
-    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
+    //? if >=1.21 {
+    public static final MapCodec<WeatherRadioBlock> CODEC = simpleCodec(WeatherRadioBlock::new);
+    @Override protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
         return CODEC;
     }
+    //?}
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
@@ -34,7 +35,7 @@ public class WeatherRadioBlock extends HorizontalDirectionalBlock {
     }
 
     @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         Direction facing = state.getValue(FACING);
         return facing == Direction.NORTH || facing == Direction.SOUTH ? SHAPE_NS : SHAPE_EW;
     }

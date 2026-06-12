@@ -2,8 +2,10 @@ package com.li64.tide.data.item;
 
 import com.li64.tide.data.ItemDataKey;
 import com.li64.tide.data.rods.BaitContents;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
 public final class TideItemData {
@@ -21,9 +23,9 @@ public final class TideItemData {
     /*public static final ItemDataKey<Double> FISH_LENGTH = new NbtItemDataKey<>(
             "FishLength", tag -> tag.getDouble("FishLength"),
             (tag, value) -> tag.putDouble("FishLength", value));
-    public static final ItemDataKey<Long> CATCH_TIMESTAMP = new NbtItemDataKey<>(
-            "CatchTimestamp", tag -> tag.getLong("CatchTimestamp"),
-            (tag, value) -> tag.putLong("CatchTimestamp", value));
+    public static final ItemDataKey<Boolean> IS_BUCKETABLE = new NbtItemDataKey<>(
+            "IsBucketable", tag -> tag.getBoolean("IsBucketable"),
+            (tag, value) -> tag.putBoolean("IsBucketable", value));
     public static final ItemDataKey<CompoundTag> FISHING_LINE = new NbtItemDataKey<>(
             "FishingLine", tag -> tag.getCompound("FishingLine"),
             (tag, value) -> tag.put("FishingLine", value));

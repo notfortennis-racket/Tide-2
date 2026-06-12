@@ -2,14 +2,10 @@ package com.li64.tide.registries.items;
 
 import com.li64.tide.data.fishing.FishData;
 import com.li64.tide.data.item.SatchelContents;
-import com.li64.tide.data.item.TideDataComponents;
 import com.li64.tide.data.TideTags;
 import com.li64.tide.data.item.TideItemData;
-import com.li64.tide.data.rods.BaitContents;
-import com.li64.tide.data.rods.FishingRodTooltip;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.sounds.SoundEvents;
@@ -25,13 +21,13 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.inventory.tooltip.BundleTooltip;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.component.BundleContents;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
+
+/*? if >=1.21*/import java.util.List;
 
 public class FishSatchelItem extends AbstractTooltipItem {
     private static final int BAR_COLOR = Mth.color(0.4f, 0.4f, 1.0f);
@@ -57,8 +53,8 @@ public class FishSatchelItem extends AbstractTooltipItem {
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand used) {
         ItemStack satchel = player.getItemInHand(used);
-        satchel.set(TideDataComponents.FISH_SATCHEL_OPENED, !satchel.getOrDefault(TideDataComponents.FISH_SATCHEL_OPENED, false));
-        player.playSound(SoundEvents.ARMOR_EQUIP_LEATHER.value(), 0.8f, 0.8f + player.level().getRandom().nextFloat() * 0.4f);
+        TideItemData.FISH_SATCHEL_OPENED.set(satchel, !TideItemData.FISH_SATCHEL_OPENED.getOrDefault(satchel, false));
+        player.playSound(SoundEvents.ARMOR_EQUIP_LEATHER/*? if >=1.21 {*/.value()/*?}*/, 0.8f, 0.8f + player.level().getRandom().nextFloat() * 0.4f);
         return InteractionResultHolder.success(satchel);
     }
 
@@ -165,7 +161,8 @@ public class FishSatchelItem extends AbstractTooltipItem {
         SatchelContents contents = TideItemData.SATCHEL_CONTENTS.get(entity.getItem());
         if (contents == null) return;
         TideItemData.SATCHEL_CONTENTS.set(entity.getItem(), new SatchelContents());
-        ItemUtils.onContainerDestroyed(entity, List.copyOf(contents.items()));
+        /*? if >=1.21 {*/ItemUtils.onContainerDestroyed(entity, List.copyOf(contents.items()));
+        /*?} else*//*ItemUtils.onContainerDestroyed(entity, contents.items().stream());*/
     }
 
     private void playRemoveOneSound(Entity entity) {

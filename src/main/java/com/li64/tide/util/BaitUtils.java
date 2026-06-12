@@ -28,7 +28,7 @@ public class BaitUtils {
 
     public static List<ItemStack> getBaitItems(ItemStack rod) {
         if (rod == null) return List.of();
-        BaitContents contents = TideItemData.BAIT_CONTENTS.get(rod);
+        BaitContents contents = TideItemData.BAIT_CONTENTS.getOrDefault(rod, new BaitContents());
         return contents.items().stream().filter(s -> !s.isEmpty()).toList();
     }
 

@@ -78,8 +78,8 @@ ItemMixin {
                 if (TideItemData.FISH_LENGTH.isPresent(fish)) tag.putDouble(FishLengthHolder.tide$LENGTH_KEY, length);
             });
             /*?} else*/
-            /*newStack.getOrCreateTag().putDouble(FishLengthHolder.tide$LENGTH_KEY, length);
-            */
+            /*newStack.getOrCreateTag().putDouble(FishLengthHolder.tide$LENGTH_KEY, length);*/
+            
         }
 
         fish.shrink(1);

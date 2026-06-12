@@ -60,6 +60,7 @@ public class BaitContents {
         return "BaitContents" + this.items;
     }
 
+    @SuppressWarnings("SimplifyStreamApiCallChains")
     public static class Mutable {
         private final List<ItemStack> items;
 
@@ -109,15 +110,16 @@ public class BaitContents {
             return this.items.removeFirst().copy();
         }
 
-        public void shrinkAll() {
-            this.items.forEach(this::shrinkStack);
-        }
-
         public void shrinkStack(ItemStack stack) {
+            if (stack == null || stack.isEmpty()) return;
             int index = findStackIndex(stack);
             if (index == -1) return;
             this.items.get(index).shrink(1);
-            if (this.items.get(index).isEmpty()) this.items.remove(index);
+        }
+
+        public void shrinkAll() {
+            this.items.stream().forEach(this::shrinkStack);
+            this.items.removeIf(stack -> stack == null || stack.isEmpty());
         }
 
         public BaitContents toImmutable() {
@@ -188,6 +190,7 @@ public class BaitContents implements TooltipComponent {
         return new BaitContents(itemsBuilder.build());
     }
 
+    @SuppressWarnings("SimplifyStreamApiCallChains")
     public static class Mutable {
         private final List<ItemStack> items;
 
@@ -206,31 +209,30 @@ public class BaitContents implements TooltipComponent {
         }
 
         // inserts stack to the contents
-        public void tryInsert(ItemStack stack) {
-            if (!stack.isEmpty() && stack.getItem().canFitInsideContainerItems()) {
-                int index = this.findStackIndex(stack);
-                int count = stack.getCount();
+        public void tryInsert(ItemStack stack, int maxStacks) {
+            if (stack.isEmpty() || !stack.getItem().canFitInsideContainerItems()) return;
 
-                if (index != -1 && stack.isStackable()) {
-                    ItemStack current = this.items.get(index);
+            int index = this.findStackIndex(stack);
+            int count = stack.getCount();
 
-                    int stackSize = stack.getMaxStackSize();
-                    int amountToAdd = Math.min(stackSize - current.getCount(), stack.getCount());
+            if (index != -1 && stack.isStackable()) {
+                ItemStack current = this.items.get(index);
 
-                    ItemStack added = current.copyWithCount(current.getCount() + amountToAdd);
-                    stack.shrink(amountToAdd);
+                int stackSize = stack.getMaxStackSize();
+                int amountToAdd = Math.min(stackSize - current.getCount(), stack.getCount());
 
-                    this.items.set(index, added);
-                } else {
-                    if (items.size() < MAX_STACKS) this.items.add(stack.split(count));
-                }
+                ItemStack added = current.copyWithCount(current.getCount() + amountToAdd);
+                stack.shrink(amountToAdd);
+
+                this.items.set(index, added);
             }
+            else if (items.size() < maxStacks) this.items.add(stack.split(count));
         }
 
         // transfer items from slot to contents
-        public void tryTransfer(Slot slot, Player pPlayer) {
-            ItemStack slotStack = slot.safeTake(slot.getItem().getCount(), slot.getMaxStackSize(), pPlayer);
-            this.tryInsert(slotStack);
+        public void tryTransfer(Slot slot, Player player, int maxStacks) {
+            ItemStack slotStack = slot.safeTake(slot.getItem().getCount(), slot.getMaxStackSize(), player);
+            this.tryInsert(slotStack, maxStacks);
             if (!slotStack.isEmpty()) slot.safeInsert(slotStack);
         }
 
@@ -244,10 +246,15 @@ public class BaitContents implements TooltipComponent {
         }
 
         public void shrinkStack(ItemStack stack) {
+            if (stack == null || stack.isEmpty()) return;
             int index = findStackIndex(stack);
             if (index == -1) return;
             this.items.get(index).shrink(1);
-            if (this.items.get(index).isEmpty()) this.items.remove(index);
+        }
+
+        public void shrinkAll() {
+            this.items.stream().forEach(this::shrinkStack);
+            this.items.removeIf(stack -> stack == null || stack.isEmpty());
         }
 
         public BaitContents toImmutable() {

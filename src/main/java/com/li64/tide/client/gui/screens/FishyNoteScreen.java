@@ -77,8 +77,10 @@ public class FishyNoteScreen extends Screen {
 
     @Override
     public void render(@NotNull GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        /*? if <1.21*//*this.renderBackground(graphics);*/
-        if (!isJournal) super.render(graphics, mouseX, mouseY, partialTick);
+        if (!isJournal) {
+            /*? if <1.21*//*this.renderBackground(graphics);*/
+            super.render(graphics, mouseX, mouseY, partialTick);
+        }
         int x = (graphics.guiWidth() - WIDTH) / 2;
         int y = (graphics.guiHeight() - HEIGHT) / 2;
         graphics.blit(BG, x, y, 0, 0, WIDTH, HEIGHT, WIDTH, HEIGHT);

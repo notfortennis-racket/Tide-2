@@ -65,6 +65,7 @@ public class TideFishingRodItem extends FishingRodItem {
         this.baitSlots = baitSlots;
     }
 
+    //? if >=1.21 {
     @Override
     public void verifyComponentsAfterLoad(ItemStack stack) {
         super.verifyComponentsAfterLoad(stack);
@@ -75,6 +76,7 @@ public class TideFishingRodItem extends FishingRodItem {
             TideItemData.BAIT_CONTENTS.set(stack, new BaitContents(List.copyOf(fitted)));
         }
     }
+    //?}
 
     public static List<Component> getDescriptionLines(ItemStack stack) {
         ArrayList<Component> builder = new ArrayList<>();

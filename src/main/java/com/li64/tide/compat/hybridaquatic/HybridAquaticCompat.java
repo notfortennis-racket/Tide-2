@@ -1,10 +1,8 @@
 package com.li64.tide.compat.hybridaquatic;
 
 import com.li64.tide.registries.entities.misc.fishing.TideFishingHook;
-import dev.hybridlabs.aquatic.entity.HybridAquaticEntityTypes;
 import dev.hybridlabs.aquatic.entity.fish.StingrayEntity;
 import dev.hybridlabs.aquatic.entity.fish.StingrayEntity.Companion.Type;
-import dev.hybridlabs.aquatic.item.HybridAquaticItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
@@ -16,11 +14,17 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 
+//? if >=1.21 {
+import dev.hybridlabs.aquatic.entity.HybridAquaticEntityTypes;
+import dev.hybridlabs.aquatic.item.HybridAquaticItems;
+//?}
+
 public class HybridAquaticCompat {
     public static Entity convertEntity(ItemEntity itemEntity, Player player, TideFishingHook hook) {
         Entity newEntity = null;
         ItemStack hookItem = hook.getHook();
 
+        //? if >=1.21 {
         if (hookItem.is(HybridAquaticItems.INSTANCE.getOMINOUS_HOOK().get())) {
             var karkinosType = HybridAquaticEntityTypes.INSTANCE.getKARKINOS().get();
             newEntity = createAndLaunchEntityAtPlayer(karkinosType, player, hook.blockPosition());
@@ -31,6 +35,7 @@ public class HybridAquaticCompat {
             newEntity = createAndLaunchEntityAtPlayer(creeperType, player, hook.blockPosition());
             if (newEntity != null) hook.clearHookItem();
         }
+        //?}
 
         return newEntity == null ? itemEntity : newEntity;
     }
