@@ -2027,7 +2027,7 @@ public class TideFish {
                     .strength(0.9f)
                     .speed(1.8f)
                     .selectionWeight(7)
-                    .condition(LuckCondition.minimum(6))
+                    .condition(LuckCondition.minimum(5))
                     .below(41)
                     .overworld()
                     .water()
