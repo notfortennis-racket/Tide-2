@@ -28,6 +28,12 @@ public class TideLanguageProvider extends FabricLanguageProvider {
         builder.add("text.autoconfig.tide_client.category.journal", "Journal");
         builder.add("text.autoconfig.tide_client.category.minigame", "Minigame");
 
+        builder.add("text.autoconfig.tide_client.option.general.infoPlacement", "Info Placement");
+        builder.add("text.autoconfig.tide_client.option.general.infoPlacement.@Tooltip", "Where to show the info displayed by items such as the climate gauge");
+        builder.add("text.autoconfig.tide_client.option.general.infoOffsetX", "Info Offset X");
+        builder.add("text.autoconfig.tide_client.option.general.infoOffsetX.@Tooltip", "Offset the horizontal position of the displayed info by some number of pixels");
+        builder.add("text.autoconfig.tide_client.option.general.infoOffsetY", "Info Offset Y");
+        builder.add("text.autoconfig.tide_client.option.general.infoOffsetY.@Tooltip", "Offset the vertical position of the displayed info by some number of pixels");
         builder.add("text.autoconfig.tide_client.option.general.defaultLineColor", "Use Vanilla Line Color");
         builder.add("text.autoconfig.tide_client.option.general.defaultLineColor.@Tooltip", "Enable this to use the default black fishing line color");
         builder.add("text.autoconfig.tide_client.option.general.ambientVoidParticles", "Ambient Void Particles");

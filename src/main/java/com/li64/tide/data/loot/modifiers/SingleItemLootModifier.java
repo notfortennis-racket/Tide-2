@@ -1,4 +1,5 @@
-package com.li64.tide.data.loot.modifiers;
+//? if neoforge {
+/*package com.li64.tide.data.loot.modifiers;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
@@ -39,3 +40,4 @@ public class SingleItemLootModifier extends LootModifier {
         return generatedLoot;
     }
 }
+//}*/

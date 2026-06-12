@@ -8,7 +8,6 @@ import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 
 @Config(name = Tide.MOD_ID + "_client")
 public final class TideClientConfig implements ConfigData {
-    @Comment("These settings can also be changed via Cloth Config's config screen")
     @ConfigEntry.Category("general")
     @ConfigEntry.Gui.TransitiveObject
     public General general;
@@ -29,10 +28,33 @@ public final class TideClientConfig implements ConfigData {
 
     public static class General {
         @ConfigEntry.Gui.Tooltip
-        public boolean defaultLineColor = false;
+        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
+        public InfoPlacement infoPlacement = InfoPlacement.TOP_RIGHT;
+
+        public enum InfoPlacement {
+            TOP_LEFT, TOP_RIGHT,
+            BOTTOM_LEFT, BOTTOM_RIGHT;
+
+            public boolean isTop() {
+                return this.ordinal() <= 1;
+            }
+
+            public boolean isLeft() {
+                return (this.ordinal() % 2) == 0;
+            }
+        }
+
+        @ConfigEntry.Gui.Tooltip
+        public int infoOffsetX = 0;
+
+        @ConfigEntry.Gui.Tooltip
+        public int infoOffsetY = 0;
 
         @ConfigEntry.Gui.Tooltip
         public boolean ambientVoidParticles = true;
+
+        @ConfigEntry.Gui.Tooltip
+        public boolean defaultLineColor = false;
     }
 
     public static class Journal {

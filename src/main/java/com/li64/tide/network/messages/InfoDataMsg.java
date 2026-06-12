@@ -44,6 +44,6 @@ public record InfoDataMsg(Map<ResourceLocation, String> data) implements TidePac
             Item item = BuiltInRegistries.ITEM.get(key);
             results.put(key, ((InformationalItem)item).parseResult(data));
         });
-        FishingInfoOverlay.CLIENT_SURVEY_DATA = results;
+        FishingInfoOverlay.CLIENT_INFO_DATA = results;
     }
 }
