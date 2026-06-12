@@ -12,8 +12,10 @@ import com.li64.tide.registries.TideFish;
 import com.li64.tide.registries.TideItems;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.npc.VillagerProfession;
-import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.trading.ItemCost;
+import net.minecraft.world.item.trading.MerchantOffer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.AddReloadListenerEvent;
@@ -79,7 +81,7 @@ public class NeoforgeEventHandler {
     public static void modifyVillagerTrades(final VillagerTradesEvent event) {
         if (event.getType() != VillagerProfession.FISHERMAN) return;
         event.getTrades().get(4).add((entity, random) -> new MerchantOffer(
-                new ItemStack(Items.EMERALD, 15),
+                new ItemCost(Items.EMERALD, 15),
                 new ItemStack(TideItems.VILLAGE_FISHING_ROD, 1),
                 1, 15, 0.05f
         ));
