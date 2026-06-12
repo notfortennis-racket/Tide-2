@@ -62,6 +62,7 @@
 **Config**
 - The config has been split into a client and server file, with only the client file being changeable via the config screen
 - Comments have been added to properties in the main config file
+- NOTE: it's recommended to take a look at the new generated config file "tide.json5" and make sure that none of your config settings were lost.
 
 **Miscellaneous**
 - The Midas Fishing Rod can now reel in a bonus golden apple, golden carrot, and _very rarely_ an enchanted golden apple or totem of undying (in addition to the regular gold ingots and blocks)
