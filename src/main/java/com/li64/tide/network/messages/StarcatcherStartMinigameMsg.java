@@ -2,11 +2,8 @@
 /*package com.li64.tide.network.messages;
 
 import com.li64.tide.Tide;
-import com.li64.tide.compat.starcatcher.TideStarcatcherMinigameScreen;
+import com.li64.tide.client.TideClientHelper;
 import com.wdiscute.starcatcher.registry.FishProperties;
-import com.wdiscute.starcatcher.registry.minigamemodifiers.AbstractMinigameModifier;
-import com.wdiscute.starcatcher.registry.minigamemodifiers.SCMinigameModifiers;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.resources.ResourceLocation;
@@ -34,10 +31,7 @@ public record StarcatcherStartMinigameMsg(FishProperties properties, ItemStack r
     }
 
     public static void handle(StarcatcherStartMinigameMsg message, Player player) {
-        TideStarcatcherMinigameScreen screen = new TideStarcatcherMinigameScreen(message.properties, message.rod);
-        message.modifiers.forEach(key -> screen.addModifier(
-                SCMinigameModifiers.getMinigameModifierSupplier(player.level(), key).get()));
-        Minecraft.getInstance().setScreen(screen);
+        TideClientHelper.startStarcatcherMinigame(message, player);
     }
 }
 *///?} else if forge {

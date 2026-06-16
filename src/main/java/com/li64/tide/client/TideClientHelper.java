@@ -6,8 +6,15 @@ import com.li64.tide.client.gui.screens.FishyNoteScreen;
 import com.li64.tide.client.gui.screens.journal.FishingJournal;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+
+//? if neoforge {
+/*import com.li64.tide.compat.starcatcher.TideStarcatcherMinigameScreen;
+import com.li64.tide.network.messages.StarcatcherStartMinigameMsg;
+import com.wdiscute.starcatcher.registry.minigamemodifiers.SCMinigameModifiers;
+*///?}
 
 public class TideClientHelper {
     public static void openJournalScreen() {
@@ -27,4 +34,13 @@ public class TideClientHelper {
     public static void openNoteScreen(ItemStack stack) {
         Minecraft.getInstance().setScreen(new FishyNoteScreen(stack));
     }
+
+    //? if neoforge {
+    /*public static void startStarcatcherMinigame(StarcatcherStartMinigameMsg message, Player player) {
+        TideStarcatcherMinigameScreen screen = new TideStarcatcherMinigameScreen(message.properties(), message.rod());
+        message.modifiers().forEach(key -> screen.addModifier(
+                SCMinigameModifiers.getMinigameModifierSupplier(player.level(), key).get()));
+        Minecraft.getInstance().setScreen(screen);
+    }
+    *///?}
 }
