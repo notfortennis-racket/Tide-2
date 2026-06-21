@@ -11,9 +11,11 @@ import com.wdiscute.starcatcher.io.SCDataComponents;
 import com.wdiscute.starcatcher.io.SingleStackContainer;
 import com.wdiscute.starcatcher.registry.FishProperties;
 import com.wdiscute.starcatcher.registry.minigamemodifiers.SCMinigameModifiers;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
@@ -70,6 +72,13 @@ public class StarcatcherCompat {
         }
 
         return modifiers.stream().toList();
+    }
+
+    public static void openMinigameScreen(StarcatcherStartMinigameMsg message, Player player) {
+        TideStarcatcherMinigameScreen screen = new TideStarcatcherMinigameScreen(message.properties(), message.rod());
+        message.modifiers().forEach(key -> screen.addModifier(
+                SCMinigameModifiers.getMinigameModifierSupplier(player.level(), key).get()));
+        Minecraft.getInstance().setScreen(screen);
     }
 }
 *///?} else if forge {

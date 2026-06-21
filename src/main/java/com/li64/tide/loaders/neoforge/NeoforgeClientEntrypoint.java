@@ -89,8 +89,7 @@ public class NeoforgeClientEntrypoint {
 
     @SubscribeEvent
     public static void registerClientTooltipComponents(final RegisterClientTooltipComponentFactoriesEvent event) {
-        // TODO: fix number of slots
-        event.register(FishingRodTooltip.class, tooltip -> new ClientFishingRodTooltip(6, tooltip.contents()));
+        event.register(FishingRodTooltip.class, tooltip -> new ClientFishingRodTooltip(tooltip.slots(), tooltip.contents()));
     }
 
     @SubscribeEvent
