@@ -137,7 +137,7 @@ public class TideFishingHook extends Projectile {
         double d2 = player.getZ() - (double)f2 * 0.3D;
         this.moveTo(d0, d1, d2, f1, f);
 
-        Vec3 vec3 = new Vec3(-f3, Mth.clamp(-(f5 / f4), -5.0F, 5.0F), -f2);
+        Vec3 vec3 = new Vec3(-f3, Mth.clamp(-(f5 / f4), -2.5f, 1.75f), -f2);
         double d3 = vec3.length();
         vec3 = vec3.multiply(charge, charge, charge); // Slow the speed if not fully charged
         vec3 = vec3.multiply(0.6D / d3 + this.random.triangle(0.5D, 0.0103365D), 0.6D / d3 + this.random.triangle(0.5D, 0.0103365D), 0.6D / d3 + this.random.triangle(0.5D, 0.0103365D));
