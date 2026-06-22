@@ -4,15 +4,15 @@ import com.li64.tide.Tide;
 import com.li64.tide.client.gui.TideToasts;
 import com.li64.tide.client.gui.screens.FishyNoteScreen;
 import com.li64.tide.client.gui.screens.journal.FishingJournal;
-import com.li64.tide.compat.starcatcher.StarcatcherCompat;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 //? if neoforge {
 /*import com.li64.tide.network.messages.StarcatcherStartMinigameMsg;
+import com.li64.tide.compat.starcatcher.StarcatcherCompat;
+import net.minecraft.world.entity.player.Player;
 *///?}
 
 public class TideClientHelper {
